@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#e8873a;color:#111110}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;background:#111110;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
+    <a href="Home.dc.html" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
+    <div style="display:flex;gap:40px;align-items:center">
+      <a href="Home.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
+      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">Work</a>
+      <a href="ai-lab.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">AI Lab</a>
+      <a href="Contact.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Contact</a>
+    </div>
+  </nav>
+
+  <!-- SUB-NAV -->
+  <nav style="position:fixed;top:88px;left:0;right:0;z-index:90;display:flex;justify-content:center;opacity:{{ subNavOpacity }};transform:{{ subNavTransform }};transition:opacity 0.4s ease,transform 0.4s ease;pointer-events:{{ subNavPointer }}">
+    <div style="display:flex;gap:32px;padding:14px 28px;background:rgba(17,17,16,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #232320">
+      <a href="#overview" style="font-size:12px;font-weight:500;letter-spacing:0.03em;color:{{ subNavColorOverview }}" style-hover="color:#f2f1ee">Overview</a>
+      <a href="#thrash" style="font-size:12px;font-weight:500;letter-spacing:0.03em;color:{{ subNavColorThrash }}" style-hover="color:#f2f1ee">Fundamentals</a>
+      <a href="#black-resume" style="font-size:12px;font-weight:500;letter-spacing:0.03em;color:{{ subNavColorBr }}" style-hover="color:#f2f1ee">Art Direction</a>
+      <a href="#voyceme" style="font-size:12px;font-weight:500;letter-spacing:0.03em;color:{{ subNavColorVoyceme }}" style-hover="color:#f2f1ee">Creative Systems</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="overview" ref="{{ overviewRef }}" style="position:relative;padding:210px 48px 140px">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center">
+      <div>
+        <p style="margin:0 0 28px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">Selected work · 2010–present</p>
+        <h1 style="margin:0;font-size:clamp(34px,4.6vw,72px);font-weight:600;letter-spacing:-0.02em;line-height:1.08;color:#f7f6f2">I build worlds, brands,<br>and the systems behind them.</h1>
+        <p style="margin:32px 0 0;max-width:56ch;font-size:17px;line-height:1.65;color:#9c9b96">My work begins with strong visual fundamentals and expands into brand development, creative leadership, and AI-powered production systems. Across each project, I define the vision, improve the process, and help teams turn ambitious ideas into cohesive experiences.</p>
+        <p style="margin:36px 0 0;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#6f6e6a">Art Direction &nbsp;·&nbsp; Visual Storytelling &nbsp;·&nbsp; IP Development &nbsp;·&nbsp; Creative Systems &nbsp;·&nbsp; AI Direction</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <img src="./system-royale-2-msml8pa6-7olq.png" alt="" style="grid-column: span 2; width: 69%; aspect-ratio: 16/9; object-fit: cover; filter: grayscale(0.2) brightness(0.9); height: 324px">
+        <img src="assets/blackresume-logo.png" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
+        <img src="assets/fableverse-logo.png" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY CARDS -->
+  <section style="border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 140px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#232320">
+      <div id="thrash" ref="{{ thrashRef }}" onClick="{{ openThrash }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a18">
+          <img src="./copy-of-pg-16a-msmenzdh-r8vf.jpg" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">01 — Thrash: Rise of Shidou</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Building a cinematic webtoon through color, motion, and visual storytelling.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Dramatic lighting, dynamic camera angles, and action-driven composition built to make every panel feel like a shot in motion.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #f2f1ee;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div id="black-resume" ref="{{ brRef }}" onClick="{{ openBlackResumeCase }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          
+        <img src="assets/blackresume-logo.png" alt="Black Resume identity" style="width: 100%; max-width: 536px; height: 295px; object-fit: contain; padding: 8%"></div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">02 — Black Resume</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Directing an original IP from visual identity to audience growth.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">An original entertainment property that helped attract 2.4 million viewers to VoyceMe's platform.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div id="mage-of-blades" ref="{{ mageRef }}" onClick="{{ openMage }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          
+        <img src="uploads/372x496 cover MoB.png" alt="Mage of Blades cover art" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">03 — Mage of Blades</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Art directing a hero for the Zokio NFT universe.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Draft-to-final review passes built around line of action, silhouette, and compositing to raise a single character illustration to franchise quality.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div id="system-royale" ref="{{ srRef }}" onClick="{{ openSR }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          <img src="./system-royale-19--msmjlsny-m72w.png" alt="System Royale — Avon" style="width:100%;height:100%;object-fit:cover;object-position:top">
+        </div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">04 — System Royale</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Building a full cast at scale with an artist-led AI pipeline.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Turnarounds, poses, and backgrounds for a large ensemble cast, produced with an ethically-trained creation tool that kept artists in charge of every output.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div id="fableverse" ref="{{ fvRef }}" onClick="{{ openFV }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          <img src="./quan-millz-4-mspkpu0k-1abm.png" alt="FableVerse — Le Festival de Lumiere cover" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
+        </div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">05 — FableVerse</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Giving generative storytelling a visual language.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Prompt systems, visual standards, and product concepts built to make AI creation feel cinematic, guided, and story-driven.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div id="strands" ref="{{ stRef }}" onClick="{{ openST }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          <img src="uploads/Vampire King- Cover 2.3 (1).png" alt="Strands cover art — Vampire King" style="width:100%;height:100%;object-fit:cover;object-position:center 25%">
+        </div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">06 — Strands</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Resident cover artist for a community-written fiction platform.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Custom covers for authors whose stories the community voted to spotlight — each one built to capture a story's essence in a single image.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
+      <div style="background:#111110"></div>
+    </div>
+  </section>
+  <section style="border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">Creative Systems</span>
+      <h2 style="margin:16px 0 0;max-width:20ch;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f2f1ee">Building Creative Systems</h2>
+      <p style="margin:24px 0 0;max-width:76ch;font-size:16px;line-height:1.7;color:#9c9b96">I led the development of the creative systems that made consistent, cinematic-quality imagery possible at scale. That meant founding three dedicated QA functions:<br><br>A Concept Team, a Narrative Analyst role, and a Cinematic Lighting &amp; FX Team building an artist-trained generation tool and a shared asset library, and translating traditional cinematic language into prompt structures that teams and systems could use consistently.</p>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px 140px;display:flex;flex-direction:column;gap:1px;background:#232320">
+
+      <div style="background:#161614;padding:40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <p style="margin: 0; font-size: 23px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #e05a5a">Developing VoyceMe's Concept Team</p>
+          <p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#c9c8c3">One of my primary initiatives was helping establish VoyceMe's internal Concept Team. Instead of artists beginning every illustration from a blank canvas, the Concept Team became responsible for solving visual problems before production began.</p>
+          <p style="margin:16px 0 0;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">Their responsibilities included</p>
+          <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px">
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Character exploration and iteration</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Costume and silhouette development</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Environment ideation</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">World-building assets</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Prop design</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Mood boards</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Visual research</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Color exploration</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Production-ready concept sheets</p>
+          </div>
+          <p style="margin:24px 0 0;font-size:14px;line-height:1.55;color:#c9c8c3">This allowed production artists to spend more time creating polished artwork while ensuring visual consistency across entire series.</p>
+          <p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#c9c8c3">By separating concept development from production, we reduced creative bottlenecks while dramatically improving overall quality.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div onClick="{{ openBlackResume }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
+            <img src="uploads/BR.png" alt="Black Resume concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
+            <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">Black Resume →</span>
+          </div>
+          <div onClick="{{ openGodGame }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
+            <img src="uploads/Monkey_King_Collage-bf8950e2.png" alt="God Game concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
+            <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">God Game →</span>
+          </div>
+          <div onClick="{{ openSurvivalIdol }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
+            <img src="uploads/SI_title.png" alt="Survival Idol concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
+            <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">Survival Idol →</span>
+          </div>
+          <div onClick="{{ openSystemRoyale }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
+            <img src="uploads/Avon.png" alt="System Royale concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
+            <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">System Royale →</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#161614;padding:40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <p style="margin: 0; font-size: 23px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #e05a5a">Cinematic Lighting &amp; FX</p>
+          <p style="margin:16px 0 0;font-size:14px;line-height:1.55;color:#c9c8c3">Lighting and FX were treated as a final rendering pass rather than a storytelling tool, leaving technically correct scenes that read as emotionally flat.</p>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px">
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">50+ panels/week throughput standard</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">48-hour turnaround target</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Global remote hiring funnel screened through a 4-artwork skills trial</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#f2f1ee">Defined before/after transformation standard applied across every scene</p>
+          </div>
+        </div>
+        <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#111110">
+          <img src="./screenshot-2026-04-30-001405-msmerp9j-fgwf.png" alt="Before/after lighting and FX pass" style="position: absolute; top: 163px; left: 245px; width: 212px; height: 264px; object-fit: cover; transform: scale(2.5); transform-origin: 80% 62%">
+          <span style="position:absolute;bottom:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#e6e5e1;background:rgba(10,10,9,0.55);padding:4px 8px">Before → After</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONCEPT PROJECT LIGHTBOX -->
+  <sc-if value="{{ activeProject }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeProject }}" style="position:fixed;inset:0;z-index:200;background:rgba(10,10,9,0.94);display:flex;align-items:flex-start;justify-content:center;padding:64px 48px;overflow:auto">
+      <div onClick="{{ stopClick }}" style="max-width:1100px;width:100%">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">{{ activeProjectTitle }}</p>
+          <button onClick="{{ closeProject }}" style="background:none;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:9px 18px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+        </div>
+        <div ref="{{ lightboxGridRef }}" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px"></div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 01 THRASH — CASE STUDY MODAL -->
+  <sc-if value="{{ thrashOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative;padding:0">
+    <div style="position:relative;width:100%;aspect-ratio:16/9;max-height:88vh;overflow:hidden">
+      <img src="assets/node-comic-creator.png" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.92) 0%, rgba(10,10,9,0.25) 45%, rgba(10,10,9,0.55) 100%)"></div>
+      <div style="position:absolute;left:48px;right:48px;bottom:56px">
+        <span style="font-size:13px;color:#c9c8c3">01 — Thrash: Rise of Shidou</span>
+        <p style="margin:16px 0 0;max-width:26ch;font-size:clamp(24px,3.4vw,44px);font-weight:500;font-style:italic;line-height:1.3;color:#f7f6f2">"A cinematic webtoon built to make every panel feel like a shot in motion."</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;padding:96px 48px 96px;display:grid;grid-template-columns:1fr 1fr;gap:64px">
+      <div>
+        <h2 style="margin:0;font-size:clamp(26px,3vw,42px);font-weight:600;letter-spacing:-0.015em;line-height:1.15;color:#f2f1ee">Building a cinematic webtoon through color, motion, and visual storytelling.</h2>
+        <p style="margin:24px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">I designed the comic to feel less like a sequence of static illustrations and more like a film unfolding vertically. Dramatic lighting, dynamic camera angles, controlled color contrast, and action-driven composition give each scene a sense of movement, scale, and emotional intensity.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Hot colors; red, orange, and electric highlights signal danger, acceleration, and emotional escalation. Cooler blues and violets create separation and tension before impact. Shifting those relationships throughout a scene guides the reader's eye and controls how each story beat feels.</p>
+        <p style="margin:32px 0 0;font-size:13px;line-height:1.9;color:#6f6e6a">Art Fundamentals &nbsp;·&nbsp; Color and Lighting &nbsp;·&nbsp; Composition &nbsp;·&nbsp; Visual Storytelling &nbsp;·&nbsp; Worldbuilding</p>
+        <a href="https://www.voyce.me/series/thrash-rise-of-shidou" target="_blank" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #f2f1ee;padding-bottom:2px;width:fit-content">Enter the world of Thrash →</a>
+      </div>
+      <div style="aspect-ratio:16/10;position:relative;overflow:hidden;background:#1a1a18">
+        <img src="assets/thrash-01.png" alt="Character evolution through visual design" style="width: 100%; height: 100%; object-fit: scale-down">
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
+      <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
+        <img src="assets/thrash-02.png" alt="Reader immersion through cinematic reference" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
+      <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
+        <img src="assets/thrash-03.png" alt="Dynamic poses with cinematic panels" style="width: 1281px; height: 608px; object-fit: cover">
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
+      <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
+        <img src="assets/thrash-04.png" alt="Lighting angles and shadow for mood" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto 96px;padding:0 48px">
+      <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
+        <img src="assets/thrash-05.png" alt="Cinematic lighting for storytelling" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto 40px;padding:0 48px">
+      <p style="margin:0 0 24px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Character &amp; Scene Development</p>
+    </div>
+    <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-04-30 001405.png" alt="Thrash character dialogue panel" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image-13.png" alt="Thrash eclipse scene" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot_20221223-171629_VoyceMe-b7caca1e.jpg" alt="Thrash spellcasting panel" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of Shiva Color Ref-3ccf67c9.jpg" alt="Shiva color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of 13 Color Ref-73f9cfdb.jpg" alt="Character 13 color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of Secca Color Ref-50249833.jpg" alt="Secca color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of pg 16a.jpg" alt="Thrash page 16 art" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/pg 15a-8933b385.jpg" alt="Thrash page 15 art" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/pg 20 (1) (1)-e273a4a4.jpg" alt="Thrash page 20 art" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px">
+      <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a18">
+        <iframe src="https://www.youtube.com/embed/7ToJ6BgOLjw?si=q1BPiaXKGoFN6TkK" title="YouTube video player" style="width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
+
+  <!-- 02 BLACK RESUME — CASE STUDY MODAL -->
+  <sc-if value="{{ brOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#161614;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#161614;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">02 — Black Resume</span>
+      <h2 style="margin:16px 0 0;max-width:16ch;font-size:clamp(32px,5vw,76px);font-weight:700;letter-spacing:-0.02em;line-height:1.02;color:#f7f6f2">Directing an original IP from visual identity to audience growth.</h2>
+      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Original Entertainment IP · Art Direction · Brand Strategy · AI Production Systems</p>
+    </div>
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;align-items:stretch">
+      <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0c">
+        <img src="assets/blackresume-logo.png" alt="Black Resume identity" style="position: absolute; inset: 0; width: 611px; height: 804px; object-fit: contain; padding: 12%">
+        <div style="position: absolute; inset: 0; background: radial-gradient(closest-side, #e03b3b 0%, transparent 70%); opacity: 0.12; pointer-events: none; width: 701px; height: 874px; left: 26px"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;padding:48px;background:#111110">
+        <p style="margin:0;font-size:72px;font-weight:700;letter-spacing:-0.02em;color:#e05a5a;line-height:1">2.4M</p>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96;max-width:32ch">A project and brand that contributed to attracting 2.4 million viewers to VoyceMe's platform.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:80px 48px 0">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Challenge</p>
+      <p style="margin:0;max-width:72ch;font-size:18px;line-height:1.65;color:#c9c8c3">As Art Director, the goal was to create an original entertainment property with a visual identity strong enough to stand alongside premium streaming and gaming franchises. Instantly recognizable, and scalable enough for long-form production.</p>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+      <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a1a18">
+        
+      <img src="assets/br-overview-cover.png" alt="Black Resume — cover scene" style="width: 635px; height: 448px; object-fit: scale-down"></div>
+      <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#1a1a18">
+        <img src="assets/br-hollow-black.png" alt="Hollow Black" style="width: 614px; height: 789px; object-fit: scale-down">
+        
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Zokio5367-b4b9cf1d.png" alt="Zokio #5367 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Kain8-b6b0d98c.png" alt="Kain8 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+    </div>
+    <div style="max-width:1280px;margin:16px auto 0;padding:0 48px">
+      <div style="position:relative;aspect-ratio:21/8;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/BR_C4_Little-a871df8f.png" alt="C-4 and Little character phase development" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Artist-Led AI Production</p>
+      <p style="margin:0;max-width:70ch;font-size:16px;line-height:1.65;color:#9c9b96">One of the biggest creative challenges wasn't aesthetic, it was production. As deadlines grew, I helped introduce AI-assisted workflows that accelerated repetitive work without replacing artists. Instead of generating finished artwork, we built a pipeline where artists remained the creative decision-makers: AI supported environment ideation, background development, asset generation, color exploration, reference creation, and production acceleration. Artists created the training material, reviewed every output, and maintained final artistic quality throughout. An ethical, artist-centered philosophy from the start.</p>
+    </div>
+
+    <div style="max-width:1280px;margin:56px auto 0;padding:0 48px;aspect-ratio:21/9;position:relative;overflow:hidden;background:#1a1a18">
+      <img src="./image-97-msmfevh4-tr2a.png" alt="Black Resume — character development" style="width: 1331px; height: 463px; object-fit: none">
+    </div>
+
+    <div style="max-width:1280px;margin:56px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/10.png" alt="Black Resume — courier handoff scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/19.png" alt="Black Resume — character introduction panel" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/20.png" alt="Black Resume — bloodied gloves reveal" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/23.png" alt="Black Resume — aftermath scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/city bg 1.png" alt="Black Resume — AI-assisted city background" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+      <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
+        <img src="uploads/36.png" alt="Black Resume — bound captive scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+      </div>
+    </div>
+    
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center">
+      <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1a18">
+        <img src="assets/br-cover-daisuke.png" alt="Black Resume cover — Daisuke" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Impact</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">Black Resume became one of VoyceMe's flagship titles and helped attract approximately 2.4 million readers to the platform. More importantly, it proved that AI-assisted production could strengthen the artists behind the work, not replace them.</p>
+        
+        <a href="#" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View the Black Resume case study →</a>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:80px 48px 120px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div>
+        <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">IP Development</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Helped shape the property's tone, identity, visual language, and audience-facing presentation.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Art Direction</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Created a clear visual target, guided contributors, and maintained consistency across a wide range of assets.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Human-Led AI Pipeline</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Used AI-assisted backgrounds and effects from VoyceMe's internal generation tool as a starting point for exploration, while artists retained authorship, refinement, judgment, and final execution on every panel.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Brand Growth</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Helped develop a recognizable visual identity around a project that contributed to attracting 2.4 million viewers to VoyceMe's platform.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
+
+  <!-- 03 MAGE OF BLADES — CASE STUDY MODAL -->
+  <sc-if value="{{ mageOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position: relative; width: 1614px; height: 2976px">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">03 — Mage of Blades</span>
+      <h2 style="margin:16px 0 0;max-width:20ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Art directing for the Zokio NFT universe.</h2>
+      <p style="margin: 24px 0 0; font-size: 26px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: #7ec8ff">Character Art Direction · Illustration Review · Zokio NFT Collection</p>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:center">
+      <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0d0d0c">
+        <img src="uploads/372x496 cover MoB.png" alt="Mage of Blades — final cover art" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Brief</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">I art directed Mage of Blades for a NFT project. The piece, through several review passes with the illustrator, focused on pose construction, line of action, and final compositing rather than redrawing the character myself.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">The goal throughout was to push every draft toward a stronger silhouette and a more legible sense of motion before any color or effects work began.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Red Lining: Drafts &amp; Line of Action</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Most of the Direction focused on facial structure; eyes that carry emotion, roots in the hairline, clearly defined features, and on posing: every draft was pushed toward a single readable line of action (an S, Z, or C curve pointing down through the figure) so the pose stays legible in silhouette and leads the eye through the panel.</p>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
+        <img src="uploads/Elevating Mage of Blades (6)-6451bca8.jpg" alt="Facial structure and hairline direction notes" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        
+      </div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
+        <img src="uploads/Elevating Mage of Blades (3).jpg" alt="Line of action marked over a fight pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px">
+      
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (4).jpg" alt="Color rough, clean line, and final color of a walking pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (2)-9eaa0e2b.jpg" alt="Sword-drawn portrait taken through line and color" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (1)-9bf536d3.jpg" alt="Leaping dash pose with foreshortened arms and legs" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Compositing — Enhancing Dynamics</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The final review pass sat with compositors rather than illustrators. The same fight choreography was pushed through multiple lighting and effects treatments and judged side by side against a consistent set of metrics but essentially, how the panel feels to look at, not just whether it's technically correct.</p>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 120px;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
+        <img src="uploads/Elevating Mage of Blades-3b0fc0b5.jpg" alt="Two compositing treatments of the same kick panel, teal vs. warm glow" style="width: 100%; height: 100%; object-fit: contain; border-radius: 0px;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        
+      </div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
+        <img src="uploads/Elevating Mage of Blades (7)-041aa39f.jpg" alt="Two compositing treatments of the sword duel panel judged against art direction metrics" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:0 48px 140px">
+      <p style="margin:0;font-size:20px;font-style:italic;font-weight:500;line-height:1.4;color:#f2f1ee">"A pose only reads as heroic once the line of action, the silhouette, and the light are all pulling in the same direction."</p>
+      <a href="https://opensea.io/collection/zokionft" target="_blank" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">View the Zokio NFT collection →</a>
+    </div>
+  <span style="position: absolute; top: 1302px; left: 167px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c8c3; background: rgba(10,10,9,0.5); padding: 5px 9px">Facial structure notes</span><span style="position: absolute; top: 1303px; left: 815px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c8c3; background: rgba(10,10,9,0.5); padding: 5px 9px">Line of action, marked</span><span style="position: absolute; top: 2257px; left: 167px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #c9c8c3; background: rgba(10,10,9,0.5); padding: 5px 9px">EFFECTS/COMPOSITING</span></div>
+  </div>
+  </sc-if>
+
+  <!-- 04 SYSTEM ROYALE — CASE STUDY MODAL -->
+  <sc-if value="{{ srOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">04 — System Royale</span>
+      <h2 style="margin:16px 0 0;max-width:24ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Building a full cast at scale with an artist-led AI pipeline.</h2>
+      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Character Design · Ensemble Cast · Artist-Led AI Production</p>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:center">
+      <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0d0d0c">
+        <img src="uploads/Avon-81074ee6.png" alt="Avon, final color design" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Brief</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">This webtoon project I directed (System Royale) needed a large, visually distinct cast introduced quickly, without letting quality slip as the roster grew. So each character needed clean turnarounds, a readable silhouette, and enough personality to stand apart in group scenes. With tight deadlines around the corner we turned to AI to help with some of the heavy lifting.</p>
+        <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.65; color: #999999">To hit that volume on schedule, character and background work moved through VoyceMe's internal Creation Tool: an AI pipeline <b>trained and supervised by artists</b> rather than one that generates finished art on its own.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Cast &amp; Turnarounds</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Every principal character was built through a full turnaround front, side, and back to train the StoryTech tool.</p>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18">
+        <img src="uploads/Turnaround-f59f8aac.jpg" alt="Avon four-view color turnaround" style="width:100%;height:100%;object-fit:contain">
+        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">CLAUDE, COLOR TURNAROUND</span>
+      </div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18">
+        <img src="uploads/avon_young_designs_4_lineart-e606bb3b.jpg" alt="Avon four-view lineart turnaround" style="width:100%;height:100%;object-fit:contain">
+        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">AVON,&nbsp; COLOR PASS</span>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:16px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/avon_young_designs_4_lineart_2-afbf85e9.jpg" alt="Avon dynamic action lineart" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image2-538009b7.png" alt="Avon final color action pose" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px">
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The same process scaled across the rest of the cast: quick color concepts to lock personality, then clean turnarounds for production.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/SR_1-4cc9a855.png" alt="Sindri, mechanic character concept" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/SR_2-e3b6d5ca.png" alt="Tivok and Raven character concepts" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image4-b7dddcba.png" alt="Jai turnaround and action pose" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image3-650190f1.png" alt="Ammit human and transformed designs" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Scenes &amp; Story Panels</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Two protagonists forced into a death game sponsored by legends throughout history, who have to team up to survive it.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale 3.png" alt="The two leads, teamed up mid-fight" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (19).png" alt="Story panel: forced into the death game" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (6).png" alt="Story panel: the two must team up to survive" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (7).png" alt="Antagonist seated in a study" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="./avon_young_designs_4_lineart-msmlbozy-ch2s.jpg" alt="Book-wielding lead casting green magic" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of System Royale (30).png" alt="Antagonist reaching a hand toward the reader" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Use of AI — an Ethical Creation Tool</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Rather than adopt a public AI model trained on scraped artwork without consent, VoyceMe built its own Creation Tool trained only on material its own artists opted to contribute. Artists created the training material and reviewed every output, so the tool never replaced their judgment. It removed the hours of repetitive setup work standing between a concept and a finished panel.</p>
+      <p style="margin:16px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">In practice, that meant the tool handled background generation and an asset library of reusable environment pieces, freeing artists to spend their time on characters, while a separate color-assist pass sped up rendering without touching final line or composition decisions. Every image still passed through an artist for a final human touch before it shipped.</p>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-05-08 152319.png" alt="VoyceMe ethical creative tool implementation slide" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-05-08 152435-61f3f5d7.png" alt="VoyceMe StoryTech timesaver slide" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px">
+      <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Artists Create the Training Material</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">The tool was trained on VoyceMe's own artists' work, with their consent, not scraped from the open internet.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px">
+      <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Background Creation, so Artists Focus on Characters</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">An asset library of backgrounds and environments let artists build dynamic scenes quickly and spend their time on the cast instead.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 40px;padding:0 48px">
+      <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Artists Maintain Quality</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Every output was adjusted and approved by an artist before it shipped, keeping a human touch on every panel.</p>
+    </div>
+    <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px">
+      <p style="margin:0 0 24px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Other Examples of Creation Tool Implementation</p>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-05-08 151939.png" alt="Fairy mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Orrion-350847b2.png" alt="Orrion, character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/image (3) (1)-fc6ed9dd.png" alt="Horned demon boss generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-04-30 001340.png" alt="Radiant mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-04-30 001308-ebfc786a.png" alt="Crystal-clad character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
+
+  <!-- 05 FABLEVERSE — CASE STUDY MODAL -->
+  <sc-if value="{{ fvOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      
+      <div style="margin-top:48px">
+        <span style="font-size:13px;color:#5c5b57">05 — FableVerse</span>
+        <h2 style="margin:16px 0 0;max-width:22ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Giving generative storytelling a visual language.</h2>
+        <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#7ec8ff">Creative Direction · AI Storytelling · Product Experience · Visual Systems</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:72px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div>
+        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Story</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">FableVerse sits at the intersection of storytelling, fandom, identity, and generative AI. My role was to help define how that experience should feel creatively, not just how the images should look.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">I worked across visual branding, prompt systems, product concepts, story-driven generation, and quality standards to help create an experience where users could enter a world, create characters, and generate imagery that felt more intentional and cinematic rather than random.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Central Challenge</p>
+        <p style="margin:0;font-size:24px;font-weight:600;line-height:1.35;letter-spacing:-0.01em;color:#f2f1ee">How do you turn an AI image generator into a storytelling experience?</p>
+        <p style="margin:24px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Generation is more engaging when users are given context, narrative, and inspiration before they are asked to create.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Story-Driven Generation</p>
+      <p style="margin:0 0 32px;max-width:64ch;font-size:15px;line-height:1.6;color:#8a8985">Outputs produced under the prompt framework: cinematic framing, clear subject hierarchy, and environmental interaction instead of broad style descriptors.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Harry Styles-719aff0b.png" alt="Romance storypack cover — doorway reveal with soft pastel key light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Le Festival de Lumiere- Cover-754a1b1f.png" alt="Backlit silhouette against a collapsing landmark — scale and low camera angle" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Bound to the Mafia Prince-ea65ba6e.png" alt="Close-crop intimacy framing with warm rim light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Married the Cartel Prince-91cc1a98.png" alt="Window-lit two-shot with city depth behind the subjects" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Quan Millz-4-f0ee17b4.png" alt="High-contrast neon staging with strong environmental storytelling" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/OG Idea Cover-4ad9fc56.png" alt="In-world device framing — story told through a screen inside the scene" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/God Game Cover-288c42a8.png" alt="Power-surge hero shot — movement, glow, and reaching gesture toward camera" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Anime Gym Bro Cover-3e1267bd.png" alt="Game-UI overlay integrated into the illustration" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/LUMIA Cover-93cff93a.png" alt="Hero and monument staged in depth — foreground figure, mid-ground threat" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/MWS Cover-97d152c6.png" alt="Framed poster composition with symbolic background element" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Fourth Wing Cover-ae48c241.png" alt="Open-hand invitation pose with world-establishing background" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Screenshot 2026-04-30 000643.png" alt="Full-body character staged in a sunlit interior with clear depth and props" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Creative Problem</p>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#232320;border-top:1px solid #232320;border-bottom:1px solid #232320">
+        <div style="background:#111110;padding:28px 24px">
+          <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#f2f1ee">Identity</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#8a8985">The platform needed a recognizable visual language that could support many genres and worlds without feeling generic.</p>
+        </div>
+        <div style="background:#111110;padding:28px 24px">
+          <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#f2f1ee">Discovery</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#8a8985">Users needed clearer ways to understand what they could create and where to begin.</p>
+        </div>
+        <div style="background:#111110;padding:28px 24px">
+          <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#f2f1ee">Generation quality</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#8a8985">Prompts and model behavior needed to produce more cinematic, readable, and visually consistent outputs.</p>
+        </div>
+        <div style="background:#111110;padding:28px 24px">
+          <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#f2f1ee">Storytelling</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#8a8985">The product needed to move beyond isolated images and encourage users to think in characters, worlds, moods, and narrative experiences.</p>
+        </div>
+        <div style="background:#111110;padding:28px 24px">
+          <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#f2f1ee">Scalability</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#8a8985">The creative direction had to work across many Storypacks, characters, styles, and generation scenarios rather than one campaign or title.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">What I Contributed</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#232320;border:1px solid #232320">
+        <div style="background:#161614;padding:36px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">Creative product direction</p>
+          <p style="margin:12px 0 20px;font-size:14px;line-height:1.6;color:#9c9b96">Shaping what the user journey should be, not just what the UI looked like.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Storypack hierarchy</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">QuickGen positioning</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Mood-based discovery</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Prompt suggestions</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Community inspiration</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Narrative onboarding</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Visual hierarchy</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Retention-oriented creative choices</span>
+          </div>
+        </div>
+        <div style="background:#161614;padding:36px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">Visual systems</p>
+          <p style="margin:12px 0 20px;font-size:14px;line-height:1.6;color:#9c9b96">Rather than relying on broad style descriptors, I introduced structured visual direction around the language of the shot.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Camera angle</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Shot size</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Perspective</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Movement</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Subject hierarchy</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Environmental interaction</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Lighting</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Staging</span>
+          </div>
+        </div>
+        <div style="background:#161614;padding:36px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">AI creative systems</p>
+          <p style="margin:12px 0 20px;font-size:14px;line-height:1.6;color:#9c9b96">Treating generation quality as something that could be tested and improved systematically.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Prompt refinement</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Before/after comparison</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Model-specific testing</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Repeated generation validation</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Reference adherence</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Failure analysis</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">QA documentation</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Reusable prompt frameworks</span>
+          </div>
+        </div>
+        <div style="background:#161614;padding:36px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">Brand and experience cohesion</p>
+          <p style="margin:12px 0 20px;font-size:14px;line-height:1.6;color:#9c9b96">Making FableVerse feel like one connected ecosystem rather than separate tools.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Storypacks</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">QuickGen</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">AI outputs</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Brand identity</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Community content</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Product UX</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Visual quality</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      
+      <div style="display: grid; gap: 1px; background: #232320; border: 1px solid #232320; width: 1273px; height: 6px">
+        
+        
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:72px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Character Adherence</p>
+      <h3 style="margin:0;max-width:28ch;font-size:clamp(22px,2.6vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:#f2f1ee">Holding the same face across every scene.</h3>
+      <p style="margin:20px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">One of the hardest problems was character adherence. AI often strays from the reference image. The face drifts, features shift, jewelry and hair details get reinvented scene to scene, and the illusion of a persistent character breaks. I was part of the team that worked on solving that: defining what identity actually consists of, building the reference and feedback loop that holds it, and reviewing generations against the source until the character stayed itself.</p>
+      <div style="margin-top:40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:32px;align-items:start">
+        <div>
+          <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Reference</p>
+          <div style="aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
+            <img src="uploads/Untitled design.gif" alt="Reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+        </div>
+        <div>
+          <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Generated scenes — same character, new context</p>
+          <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
+            <img src="uploads/bd56f.png" alt="Generated scene — emotional close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade0 }}">
+            <img src="uploads/e9540.png" alt="Generated scene — candlelit restaurant" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade1 }}">
+            <img src="uploads/cb65b.png" alt="Generated scene — autumn park in a black dress" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade2 }}">
+            <img src="uploads/d1842.png" alt="Generated scene — warm bokeh close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade3 }}">
+            <img src="uploads/fcbad.png" alt="Generated scene — snowfall in a winter coat" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade4 }}">
+          </div>
+          <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Outfit, lighting, environment, and emotion all change. The braid, the earrings, the eye shape, and the face do not.</p>
+        </div>
+      </div>
+      <div style="margin-top:40px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:32px;align-items:start">
+        <div>
+          <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Reference</p>
+          <div style="aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
+            <img src="uploads/Untitled design (1).gif" alt="Second reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+        </div>
+        <div>
+          <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Generated scenes — same character, new poses and expressions</p>
+          <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
+            <img src="uploads/Screenshot 2026-04-29 184210.png" alt="Generated scene — full body walking through the stacks" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB0 }}">
+            <img src="uploads/Screenshot 2026-04-29 234412.png" alt="Generated scene — shushing gesture close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB1 }}">
+            <img src="uploads/Screenshot 2026-04-29 234446.png" alt="Generated scene — laughing portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB2 }}">
+            <img src="uploads/Screenshot 2026-04-29 234541-b233c7a8.png" alt="Generated scene — low camera angle, open shirt" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB3 }}">
+            <img src="uploads/Screenshot 2026-04-29 235939-306b53b5.png" alt="Generated scene — arms crossed, leaning" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB4 }}">
+            <img src="uploads/Screenshot 2026-04-30 000011.png" alt="Generated scene — chin resting on hands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB5 }}">
+          </div>
+          <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Shot size, camera angle, and expression range widely across the set. The glasses, hair shape, and plaid shirt stay locked to the reference.</p>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div style="max-width:1280px;margin:72px auto 0;padding:0 48px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Product Design Direction</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#232320;border:1px solid #232320">
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Discovery &amp; entry points</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Users immediately understand that something new, exciting, and slightly forbidden has arrived, and it's easy to access. A hero banner, a glowing limited-run pill tag, and a filtered view with "Create Your Own" at the center.</p>
+        </div>
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Discover page &amp; swimlane visuals</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Differentiate the mode visually and emotionally it should feel like its own realm. A swimlane treated differently from the rest, with its own title, badge, and an embedded final card CTA.</p>
+        </div>
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">In-chat experience</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Make the transition feel cinematic, emotional, and irreversible a mode shift. Screen pulse, shimmer, subtle bloom, then the new palette loads. It should feel like the world changed around them, not a hard switch.</p>
+        </div>
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Narrative confirmation</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Consent handled in the story's voice instead of system language: "The air shifts. Do you want to explore this connection deeper?" Same compliance effect, emotionally resonant.</p>
+        </div>
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Education &amp; onboarding</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Teach users how to activate it and why it's worth exploring&nbsp; a first-time pop-up and a three-panel visual tutorial covering typing naturally, confirming entry, and watching the connection unfold.</p>
+        </div>
+        <div style="background:#111110;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Branding &amp; tonal unity</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Every surface feels connected to one cinematic idea, not disjointed elements. The shimmer motif reused across chat, pop-ups, and the homepage banner; a micro language for UI copy — "Enter," "Continue," "Explore deeper" instead of "Enable."</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">SEE Engine</p>
+      <h3 style="margin:0;max-width:26ch;font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f2f1ee">Using my expertise of webcomic storytelling in a chat bot.</h3>
+      <p style="margin:24px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">In character-based chat applications, static images and generic generations break immersion. Users crave dynamic visual experiences that evolve naturally with their conversations images that respond to context, maintain character consistency, and feel truly alive. SEE Engine shipped inside FableVerse first, then became an API other platforms could build on.</p>
+
+      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#232320;border:1px solid #232320">
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Sequential storytelling</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Users' journeys unfold in a compelling narrative flow with each click.</p>
+        </div>
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Understanding "chaotic" chat input</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Extract emotions, action, and visual cues from what users actually type.</p>
+        </div>
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Consistency</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Keep characters consistent across poses, emotions, and scenes.</p>
+        </div>
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Dynamic composition</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Manga techniques applied to generate poses, camera angles, and emotions.</p>
+        </div>
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Rich, iconic animanga art styles</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Trained from proprietary top webcomics and manga produced by market-leading artists.</p>
+        </div>
+        <div style="background:#161614;padding:32px">
+          <p style="margin:0;font-size:16px;font-weight:600;color:#f2f1ee">Two working modes</p>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Infer the scene from the last two messages, or take an image plus a single explicit command when the creator wants control.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+        <div>
+          <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Built On</p>
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#9c9b96">Actual expertise in webcomic and manga production: more than 100 titles produced, more than 200 million reads, over 500K image data points, working with hundreds of top anime artists. One of the first studios to use generative AI to produce webcomics tried and tested on our own character chat product, FableVerse, with millions of messages processed and continued daily tuning.</p>
+        </div>
+        <div>
+          <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Quality Guidance I Wrote</p>
+          <div style="display:grid;gap:14px">
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96"><span style="color:#f2f1ee;font-weight:600">Base images.</span> Single character, clearly visible, good lighting, sharp details, minimal background clutter.</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96"><span style="color:#f2f1ee;font-weight:600">Image context.</span> Feed the previous output back in as the next input so consistency holds across a sequence.</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96"><span style="color:#f2f1ee;font-weight:600">Chat context.</span> The more detailed the message and context, the better the generation.</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96"><span style="color:#f2f1ee;font-weight:600">Matching art style.</span> Strongest in animanga; other styles are matchable but results are sporadic.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;border:1px solid #232320;background:#161614;padding:36px">
+        <p style="margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">From Conversation to Camera</p>
+        <p style="margin:0 0 28px;max-width:72ch;font-size:15px;line-height:1.6;color:#8a8985">The mapping that lets the engine read intent as direction: each conversational phrase resolves to a shot choice, and each shot choice resolves to a specific visual result.</p>
+        <img src="uploads/Screenshot 2026-04-29 080011-881ff69f.png" alt="Mapping table — user intent to shot language to visual output, with examples for intimacy, immersion, relational tension, and power" style="width:100%;height:auto;display:block">
+      </div>
+
+      <div style="margin-top:48px;border:1px solid #232320;background:#161614;padding:36px">
+        <p style="margin:0 0 24px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Writing Context That Works</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+          <div>
+            <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#e05a5a">Less effective</p>
+            <div style="display:grid;gap:8px">
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#6f6e6a">"Make it better"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#6f6e6a">"Change stuff"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#6f6e6a">"Different"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#6f6e6a">"Update"</p>
+            </div>
+          </div>
+          <div>
+            <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#7ec8ff">Effective</p>
+            <div style="display:grid;gap:8px">
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#c9c8c3">"Change the background to a sunset beach"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#c9c8c3">"Make her look worried and add rain"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#c9c8c3">"Move to a cozy coffee shop interior"</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:#c9c8c3">"Add dramatic lighting from the left"</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin:28px 0 0;font-size:14px;line-height:1.6;color:#8a8985;max-width:80ch">Be specific about what should change, include emotional tone when relevant, describe lighting and atmosphere, reference previous context when building a narrative, and write in natural language. The same cinematic vocabulary that guided artists became the vocabulary that guides the model.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 140px;padding:0 48px">
+      <div style="border-top:1px solid #232320;padding-top:40px;max-width:76ch">
+        <p style="margin:0;font-size:18px;line-height:1.65;color:#c9c8c3">FableVerse challenged me to think beyond individual images and toward the creative system surrounding them. I helped shape visual standards, prompt language, product concepts, and generation workflows designed to make AI creation feel more cinematic, guided, and story-driven.</p>
+        <p style="margin:20px 0 0;font-size:18px;line-height:1.65;color:#c9c8c3">Through projects like IsekaiMe, I explored how users could move between guided Storypacks and fast open-ended generation, while building clearer visual language around camera, composition, movement, and atmosphere. The goal was to turn generative AI from a novelty into a creative experience users could understand, explore, and return to.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
+
+  <!-- 06 STRANDS — CASE STUDY MODAL -->
+  <sc-if value="{{ stOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">06 — Strands</span>
+      <h2 style="margin:16px 0 0;max-width:24ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Resident cover artist for a community-written fiction platform.</h2>
+      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Cover Art · AI Illustration · Serialized Fiction</p>
+      <p style="margin:24px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The idea behind Strands is that their stories come alive through community collaboration. Authors write gripping chapters that end with pivotal choices, and readers vote together to decide what happens next. I was in charge of creating engaging cover art.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.strands.mobile" target="_blank" rel="noopener" style="margin-top:28px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">Strands on Google Play →</a>
+    </div>
+
+    
+
+    <div style="max-width:1280px;margin:72px auto 0;padding:0 48px;text-align:right">
+      <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Cover Art Program</p>
+      <div style="border-right:2px solid #e05a5a;padding:4px 28px 4px 0;max-width:76ch;margin-left:auto">
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#c9c8c3">"Cover art is such an important piece of a story, but unless you're an artist yourself, it can be hard to find or create the perfect piece that captures the story's essence. One of our beliefs is every writer deserves a beautiful piece of art for their story."</p>
+        <p style="margin:16px 0 0;font-size:13px;color:#6f6e6a">Strands CEO, announcing the cover art program</p>
+      </div>
+      <p style="margin:28px 0 0 auto;max-width:76ch;font-size:16px;line-height:1.65;color:#9c9b96">Each month, authors submit their stories for consideration and the community votes on which one receives the cover art benefit. The winning author then collaborates directly with me on a custom piece. Original work and fanfiction are both eligible the program supports all human-authored content.</p>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 140px;padding:0 48px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Selected Covers</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Vampire King- Cover 2.3 (1).png" alt="Vampire King — low angle, storm-lit cathedral" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Vampire 9.16-2.png" alt="Vampire — throne portrait in cool light with falling petals" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/ATROM 2.3.png" alt="ATROM — paired portrait framed by a glowing archway" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Assassin 9.16-2.png" alt="Assassin — tight two-shot in dappled shadow" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Grim Transformations 2.3 (1).png" alt="Grim Transformations — profile standoff with a burning castle between them" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/A Study in the Shadowlight- Cover 2.3 (1).png" alt="A Study in the Shadowlight — layered memory composition" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/The Ex Files 2.3 (1).png" alt="The Ex Files — blade held between two figures in a bright ballroom" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
+
+  <!-- 03 VOYCEME / FABLEVERSE — structured, analytical -->
+  <section id="voyceme" ref="{{ voycemeRef }}" style="border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">03 — VoyceMe / FableVerse</span>
+      <h2 style="margin:16px 0 0;max-width:24ch;font-size:clamp(28px,3.8vw,52px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f2f1ee">Raising creative quality through systems, language, and leadership.</h2>
+    </div>
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a1a18">
+        <img src="assets/node-prompt-engineering.png" alt="Prompt architecture, annotated" style="width:100%;height:100%;object-fit:contain">
+        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">Prompt system</span>
+      </div>
+      <div>
+        <p style="margin:0;font-size:72px;font-weight:700;letter-spacing:-0.02em;color:#7ec8ff;line-height:1">+32%</p>
+        <p style="margin:14px 0 24px;font-size:14px;line-height:1.6;color:#9c9b96;max-width:36ch">Increase in Art Quality Average after I built and rolled out a new evaluation framework across the art team.</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">At VoyceMe and FableVerse, I developed creative systems that transformed inconsistent visual output into scalable, production-ready quality. By combining traditional art direction, cinematic storytelling, and AI-assisted workflows, I built repeatable processes that enabled teams to produce higher-quality creative work with consistency across products and pipelines.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">A major part of this work was proving that creative quality could be measured, taught, and scaled.</p>
+        <a href="#" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">Explore the creative system →</a>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;padding:80px 48px 120px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <div><p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Creative Leadership</p><p style="margin:0;font-size:13px;line-height:1.55;color:#8a8985">Founded and led three QA functions from the ground up, and set the roadmap that took AI-tool integration from pilot to over 80% of production across four quarters.</p></div>
+      <div><p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Quality Improvement</p><p style="margin:0;font-size:13px;line-height:1.55;color:#8a8985">Built the evaluation framework behind a 32% increase in Art Quality Average, a 4.2/5 average reader rating on new stories, and 93% client approval on concept work — validated by testing prompts across repeated generations rather than judging a single successful result.</p></div>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:0 48px 140px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">How I approached it</p>
+      <div style="border-top:1px solid #232320">
+        <div style="display:none"></div>
+        <sc-for list="{{ evidenceRows }}" as="row" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:32px;padding:28px 0;border-bottom:1px solid #232320">
+            <p style="margin:0;font-size:14px;line-height:1.55;color:#c9c8c3">{{ row.challenge }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.55;color:#f2f1ee">{{ row.approach }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.55;color:#e05a5a">{{ row.outcome }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="padding:160px 48px;border-top:1px solid #232320;text-align:center">
+    <h2 style="margin:0 auto;max-width:20ch;font-size:clamp(30px,4.2vw,56px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Have an ambitious idea that needs a visual direction?</h2>
+    <p style="margin:28px auto 0;max-width:56ch;font-size:16px;line-height:1.65;color:#9c9b96">I help teams build stronger worlds, sharper brands, and more effective creative systems by combining visual fundamentals, art direction, storytelling, and emerging technology.</p>
+    <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
+      <a href="mailto:myndfury@gmail.com" style="font-size:14px;font-weight:600;color:#111110;background:#f2f1ee;padding:16px 28px" style-hover="background:#d9633b;color:#111110">Start a conversation</a>
+      <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:14px;font-weight:600;color:#f2f1ee;border:1px solid #3a3936;padding:16px 28px" style-hover="border-color:#f2f1ee">View my résumé</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:80px 48px 40px;background:#111110;border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px">
+      <div style="min-width:220px">
+        <p style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#f2f1ee">Matt Johnson</p>
+        <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#8a8985">Creative Director<br>AI Creative Systems<br>Art Direction</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
+        <a href="Home.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
+        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
+        <a href="ai-lab.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
+        <a href="Contact.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
+        <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
+        <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">LinkedIn</a>
+        <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Résumé / CV</a>
+      </div>
+    </div>
+    <p style="max-width:1280px;margin:56px auto 0;font-size:12px;color:#5c5b57">©2026 Matt Johnson</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, activeSection: 'overview', activeProject: null, mounted: false, thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false, fadeIdx: 0 };
+  projects = {
+    blackResume: { title: 'Black Resume', images: ['uploads/BR-6053648e.png', 'uploads/Little_design_drafts-42d714af.jpg', 'uploads/BR2-8266541d.png', 'uploads/Zokio5367-b4b9cf1d.png', 'uploads/Kain8-b6b0d98c.png', 'uploads/BR_C4_Little-a871df8f.png', 'uploads/image-97-6c142efd.png', 'uploads/Cover_Daisuke_2-df149d95.png', 'uploads/Screenshot_2024-12-11-18-21-12-68_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg', 'uploads/23-1e85c1af.png', 'uploads/10-116948c7.png', 'uploads/36-cb047e63.png', 'uploads/20-18d2f68a.png', 'uploads/city bg 3.png', 'uploads/city bg 1-404491f5.png', 'uploads/28.png', 'uploads/19-38f5eae9.png', 'uploads/covertest.png'] },
+    godGame: { title: 'God Game', images: ['uploads/Monkey_King_Collage-bf8950e2.png', 'uploads/Hermes-90b02e0a.png', 'uploads/Elias.png', 'uploads/trident-afea8067.jpg', 'uploads/trident_colored-0f6fb5ff.jpg', 'uploads/Chernobog_human_form_Brown-876fc46e.png', 'uploads/goezen-401e42f9.png', 'uploads/IMG_0549-881d7713.png', 'uploads/IMG_0548-158dc898.png', 'uploads/IMG_0547-dda1a003.png', 'uploads/Bastet-f6ea02d3.jpg'] },
+    survivalIdol: { title: 'Survival Idol', images: ['uploads/SI_title.png', 'uploads/received_433972063128621.jpg', 'uploads/Survival_Idol_-_Maya_Blaze-84f59e1d.png', 'uploads/Survival_Idol_-_Alex_steele-ec440269.png', 'uploads/Survival_Idol_-_Aria_turnaround-0e9e2058.png'] },
+    systemRoyale: { title: 'System Royale', images: ['uploads/SR_1.png', 'uploads/SR_2-e3b6d5ca.png', 'uploads/avon_young_designs_4_lineart_2-afbf85e9.jpg', 'uploads/image2-538009b7.png', 'uploads/image3-650190f1.png', 'uploads/image4-b7dddcba.png', 'uploads/pasted-1785814789079-0.png', 'uploads/Turnaround.jpg', 'uploads/avon_young_designs_4_lineart.jpg', 'uploads/Avon.png'] },
+  };
+  lightboxGridRef = React.createRef();
+  overviewRef = React.createRef();
+  thrashRef = React.createRef();
+  brRef = React.createRef();
+  mageRef = React.createRef();
+  srRef = React.createRef();
+  fvRef = React.createRef();
+  stRef = React.createRef();
+  voycemeRef = React.createRef();
+
+  componentDidMount() {
+    this.setState({ mounted: true });
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 32 });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) this.setState({ activeSection: e.target.id }); });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    [this.overviewRef, this.thrashRef, this.brRef, this.voycemeRef].forEach(r => { if (r.current) this._io.observe(r.current); });
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activeProject !== this.state.activeProject) this._renderLightbox();
+  }
+
+  _renderLightbox() {
+    const el = this.lightboxGridRef.current;
+    if (!el) return;
+    el.innerHTML = '';
+    const key = this.state.activeProject;
+    if (!key) return;
+    const project = this.projects[key];
+    project.images.forEach((src) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = project.title + ' concept art, full resolution';
+      img.style.cssText = 'width:100%;object-fit:contain;background:#1a1a18';
+      el.appendChild(img);
+    });
+  }
+
+  renderVals() {
+    const scrolled = this.state.scrolled;
+    const active = this.state.activeSection;
+    const colorFor = (id) => active === id ? '#f2f1ee' : '#9c9b96';
+    return {
+      navBackground: scrolled ? 'rgba(17,17,16,0.82)' : 'rgba(17,17,16,0)',
+      navBackdrop: scrolled ? 'blur(14px)' : 'blur(0px)',
+      navBorderColor: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
+      subNavOpacity: scrolled ? 1 : 0,
+      subNavTransform: scrolled ? 'translateY(0)' : 'translateY(-8px)',
+      subNavPointer: scrolled ? 'auto' : 'none',
+      overviewRef: this.overviewRef,
+      thrashRef: this.thrashRef,
+      brRef: this.brRef,
+      voycemeRef: this.voycemeRef,
+      subNavColorOverview: colorFor('overview'),
+      subNavColorThrash: colorFor('thrash'),
+      subNavColorBr: colorFor('black-resume'),
+      subNavColorVoyceme: colorFor('voyceme'),
+      activeProject: this.state.activeProject,
+      lightboxGridRef: this.lightboxGridRef,
+      activeProjectTitle: this.state.activeProject ? this.projects[this.state.activeProject].title : '',
+      openBlackResume: () => this.setState({ activeProject: 'blackResume' }),
+      openGodGame: () => this.setState({ activeProject: 'godGame' }),
+      openSurvivalIdol: () => this.setState({ activeProject: 'survivalIdol' }),
+      openSystemRoyale: () => this.setState({ activeProject: 'systemRoyale' }),
+      closeProject: () => this.setState({ activeProject: null }),
+      thrashOpen: this.state.thrashOpen,
+      brOpen: this.state.brOpen,
+      mageOpen: this.state.mageOpen,
+      mageRef: this.mageRef,
+      srOpen: this.state.srOpen,
+      srRef: this.srRef,
+      openThrash: () => this.setState({ thrashOpen: true }),
+      openBlackResumeCase: () => this.setState({ brOpen: true }),
+      openMage: () => this.setState({ mageOpen: true }),
+      openSR: () => this.setState({ srOpen: true }),
+      fvOpen: this.state.fvOpen,
+      fvRef: this.fvRef,
+      stOpen: this.state.stOpen,
+      stRef: this.stRef,
+      openST: () => this.setState({ stOpen: true }),
+      openFV: () => {
+        this.setState({ fvOpen: true });
+        if (!this._fadeTimer) this._fadeTimer = setInterval(() => this.setState(s => ({ fadeIdx: (s.fadeIdx + 1) % 30 })), 2600);
+      },
+      fade0: this.state.fadeIdx % 5 === 0 ? 1 : 0,
+      fade1: this.state.fadeIdx % 5 === 1 ? 1 : 0,
+      fade2: this.state.fadeIdx % 5 === 2 ? 1 : 0,
+      fade3: this.state.fadeIdx % 5 === 3 ? 1 : 0,
+      fade4: this.state.fadeIdx % 5 === 4 ? 1 : 0,
+      fadeB0: this.state.fadeIdx % 6 === 0 ? 1 : 0,
+      fadeB1: this.state.fadeIdx % 6 === 1 ? 1 : 0,
+      fadeB2: this.state.fadeIdx % 6 === 2 ? 1 : 0,
+      fadeB3: this.state.fadeIdx % 6 === 3 ? 1 : 0,
+      fadeB4: this.state.fadeIdx % 6 === 4 ? 1 : 0,
+      fadeB5: this.state.fadeIdx % 6 === 5 ? 1 : 0,
+      closeCase: () => this.setState({ thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false }),
+      stopClick: (e) => e.stopPropagation(),
+      evidenceRows: [
+        { challenge: 'Inconsistent composition and pose adherence', approach: 'Converted creative direction into structured camera, staging, perspective, and subject-placement instructions', outcome: 'More reliable, visually coherent generations' },
+        { challenge: 'Unstable results across repeated outputs', approach: 'Tested prompts across multiple generations and tracked pass/fail status', outcome: 'Reduced reliance on one-off successful images' },
+        { challenge: 'Unclear prompt-versus-model failures', approach: 'Compared behavior across model versions and documented recurring errors', outcome: 'Faster diagnosis and more useful feedback for model trainers' },
+        { challenge: 'Subjective creative feedback', approach: 'Translated composition, lighting, motion, and storytelling principles into repeatable prompt frameworks', outcome: 'A shared visual language across creative and technical teams' },
+        { challenge: 'Fragmented experimentation', approach: 'Built before-and-after prompt records with references, outputs, and results', outcome: 'Reusable prompt knowledge and a more scalable workflow' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

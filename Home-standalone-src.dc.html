@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="./assets/logo-voyceme.png" data-resource-id="logo_voyceme" />
+<meta name="ext-resource-dependency" content="./assets/logo-colored.png" data-resource-id="logo_colored" />
+<meta name="ext-resource-dependency" content="./assets/logo-br.png" data-resource-id="logo_br" />
+<meta name="ext-resource-dependency" content="./assets/logo-isekaime.png" data-resource-id="logo_isekaime" />
+<meta name="ext-resource-dependency" content="./assets/logo-thrash.png" data-resource-id="logo_thrash" />
+<meta name="ext-resource-dependency" content="./assets/logo-ggo.png" data-resource-id="logo_ggo" />
+<meta name="ext-resource-dependency" content="./assets/client-fableverse.png" data-resource-id="client_fableverse" />
+<meta name="ext-resource-dependency" content="./assets/client-voyceme.png" data-resource-id="client_voyceme" />
+<meta name="ext-resource-dependency" content="./assets/client-isekaime.png" data-resource-id="client_isekaime" />
+<meta name="ext-resource-dependency" content="./assets/client-thrash.png" data-resource-id="client_thrash" />
+<meta name="ext-resource-dependency" content="./assets/client-mob.png" data-resource-id="client_mob" />
+<meta name="ext-resource-dependency" content="./assets/client-blackresume.png" data-resource-id="client_blackresume" />
+<meta name="ext-resource-dependency" content="./assets/client-chrysalis.png" data-resource-id="client_chrysalis" />
+<meta name="ext-resource-dependency" content="./assets/client-amhs.png" data-resource-id="client_amhs" />
+<meta name="ext-resource-dependency" content="./assets/client-witching-hour.png" data-resource-id="client_witching_hour" />
+<meta name="ext-resource-dependency" content="./assets/client-missannity.png" data-resource-id="client_missannity" />
+<meta name="ext-resource-dependency" content="./assets/client-shadowhearts.png" data-resource-id="client_shadowhearts" />
+<meta name="ext-resource-dependency" content="./assets/client-zokio-icon.png" data-resource-id="client_zokio_icon" />
+<meta name="ext-resource-dependency" content="./assets/client-elemental-chronicles.png" data-resource-id="client_elemental_chronicles" />
+<meta name="ext-resource-dependency" content="./assets/client-deathspeed.png" data-resource-id="client_deathspeed" />
+<meta name="ext-resource-dependency" content="./assets/client-aavegotchi.png" data-resource-id="client_aavegotchi" />
+<meta name="ext-resource-dependency" content="./assets/client-ggo.png" data-resource-id="client_ggo" />
+<meta name="ext-resource-dependency" content="./assets/client-systemroyale.png" data-resource-id="client_systemroyale" />
+<meta name="ext-resource-dependency" content="./assets/client-criminal-lord.png" data-resource-id="client_criminal_lord" />
+<meta name="ext-resource-dependency" content="./assets-opt/ref-frame-1.jpg" data-resource-id="ref_frame_1" />
+<meta name="ext-resource-dependency" content="./assets-opt/after-frame-1.jpg" data-resource-id="after_frame_1" />
+<meta name="ext-resource-dependency" content="./assets-opt/ref-frame-2.jpg" data-resource-id="ref_frame_2" />
+<meta name="ext-resource-dependency" content="./assets-opt/after-frame-2.jpg" data-resource-id="after_frame_2" />
+<meta name="ext-resource-dependency" content="./assets-opt/ref-frame-3.jpg" data-resource-id="ref_frame_3" />
+<meta name="ext-resource-dependency" content="./assets-opt/after-frame-3.jpg" data-resource-id="after_frame_3" />
+<meta name="ext-resource-dependency" content="./assets-opt/ref-frame-4.jpg" data-resource-id="ref_frame_4" />
+<meta name="ext-resource-dependency" content="./assets-opt/after-frame-4.jpg" data-resource-id="after_frame_4" />
+<meta name="ext-resource-dependency" content="./assets-opt/ref-frame-5.jpg" data-resource-id="ref_frame_5" />
+<meta name="ext-resource-dependency" content="./assets-opt/after-frame-5.jpg" data-resource-id="after_frame_5" />
+<template id="__bundler_thumbnail" data-bg-color="#111110">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#111110"/>
+    <text x="600" y="430" font-family="Helvetica,Arial,sans-serif" font-size="200" font-weight="700" fill="#f2f1ee" text-anchor="middle">MJ</text>
+    <rect x="470" y="500" width="260" height="6" fill="#e05a5a"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#e8873a;color:#111110}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  @keyframes logo-crawl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;background:#111110;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
+    <a href="#" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
+    <div style="display:flex;gap:40px;align-items:center">
+      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">Home</a>
+      <a href="Work.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
+      <a href="AI Lab.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">AI Lab</a>
+      <a href="Contact.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="position:relative;width:100%;height:100vh;min-height:640px;overflow:hidden">
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity0 }};transition:opacity 1.8s ease">
+      <img src="assets-opt/hero-0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity1 }};transition:opacity 1.8s ease">
+      <img src="assets-opt/hero-1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity2 }};transition:opacity 1.8s ease">
+      <img src="assets-opt/hero-2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity3 }};transition:opacity 1.8s ease">
+      <img src="assets/hero-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity4 }};transition:opacity 1.8s ease">
+      <img src="assets/hero-4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity5 }};transition:opacity 1.8s ease">
+      <img src="assets/hero-5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+    <div style="position:absolute;inset:0;opacity:{{ heroOpacity6 }};transition:opacity 1.8s ease">
+      <img src="assets/hero-6.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+    </div>
+
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,10,9,0.55) 0%, rgba(10,10,9,0.35) 35%, rgba(10,10,9,0.75) 78%, rgba(10,10,9,0.95) 100%);pointer-events:none"></div>
+
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px">
+      <h1 style="margin:0;font-size:clamp(56px,11vw,208px);font-weight:600;letter-spacing:-0.03em;line-height:0.94;color:#f7f6f2">Matt Johnson</h1>
+      <p style="margin:24px 0 0;font-size:clamp(14px,1.5vw,20px);font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#c9c8c3">Art Director &nbsp;·&nbsp; AI Visual Systems &nbsp;·&nbsp; Storyteller</p>
+    </div>
+
+    <a href="#thesis" style="position:absolute;left:50%;bottom:40px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:0.08em;color:#c9c8c3" style-hover="color:#f7f6f2">
+      <span>See how it connects</span>
+      <span style="animation:bob 2.2s ease-in-out infinite">↓</span>
+    </a>
+  </section>
+
+  <!-- THESIS -->
+  <section id="thesis" ref="{{ thesisRef }}" style="min-height:auto;padding:120px 48px 32px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:flex-start;gap:64px;flex-wrap:wrap">
+    <img src="assets-opt/matt-portrait.jpg" alt="Matt Johnson" style="width:320px;max-width:38vw;aspect-ratio:3/4;object-fit:cover;flex:none">
+    <p style="max-width:640px;margin:0 48px 0 0;text-align:left;font-size:clamp(28px,3.8vw,56px);font-weight:500;letter-spacing:-0.015em;line-height:1.18;color:#f2f1ee;opacity:{{ thesisOpacity }};transform:{{ thesisTransform }};transition:opacity 0.9s ease,transform 0.9s ease">Great creative work isn't an accident. It's the result of effective systems, clear direction, and thoughtful iteration.</p>
+    </div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <section style="padding:0 48px 100px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+      <p style="margin:0;flex:1 1 320px;text-align:left">
+        <span style="display:block;margin:0 0 12px;font-size:32px;font-weight:700;letter-spacing:-0.015em;color:#f2f1ee">Hello, I'm Matt.</span>
+        <span style="font-size:15px;line-height:1.6;color:#9c9b96">Creative Director with 10+ years leading visual storytelling and art direction across publishing, webtoon/manhwa, animation, and interactive entertainment, building cinematic visual systems, directing global creative teams, and blending traditional craft with AI-assisted production.</span>
+      </p>
+      <p style="margin:0;flex:1 1 320px;text-align:right;display:flex;flex-direction:column;gap:4px;font-size:13px;line-height:1.6;color:#6f6e6a">
+        <span>Stockton, CA</span>
+        
+        <span>myndfury@gmail.com</span>
+        <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" style="color:#6f6e6a" style-hover="color:#f2f1ee">www.linkedin.com/in/matthew-johnson-bb365191</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CAREER HISTORY -->
+  <section style="padding:0 48px 100px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:0;border-top:1px solid #232320">
+      <sc-for list="{{ careerHistory }}" as="job" hint-placeholder-count="6">
+        <div onMouseEnter="{{ job.onEnter }}" onMouseLeave="{{ job.onLeave }}" style="position:relative;padding:28px 0;border-bottom:1px solid #232320;cursor:default">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px">
+            <div>
+              <p style="margin:0;font-size:19px;font-weight:600;letter-spacing:-0.01em;color:#f2f1ee">{{ job.title }}</p>
+              <p style="margin:6px 0 0;font-size:14px;color:#9c9b96">{{ job.company }}</p>
+            </div>
+            <p style="margin:0;font-size:13px;color:#6f6e6a;white-space:nowrap">{{ job.dates }}</p>
+          </div>
+          <div style="max-height:{{ job.maxHeight }};overflow:hidden;transition:max-height 0.4s ease">
+            <ul style="margin:20px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ job.bullets }}" as="bullet" hint-placeholder-count="4">
+                <li style="font-size:14px;line-height:1.55;color:#9c9b96">{{ bullet }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PROGRESSION STRIP -->
+  <section style="padding:60px 48px 140px;background:#111110;position:relative;overflow:hidden">
+    <div style="position:relative;max-width:900px;height:150px;margin:0 auto 16px;overflow:hidden;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)">
+      <div style="display:flex;align-items:center;gap:96px;width:max-content;animation:logo-crawl 26s linear infinite">
+        <sc-for list="{{ logosDoubled }}" as="logo" hint-placeholder-count="12">
+          <img src="{{ logo.src }}" alt="" style="height:{{ logo.height }};flex:none;opacity:0.9">
+        </sc-for>
+      </div>
+    </div>
+    <p style="margin:0 0 40px;text-align:center;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">The evolution</p>
+    <div style="position:relative;max-width:840px;height:280px;margin:0 auto 40px;opacity:{{ previewOpacity }};transition:opacity 0.3s ease;pointer-events:none">
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity0 }};transition:opacity 0.3s ease;overflow:hidden;filter:brightness(0.7)">
+        <img src="assets-opt/cc-01.jpg" alt="" style="position:absolute;left:-2.4%;top:0%;width:31%;height:75%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <img src="assets/cc-04.jpg" alt="" style="position:absolute;left:25%;top:-10.7%;width:28.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="assets/cc-08.jpg" alt="" style="position:absolute;left:48.8%;top:0%;width:25%;height:67.9%;object-fit:cover;transform:rotate(-2deg);border:3px solid #0a0a09">
+        <img src="assets/cc-09.jpg" alt="" style="position:absolute;left:70.2%;top:0%;width:32.1%;height:60.7%;object-fit:cover;transform:rotate(5deg);border:3px solid #0a0a09">
+        <img src="assets/cc-05.jpg" alt="" style="position:absolute;left:3.6%;top:50%;width:27.4%;height:57.1%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="assets/cc-02.png" alt="" style="position:absolute;left:28%;top:41.1%;width:23.8%;height:64.3%;object-fit:cover;object-position:100% 50%;transform:rotate(-5deg);border:3px solid #0a0a09">
+        <img src="assets/cc-06.jpg" alt="" style="position:absolute;left:49.4%;top:55.4%;width:22.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="assets/cc-07.jpg" alt="" style="position:absolute;left:69%;top:46.4%;width:20.2%;height:64.3%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="assets/cc-03.jpg" alt="" style="position:absolute;left:85.7%;top:10.7%;width:16.7%;height:53.6%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
+        <img src="assets/cc-10.jpg" alt="" style="position:absolute;left:84.5%;top:57.1%;width:17.9%;height:46.4%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Comic Creator</span></div>
+      </div>
+      <div style="display:none"><image-slot id="node-preview-0" shape="rect" placeholder="Comic creator — early pages" style="width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity1 }};transition:opacity 0.3s ease"><img src="assets-opt/node-comic-creator.jpg" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Motion Graphics</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity2 }};transition:opacity 0.3s ease;overflow:hidden;filter:brightness(0.7)">
+        <img src="assets-opt/ad-01.jpg" alt="" style="position:absolute;left:-2%;top:-8%;width:29%;height:58%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="assets-opt/ad-02.jpg" alt="" style="position:absolute;left:24%;top:-6%;width:27%;height:50%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="assets/ad-03.png" alt="" style="position:absolute;left:49%;top:-9%;width:26%;height:56%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <img src="assets/ad-04.png" alt="" style="position:absolute;left:74%;top:-7%;width:28%;height:52%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="assets/ad-05.jpg" alt="" style="position:absolute;left:2%;top:46%;width:30%;height:62%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="assets/ad-06.jpg" alt="" style="position:absolute;left:32%;top:52%;width:33%;height:54%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="assets/ad-07.jpg" alt="" style="position:absolute;left:65%;top:48%;width:34%;height:58%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Art Direction</span></div>
+      </div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity3 }};transition:opacity 0.3s ease"><img src="assets/node-creative-leadership.png" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Creative Leadership</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity4 }};transition:opacity 0.3s ease"><img src="assets/node-ai-visual-systems.png" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">AI Visual Systems</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity5 }};transition:opacity 0.3s ease"><img src="assets/node-prompt-engineering.png" alt="" style="width:100%;height:100%;object-fit:contain;background:#111110"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Prompt Engineering</span></div></div>
+    </div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;gap:8px">
+      <div style="position:absolute;top:6px;left:0;right:0;height:1px;background:#2a2a27"></div>
+      <sc-for list="{{ progression }}" as="node" hint-placeholder-count="6">
+        <a href="{{ node.href }}" onMouseEnter="{{ node.onEnter }}" onMouseLeave="{{ onLeave }}" style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;min-width:0;padding:0 4px">
+          <span style="width:13px;height:13px;border-radius:50%;background:#111110;border:1px solid #4a4944;flex:none" style-hover="background:{{ accent }};border-color:{{ accent }}"></span>
+          <span style="font-size:13px;font-weight:500;letter-spacing:-0.005em;color:#9c9b96;text-align:center;line-height:1.35" style-hover="color:#f2f1ee">{{ node.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CLIENT × WORK -->
+  <section style="padding:0 48px 140px;background:#111110">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:56px">
+      <p style="margin: 0; font-size: 104px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6f6e6a">Client × Work</p>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:#9c9b96;max-width:44ch">Original IP, entertainment brands, NFTs &amp; misc products</p>
+    </div>
+    <p style="margin:0 0 56px;font-size:clamp(56px,9vw,140px);font-weight:700;letter-spacing:-0.03em;line-height:1;background:linear-gradient(100deg,#e8873a,#e05a5a 40%,#7ec8ff 75%,#c9a86a);-webkit-background-clip:text;background-clip:text;color:transparent">20+ <span style="font-size:0.4em;font-weight:600;letter-spacing:-0.01em;-webkit-text-fill-color:#6f6e6a">projects shipped</span></p>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#232320">
+      <sc-for list="{{ clientLogos }}" as="logo" hint-placeholder-count="19">
+        <div style="aspect-ratio:3/2;grid-column:{{ logo.col }};background:#111110;display:flex;align-items:center;justify-content:center;padding:22px;transition:background 0.3s ease" style-hover="background:#181817">
+          <img src="{{ logo.src }}" alt="{{ logo.name }}" style="max-width:{{ logo.maxSize }};max-height:{{ logo.maxSize }};width:auto;height:auto;object-fit:contain;filter:grayscale(1) brightness(1.3);opacity:0.75;transition:filter 0.3s ease,opacity 0.3s ease" style-hover="filter:grayscale(0) brightness(1);opacity:1">
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- AI LAB TEASER -->
+  <section style="padding:120px 48px;background:#161614">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:36px">
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">AI Lab</p>
+      <a href="AI Lab.dc.html" style="width:100%;display:block;position:relative;aspect-ratio:16/8;overflow:hidden">
+        <div style="position:absolute;inset:0;display:flex">
+          <div style="position:relative;width:50%;height:100%;overflow:hidden;background:#1a1a18">
+            <sc-for list="{{ refFrames }}" as="frame" hint-placeholder-count="5">
+              <img src="{{ frame.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ frame.opacity }};transition:opacity 1.2s ease">
+            </sc-for>
+          </div>
+          <div style="position:relative;width:50%;height:100%;overflow:hidden;background:#1a1a18">
+            <sc-for list="{{ afterFrames }}" as="frame" hint-placeholder-count="5">
+              <img src="{{ frame.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ frame.opacity }};transition:opacity 1.2s ease">
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,0.25);pointer-events:none"></div>
+        <span style="position:absolute;top:16px;left:16px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:6px 10px;pointer-events:none">Before</span>
+        <span style="position:absolute;top:16px;right:16px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:6px 10px;pointer-events:none">After</span>
+      </a>
+      <p style="margin:0;text-align:center;font-size:17px;color:#9c9b96;max-width:52ch">AI generation directed with cinematography.</p>
+      <a href="AI Lab.dc.html" style="font-size:13px;font-weight:600;letter-spacing:0.02em;color:#f2f1ee;border-bottom:1px solid {{ accent }};padding-bottom:2px">Explore the AI Lab →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:80px 48px 40px;background:#111110;border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px">
+      <div style="min-width:220px">
+        <p style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#f2f1ee">Matt Johnson</p>
+        <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#8a8985">Creative Director<br>AI Creative Systems<br>Art Direction</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
+        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
+        <a href="Work.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
+        <a href="AI Lab.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
+        <a href="Contact.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
+        <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
+        <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">LinkedIn</a>
+        <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Résumé / CV</a>
+      </div>
+    </div>
+    <p style="max-width:1280px;margin:56px auto 0;font-size:12px;color:#5c5b57">©2026 Matt Johnson</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d9633b&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#e8873a&quot;,&quot;#d9633b&quot;,&quot;#c9a86a&quot;,&quot;#8a8985&quot;]},&quot;heroIntervalSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4.5,&quot;min&quot;:2,&quot;max&quot;:9,&quot;step&quot;:0.5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;motionEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = { heroIndex: 0, scrolled: false, hoverIndex: 0, isHoveringNode: false, csHoverIndex: -1, thesisVisible: false, scrollY: 0, refFrameIndex: 0, careerHoverIndex: -1 };
+  thesisRef = React.createRef();
+
+  componentDidMount() {
+    this._io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        this.setState({ thesisVisible: true });
+        this._io.disconnect();
+      }
+    }, { threshold: 0.35 });
+    if (this.thesisRef.current) this._io.observe(this.thesisRef.current);
+    if (this.props.motionEnabled ?? true) {
+      const seconds = this.props.heroIntervalSeconds ?? 4.5;
+      this._t = setInterval(() => {
+        this.setState(s => ({ heroIndex: (s.heroIndex + 1) % 7 }));
+      }, seconds * 1000);
+      this._refFrameT = setInterval(() => {
+        this.setState(s => ({ refFrameIndex: (s.refFrameIndex + 1) % 5 }));
+      }, 3000);
+      this._nodeCycleT = setInterval(() => {
+        this.setState(s => s.isHoveringNode ? s : ({ hoverIndex: (s.hoverIndex + 1) % 6 }));
+      }, 3200);
+    }
+    this._onScroll = () => {
+      const scrolled = window.scrollY > 32;
+      this.setState({ scrolled, scrollY: window.scrollY });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    if (this._t) clearInterval(this._t);
+    if (this._refFrameT) clearInterval(this._refFrameT);
+    if (this._nodeCycleT) clearInterval(this._nodeCycleT);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const i = this.state.heroIndex;
+    const accent = this.props.accentColor ?? '#e8873a';
+    const scrolled = this.state.scrolled;
+    return {
+      heroOpacity0: i === 0 ? 1 : 0,
+      heroOpacity1: i === 1 ? 1 : 0,
+      heroOpacity2: i === 2 ? 1 : 0,
+      heroOpacity3: i === 3 ? 1 : 0,
+      heroOpacity4: i === 4 ? 1 : 0,
+      heroOpacity5: i === 5 ? 1 : 0,
+      heroOpacity6: i === 6 ? 1 : 0,
+      navBackground: scrolled ? 'rgba(17,17,16,0.82)' : 'rgba(17,17,16,0)',
+      navBackdrop: scrolled ? 'blur(14px)' : 'blur(0px)',
+      navBorderColor: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
+      accent,
+      thesisRef: this.thesisRef,
+      refFrames: [0,1,2,3,4].map(i => ({ src: window.__resources['ref_frame_'+(i+1)], opacity: this.state.refFrameIndex === i ? 1 : 0 })),
+      afterFrames: [0,1,2,3,4].map(i => ({ src: window.__resources['after_frame_'+(i+1)], opacity: this.state.refFrameIndex === i ? 1 : 0 })),
+      logosDoubled: [
+        { src: window.__resources['logo_voyceme'], height: '106px' },
+        { src: window.__resources['logo_colored'], height: '123px' },
+        { src: window.__resources['logo_br'], height: '67px' },
+        { src: window.__resources['logo_isekaime'], height: '98px' },
+        { src: window.__resources['logo_thrash'], height: '62px' },
+        { src: window.__resources['logo_ggo'], height: '59px' },
+        { src: window.__resources['logo_voyceme'], height: '106px' },
+        { src: window.__resources['logo_colored'], height: '123px' },
+        { src: window.__resources['logo_br'], height: '67px' },
+        { src: window.__resources['logo_isekaime'], height: '98px' },
+        { src: window.__resources['logo_thrash'], height: '62px' },
+        { src: window.__resources['logo_ggo'], height: '59px' },
+      ],
+      thesisOpacity: this.state.thesisVisible ? 1 : 0,
+      thesisTransform: this.state.thesisVisible ? 'translateX(0)' : 'translateX(24px)',
+      hoverOpacity0: this.state.hoverIndex === 0 ? 1 : 0,
+      hoverOpacity1: this.state.hoverIndex === 1 ? 1 : 0,
+      hoverOpacity2: this.state.hoverIndex === 2 ? 1 : 0,
+      hoverOpacity3: this.state.hoverIndex === 3 ? 1 : 0,
+      hoverOpacity4: this.state.hoverIndex === 4 ? 1 : 0,
+      hoverOpacity5: this.state.hoverIndex === 5 ? 1 : 0,
+      previewOpacity: 1,
+      onLeave: () => this.setState({ isHoveringNode: false }),
+      progression: [
+        { label: 'Comic creator', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 0, isHoveringNode: true }) },
+        { label: 'Motion graphics', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 1, isHoveringNode: true }) },
+        { label: 'Art direction', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 2, isHoveringNode: true }) },
+        { label: 'Creative leadership', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 3, isHoveringNode: true }) },
+        { label: 'AI visual systems', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 4, isHoveringNode: true }) },
+        { label: 'Prompt engineering', href: 'Work.dc.html', onEnter: () => this.setState({ hoverIndex: 5, isHoveringNode: true }) },
+      ],
+      clientLogos: [
+        { name: 'FableVerse', src: window.__resources['client_fableverse'], maxSize: '100%' },
+        { name: 'VoyceMe', src: window.__resources['client_voyceme'], maxSize: '100%' },
+        { name: 'IsekaiMe', src: window.__resources['client_isekaime'], maxSize: '100%' },
+        { name: 'Thrash: Rise of Shidou', src: window.__resources['client_thrash'], maxSize: '100%' },
+        { name: 'Mage of Blades', src: window.__resources['client_mob'], maxSize: '100%' },
+        { name: 'Black Resume', src: window.__resources['client_blackresume'], maxSize: '100%' },
+        { name: 'Chrysalis', src: window.__resources['client_chrysalis'], maxSize: '100%' },
+        { name: 'A Modern Horror Story', src: window.__resources['client_amhs'], maxSize: '100%' },
+        { name: 'Witching Hour', src: window.__resources['client_witching_hour'], maxSize: '100%' },
+        { name: 'Miss Annity', src: window.__resources['client_missannity'], maxSize: '100%' },
+        { name: 'Shadowhearts', src: window.__resources['client_shadowhearts'], maxSize: '100%' },
+        { name: 'Zokio', src: window.__resources['client_zokio_icon'], maxSize: '100%' },
+        { name: 'Elemental Chronicles', src: window.__resources['client_elemental_chronicles'], maxSize: '100%' },
+        { name: 'Death Speed', src: window.__resources['client_deathspeed'], maxSize: '100%' },
+        { name: 'AavegotchI', src: window.__resources['client_aavegotchi'], maxSize: '100%' },
+        { name: 'GGO', src: window.__resources['client_ggo'], maxSize: '100%' },
+        { name: 'System Royale', src: window.__resources['client_systemroyale'], maxSize: '100%' },
+        { name: 'Criminal Lord', src: window.__resources['client_criminal_lord'], maxSize: '100%' },
+      ],
+      onCsLeave: () => this.setState({ csHoverIndex: -1 }),
+      careerHistory: [
+        {
+          title: 'Creative Director', company: 'VoyceMe / FableVerse — Remote, CA', dates: 'Apr 2023 – Present',
+          bullets: [
+            "Lead art direction and visual quality across VoyceMe's publishing initiatives, AI-driven visual systems, and interactive storytelling products.",
+            'Manage quality standards across internal teams, external partners, and creative contributors to ensure visual consistency and production excellence.',
+            'Partner cross-functionally with engineering, product, operations, and leadership to improve visual quality, workflow scalability, and client-facing demo readiness.',
+            'Manage and mentor a global network of artists/authors and creative contributors.',
+            'Support recruitment, onboarding, and talent development initiatives across creative teams.',
+            'Contribute to client-facing AI demo strategies supporting high-level business development and multimillion-dollar partnership discussions.',
+          ],
+          onEnter: () => this.setState({ careerHoverIndex: 0 }), onLeave: () => this.setState({ careerHoverIndex: -1 }),
+          maxHeight: this.state.careerHoverIndex === 0 ? '400px' : '0px',
+        },
+        {
+          title: 'Art Director', company: 'VoyceMe — Remote, CA', dates: 'May 2022 – Apr 2023',
+          bullets: [
+            "Expanded VoyceMe's content library by 30% through strategic acquisition, outreach, and licensing initiatives.",
+            'Represented the platform in creator, partner, and client discussions to strengthen sourcing pipelines and industry relationships.',
+            'Sourced talent for multiple technical functions, conducting interviews and coordinating final offer negotiation.',
+            'Established standardized recruiting processes to ensure consistent execution across regions and time zones.',
+          ],
+          onEnter: () => this.setState({ careerHoverIndex: 1 }), onLeave: () => this.setState({ careerHoverIndex: -1 }),
+          maxHeight: this.state.careerHoverIndex === 1 ? '400px' : '0px',
+        },
+        {
+          title: 'Content Project Manager', company: 'VoyceMe — Remote, CA', dates: 'Feb 2021 – Apr 2023',
+          bullets: [
+            'Coordinated artists, editors, writers, and production teams to ensure timely delivery and consistent visual quality across multiple titles.',
+            'Managed production pipelines and cross-functional workflows across webtoon, manhwa, and digital publishing initiatives.',
+            'Collaborated with creative leadership and stakeholders to align production goals with brand standards.',
+            'Streamlined communication between creative, editorial, and operational teams to improve workflow efficiency and production scalability.',
+          ],
+          onEnter: () => this.setState({ careerHoverIndex: 2 }), onLeave: () => this.setState({ careerHoverIndex: -1 }),
+          maxHeight: this.state.careerHoverIndex === 2 ? '400px' : '0px',
+        },
+        {
+          title: 'Scenic Production Lead Animator & Production Manager', company: 'Broadway Media Distribution — Fresno, CA', dates: 'Feb 2017 – Apr 2022',
+          bullets: [
+            'Enhanced live productions through seamless looping motion graphics and scenic projection animation.',
+            'Managed high-quality visual assets in collaboration with creative production teams.',
+          ],
+          onEnter: () => this.setState({ careerHoverIndex: 3 }), onLeave: () => this.setState({ careerHoverIndex: -1 }),
+          maxHeight: this.state.careerHoverIndex === 3 ? '300px' : '0px',
+        },
+        {
+          title: 'Multimedia Instructor', company: 'Carter G Woodson Multimedia Charter School — Fresno, CA', dates: 'Feb 2017 – Jan 2018',
+          bullets: [
+            'Developed curriculum covering Adobe Creative Suite, motion graphics, graphic design, digital illustration, and introductory multimedia production workflows.',
+            'Mentored students in creative problem-solving, visual communication, and project-based learning across digital media disciplines.',
+          ],
+          onEnter: () => this.setState({ careerHoverIndex: 4 }), onLeave: () => this.setState({ careerHoverIndex: -1 }),
+          maxHeight: this.state.careerHoverIndex === 4 ? '300px' : '0px',
+        },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

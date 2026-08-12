@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  a.link-accent{color:#f2f1ee}
+  a.link-accent:hover{color:#e8873a}
+  ::selection{background:#e8873a;color:#111110}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;background:#111110;overflow:hidden">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
+    <a href="Home.dc.html" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
+    <div style="display:flex;gap:40px;align-items:center">
+      <a href="Home.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
+      <a href="Work.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
+      <a href="AI Lab.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">AI Lab</a>
+      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:200px 48px 100px;border-bottom:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:end">
+      <div>
+        <p style="margin:0 0 28px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">Get in touch</p>
+        <h1 style="margin:0;font-size:clamp(34px,4.6vw,72px);font-weight:600;letter-spacing:-0.02em;line-height:1.08;color:#f7f6f2">Let's build something awesome.</h1>
+        <p style="margin:32px 0 0;max-width:56ch;font-size:17px;line-height:1.65;color:#9c9b96">Open to art direction, creative leadership, and AI visual systems work: full-time, contract, or advisory.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:#c9c8c3">
+        <span>Stockton, CA</span>
+        <a href="tel:+15594751516" class="link-accent">(559) 475-1516</a>
+        <a href="mailto:myndfury@gmail.com" class="link-accent">myndfury@gmail.com</a>
+        <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" class="link-accent">linkedin.com/in/matthew-johnson-bb365191</a>
+        <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" class="link-accent">View résumé →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding:120px 48px;border-bottom:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto">
+      <span style="font-size:13px;color:#5c5b57">What people say</span>
+      <h2 style="margin:16px 0 0;max-width:26ch;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f2f1ee">From teammates and collaborators.</h2>
+      <div style="margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#232320">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="6">
+          <div style="background:#161614;padding:40px;display:flex;flex-direction:column">
+            <p style="margin:0;font-size:15px;line-height:1.65;color:#c9c8c3;flex:1">{{ t.quote }}</p>
+            <a href="{{ t.linkedin }}" target="_blank" style="margin-top:28px;padding-top:20px;border-top:1px solid #232320;display:flex;align-items:center;justify-content:space-between;gap:16px" style-hover="opacity:0.82">
+              <div>
+                <p style="margin:0;font-size:15px;font-weight:600;color:#f2f1ee">{{ t.name }}</p>
+                <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#6f6e6a">{{ t.role }}</p>
+              </div>
+              <div ref="{{ t.avatarRef }}" style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#232320"></div>
+            </a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="padding:160px 48px;text-align:center">
+    <h2 style="margin:0 auto;max-width:20ch;font-size:clamp(30px,4.2vw,56px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Have an ambitious idea that needs a visual direction?</h2>
+    <p style="margin:28px auto 0;max-width:56ch;font-size:16px;line-height:1.65;color:#9c9b96">I help teams build stronger worlds, sharper brands, and more effective creative systems by combining visual fundamentals, art direction, storytelling, and emerging technology.</p>
+    <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
+      <a href="mailto:myndfury@gmail.com" style="font-size:14px;font-weight:600;color:#111110;background:#f2f1ee;padding:16px 28px" style-hover="background:#d9633b;color:#111110">Start a conversation</a>
+      <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:14px;font-weight:600;color:#f2f1ee;border:1px solid #3a3936;padding:16px 28px" style-hover="border-color:#f2f1ee">View my résumé</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:80px 48px 40px;background:#111110;border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px">
+      <div style="min-width:220px">
+        <p style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#f2f1ee">Matt Johnson</p>
+        <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#8a8985">Creative Director<br>AI Creative Systems<br>Art Direction</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
+        <a href="Home.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
+        <a href="Work.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
+        <a href="AI Lab.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
+        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
+        <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
+        <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">LinkedIn</a>
+        <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Résumé / CV</a>
+      </div>
+    </div>
+    <p style="max-width:1280px;margin:56px auto 0;font-size:12px;color:#5c5b57">©2026 Matt Johnson</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrolled: false, mounted: false };
+
+  testimonials = [
+    { name: 'Lerida Looi', role: 'Chief of Staff · managed Matthew directly at VoyceMe', photo: 'uploads/Lerida.png', linkedin: 'https://www.linkedin.com/in/leridalooi/', quote: "As one of the earliest employees at VoyceMe, Matt has been integral in shaping the art direction from the very beginning, bringing his creative vision to life across our original content. He leads our team of artists with expertise, ensuring high-quality work while collaborating seamlessly with Product, Engineering, Data, and Innovation teams to align artistic and technical elements. Matt also played a key role in resourcing art for our ethical generative AI tool, which is central to our long-term vision. Beyond his leadership, Matt has been an exceptional mentor, developing both professional and aspiring creators while building a thriving creative community." },
+    { name: 'Makena Song', role: 'Author · Writer · Editor — reported to Matthew directly', photo: 'uploads/Makena Song.png', linkedin: 'https://www.linkedin.com/in/makena-song/', quote: 'Matthew Johnson, better known as "MyndFury" at VoyceMe, was a fantastic supervisor to work for and with! Holistically, he brought a whole new level of art and story quality, prompting writers and artists to solidify their technical foundations and nurture their future growth. Direct yet caring, Matthew directly reached out to everyone and anyone, providing constructive feedback that elevated projects to the next level as well as supporting his teammates to spread their wings. Truly golden at heart, Matthew is a valuable mentor, leader, and friend.' },
+    { name: 'Jeremie Isleta', role: 'Head of Creative Operations · Lead Creative Project Manager', photo: 'uploads/Jeremie.jpg', linkedin: 'https://www.linkedin.com/in/jeremieisleta/', quote: "I've been working with Matt for over a year as of writing, and I have witnessed how he cared so much for our team — he has been very proactive in providing solutions to conflicts and huge problems, providing us very effective strategies and making sure they get implemented for the betterment of the Art & Creative department. He's giving us free workshops to help boost our team's skills and has been a great mentor for everyone working closely with him. He's not only a leader, but a friend." },
+    { name: 'Elle Abalos', role: 'Product Strategy & Operations · 13+ Years PMO Leadership', photo: 'uploads/Elle.png', linkedin: 'https://www.linkedin.com/in/elleabalos/', quote: "I've had the privilege of working with Matt and his ability to explain and break down complex art concepts is remarkable. What sets him apart is his ability to clearly communicate these ideas in a way that is accessible to everyone, regardless of their background. Matt is a natural teacher at heart — a skill particularly beneficial when collaborating with non-artists, such as engineers or product managers, ensuring everyone is aligned with the creative vision." },
+    { name: 'Franz Christian Irorita', role: 'Freelance gaming news writer · worked with Matthew on the same team', photo: 'uploads/Franz.png', linkedin: 'https://www.linkedin.com/in/franz-christian-irorita/', quote: "I've had the opportunity to work with Matt as a Project Manager of comic production while he served as Art Director at VoyceMe. His extensive knowledge of art and composition provided our teams with invaluable insights on how to improve our work. He provides clear direction for our projects, contributes to production through his constructive feedback, and trains Project Managers to become better Creatives through art workshops that he prepares and organizes." },
+    { name: 'Jason Estepan', role: 'Founder & CEO · worked with Matthew on the same team', photo: 'uploads/Jason.png', linkedin: 'https://www.linkedin.com/in/jasonestepan/', quote: 'Matt is one of the most pleasant and passionate individuals anyone could have the pleasure of working with. He is proactive, positive, creative and he knows art. Further, he always pushes for the highest standards and makes every art-focused project look inspired and heart-felt through his direction. Nothing but good things to say about Matthew.' },
+  ].map(t => ({ ...t, avatarRef: React.createRef() }));
+
+  componentDidMount() {
+    this.setState({ mounted: true });
+    this._renderAvatars();
+    this._onScroll = () => this.setState({ scrolled: window.scrollY > 32 });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  componentDidUpdate() {
+    this._renderAvatars();
+  }
+
+  _renderAvatars() {
+    this.testimonials.forEach(t => {
+      const el = t.avatarRef.current;
+      if (!el || el.childElementCount) return;
+      if (!t.photo) return;
+      const img = document.createElement('img');
+      img.src = t.photo;
+      img.alt = t.name;
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+      el.appendChild(img);
+    });
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals() {
+    const scrolled = this.state.scrolled;
+    return {
+      mounted: this.state.mounted,
+      navBackground: scrolled ? 'rgba(17,17,16,0.82)' : 'rgba(17,17,16,0)',
+      navBackdrop: scrolled ? 'blur(14px)' : 'blur(0px)',
+      navBorderColor: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
+      testimonials: this.testimonials,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
