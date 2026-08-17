@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Matt Johnson</title>
+<meta name="description" content="Get in touch with Matt Johnson for art direction, creative leadership, and AI visual systems work.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -17,6 +19,17 @@
   a.link-accent{color:#f2f1ee}
   a.link-accent:hover{color:#e8873a}
   ::selection{background:#e8873a;color:#111110}
+
+  /* --- Production additions: responsive nav + reduced-motion (desktop layout unchanged) --- */
+  @media (max-width:640px){
+    nav{padding:0 16px !important;height:72px !important}
+    nav>a{font-size:14px !important;white-space:nowrap}
+    nav>div{gap:13px !important}
+    nav>div a{font-size:12px !important;letter-spacing:0 !important;white-space:nowrap}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  }
 </style>
 </helmet>
 
@@ -24,12 +37,13 @@
 
   <!-- NAV -->
   <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
-    <a href="Home.dc.html" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
+    <a href="/" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
     <div style="display:flex;gap:40px;align-items:center">
-      <a href="Home.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
-      <a href="Work.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
-      <a href="AI Lab.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">AI Lab</a>
-      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">Contact</a>
+      <a href="/" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
+      <a href="/work" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
+      <a href="/ai-lab" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">AI Lab</a>
+      <a href="/about" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">About</a>
+      <a href="/contact" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">Contact</a>
     </div>
   </nav>
 
@@ -91,10 +105,11 @@
         <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#8a8985">Creative Director<br>AI Creative Systems<br>Art Direction</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
-        <a href="Home.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
-        <a href="Work.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
-        <a href="AI Lab.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
-        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
+        <a href="/" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
+        <a href="/work" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
+        <a href="/ai-lab" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
+        <a href="/about" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">About</a>
+        <a href="/contact" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
         <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
