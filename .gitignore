@@ -5,5 +5,7 @@ Thumbs.db
 
 # Local dev tooling (not part of the site)
 scratch/*.mjs
+scratch/*.json
+scratch/opt/
 scratch/referenced-assets.json
 scratch/shot-*.png
