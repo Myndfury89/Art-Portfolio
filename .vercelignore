@@ -6,6 +6,10 @@ scratch/
 .thumbnail
 Home-standalone-src.dc.html
 
+# Unused editor tooling (image-slot replaced with a static <img>)
+image-slot.js
+.image-slots.state.json
+
 # Optimized-export leftovers not referenced by the live site
 assets-opt/
 
