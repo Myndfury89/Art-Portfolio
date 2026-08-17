@@ -1,0 +1,9 @@
+node_modules/
+.vercel/
+.DS_Store
+Thumbs.db
+
+# Local dev tooling (not part of the site)
+scratch/*.mjs
+scratch/referenced-assets.json
+scratch/shot-*.png

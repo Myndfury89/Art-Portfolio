@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Lab — Matt Johnson</title>
+<meta name="description" content="Method behind artist-led AI: prompt architecture, cinematic prompt language, visual evaluation, and production consistency.">
 <script src="./support.js"></script>
 <script src="./image-slot.js"></script>
 </head>
@@ -16,6 +18,17 @@
   html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   ::selection{background:#e8873a;color:#111110}
+
+  /* --- Production additions: responsive nav + reduced-motion (desktop layout unchanged) --- */
+  @media (max-width:640px){
+    nav{padding:0 16px !important;height:72px !important}
+    nav>a{font-size:14px !important;white-space:nowrap}
+    nav>div{gap:13px !important}
+    nav>div a{font-size:12px !important;letter-spacing:0 !important;white-space:nowrap}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  }
 </style>
 </helmet>
 
@@ -23,12 +36,13 @@
 
   <!-- NAV -->
   <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
-    <a href="Home.dc.html" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
+    <a href="/" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
     <div style="display:flex;gap:40px;align-items:center">
-      <a href="Home.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
-      <a href="Work.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
-      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">AI Lab</a>
-      <a href="Contact.dc.html" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Contact</a>
+      <a href="/" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
+      <a href="/work" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
+      <a href="/ai-lab" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">AI Lab</a>
+      <a href="/about" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">About</a>
+      <a href="/contact" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Contact</a>
     </div>
   </nav>
 
@@ -221,8 +235,8 @@
     <h2 style="margin:0 auto;max-width:20ch;font-size:clamp(28px,3.8vw,52px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f7f6f2">The experiment is only useful when it becomes a system.</h2>
     <p style="margin:28px auto 0;max-width:58ch;font-size:16px;line-height:1.65;color:#9c9b96">My AI work sits between creative direction and technical implementation. I identify what strong visual output requires, translate those requirements into structured language, test them against real model behavior, and document what the wider team can reuse.</p>
     <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
-      <a href="Work.dc.html" style="font-size:14px;font-weight:600;color:#111110;background:#f2f1ee;padding:16px 28px" style-hover="background:#d9633b;color:#111110">Explore selected work</a>
-      <a href="Contact.dc.html" style="font-size:14px;font-weight:600;color:#f2f1ee;border:1px solid #3a3936;padding:16px 28px" style-hover="border-color:#f2f1ee">Discuss an AI creative system</a>
+      <a href="/work" style="font-size:14px;font-weight:600;color:#111110;background:#f2f1ee;padding:16px 28px" style-hover="background:#d9633b;color:#111110">Explore selected work</a>
+      <a href="/contact" style="font-size:14px;font-weight:600;color:#f2f1ee;border:1px solid #3a3936;padding:16px 28px" style-hover="border-color:#f2f1ee">Discuss an AI creative system</a>
     </div>
   </section>
 
@@ -234,10 +248,11 @@
         <p style="margin:10px 0 0;font-size:13px;line-height:1.7;color:#8a8985">Creative Director<br>AI Creative Systems<br>Art Direction</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
-        <a href="Home.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
-        <a href="Work.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
-        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
-        <a href="Contact.dc.html" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
+        <a href="/" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
+        <a href="/work" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
+        <a href="/ai-lab" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
+        <a href="/about" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">About</a>
+        <a href="/contact" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
         <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
