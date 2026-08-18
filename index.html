@@ -12,7 +12,6 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
 <style>
   html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
@@ -50,25 +49,25 @@
   <!-- HERO -->
   <section style="position:relative;width:100%;height:100vh;min-height:640px;overflow:hidden">
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity0 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-0.webp" srcset="media/assets/hero-0-1080.webp 1080w, media/assets/hero-0.webp 1200w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity1 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-1.webp" srcset="media/assets/hero-1-1080.webp 1080w, media/assets/hero-1.webp 2025w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity2 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-2.webp" srcset="media/assets/hero-2-1080.webp 1080w, media/assets/hero-2.webp 1079w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity3 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-3.webp" srcset="media/assets/hero-3-1080.webp 1080w, media/assets/hero-3.webp 1080w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity4 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-4.webp" srcset="media/assets/hero-4-1080.webp 1080w, media/assets/hero-4.webp 2025w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity5 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-5.webp" srcset="media/assets/hero-5-1080.webp 1080w, media/assets/hero-5.webp 480w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
     <div style="position:absolute;inset:0;opacity:{{ heroOpacity6 }};transition:opacity 1.8s ease">
-      <img src="assets/hero-6.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
+      <img src="media/assets/hero-6.webp" srcset="media/assets/hero-6-1080.webp 1080w, media/assets/hero-6.webp 2752w" sizes="100vw" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%">
     </div>
 
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,10,9,0.55) 0%, rgba(10,10,9,0.35) 35%, rgba(10,10,9,0.75) 78%, rgba(10,10,9,0.95) 100%);pointer-events:none"></div>
@@ -87,7 +86,7 @@
   <!-- THESIS -->
   <section id="thesis" ref="{{ thesisRef }}" style="min-height:auto;padding:120px 48px 32px">
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:flex-start;gap:64px;flex-wrap:wrap">
-    <img src="assets/matt-portrait.jpg" alt="Matt Johnson" style="width:320px;max-width:38vw;aspect-ratio:3/4;object-fit:cover;flex:none">
+    <img src="media/assets/matt-portrait.webp" alt="Matt Johnson" style="width:320px;max-width:38vw;aspect-ratio:3/4;object-fit:cover;flex:none">
     <p style="max-width:640px;margin:0 48px 0 0;text-align:left;font-size:clamp(28px,3.8vw,56px);font-weight:500;letter-spacing:-0.015em;line-height:1.18;color:#f2f1ee;opacity:{{ thesisOpacity }};transform:{{ thesisTransform }};transition:opacity 0.9s ease,transform 0.9s ease">Great creative work isn't an accident. It's the result of effective systems, clear direction, and thoughtful iteration.</p>
     </div>
   </section>
@@ -144,33 +143,31 @@
     <p style="margin:0 0 40px;text-align:center;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">The evolution</p>
     <div style="position:relative;max-width:840px;height:280px;margin:0 auto 40px;opacity:{{ previewOpacity }};transition:opacity 0.3s ease;pointer-events:none">
       <div style="position:absolute;inset:0;opacity:{{ hoverOpacity0 }};transition:opacity 0.3s ease;overflow:hidden;filter:brightness(0.7)">
-        <img src="assets/cc-01.jpg" alt="" style="position:absolute;left:-2.4%;top:0%;width:31%;height:75%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
-        <img src="assets/cc-04.jpg" alt="" style="position:absolute;left:25%;top:-10.7%;width:28.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
-        <img src="assets/cc-08.jpg" alt="" style="position:absolute;left:48.8%;top:0%;width:25%;height:67.9%;object-fit:cover;transform:rotate(-2deg);border:3px solid #0a0a09">
-        <img src="assets/cc-09.jpg" alt="" style="position:absolute;left:70.2%;top:0%;width:32.1%;height:60.7%;object-fit:cover;transform:rotate(5deg);border:3px solid #0a0a09">
-        <img src="assets/cc-05.jpg" alt="" style="position:absolute;left:3.6%;top:50%;width:27.4%;height:57.1%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
-        <img src="assets/cc-02.png" alt="" style="position:absolute;left:28%;top:41.1%;width:23.8%;height:64.3%;object-fit:cover;object-position:100% 50%;transform:rotate(-5deg);border:3px solid #0a0a09">
-        <img src="assets/cc-06.jpg" alt="" style="position:absolute;left:49.4%;top:55.4%;width:22.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
-        <img src="assets/cc-07.jpg" alt="" style="position:absolute;left:69%;top:46.4%;width:20.2%;height:64.3%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
-        <img src="assets/cc-03.jpg" alt="" style="position:absolute;left:85.7%;top:10.7%;width:16.7%;height:53.6%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
-        <img src="assets/cc-10.jpg" alt="" style="position:absolute;left:84.5%;top:57.1%;width:17.9%;height:46.4%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-01.webp" alt="" style="position:absolute;left:-2.4%;top:0%;width:31%;height:75%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-04.webp" alt="" style="position:absolute;left:25%;top:-10.7%;width:28.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-08.webp" alt="" style="position:absolute;left:48.8%;top:0%;width:25%;height:67.9%;object-fit:cover;transform:rotate(-2deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-09.webp" alt="" style="position:absolute;left:70.2%;top:0%;width:32.1%;height:60.7%;object-fit:cover;transform:rotate(5deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-05.webp" alt="" style="position:absolute;left:3.6%;top:50%;width:27.4%;height:57.1%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-02.webp" alt="" style="position:absolute;left:28%;top:41.1%;width:23.8%;height:64.3%;object-fit:cover;object-position:100% 50%;transform:rotate(-5deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-06.webp" alt="" style="position:absolute;left:49.4%;top:55.4%;width:22.6%;height:53.6%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-07.webp" alt="" style="position:absolute;left:69%;top:46.4%;width:20.2%;height:64.3%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-03.webp" alt="" style="position:absolute;left:85.7%;top:10.7%;width:16.7%;height:53.6%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
+        <img src="media/assets/cc-10.webp" alt="" style="position:absolute;left:84.5%;top:57.1%;width:17.9%;height:46.4%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Comic Creator</span></div>
-      </div>
-      <div style="display:none"><image-slot id="node-preview-0" shape="rect" placeholder="Comic creator — early pages" style="width:100%;height:100%"></image-slot></div>
-      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity1 }};transition:opacity 0.3s ease"><video src="assets/node-motion-graphics.mp4" autoplay="" loop="" muted="" playsinline="" style="width:100%;height:100%;object-fit:cover"></video><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Motion Graphics</span></div></div>
+      </div>      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity1 }};transition:opacity 0.3s ease"><video src="media/assets/node-motion-graphics.mp4" autoplay="" loop="" muted="" playsinline="" style="width:100%;height:100%;object-fit:cover"></video><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Motion Graphics</span></div></div>
       <div style="position:absolute;inset:0;opacity:{{ hoverOpacity2 }};transition:opacity 0.3s ease;overflow:hidden;filter:brightness(0.7)">
-        <img src="assets/ad-01.jpg" alt="" style="position:absolute;left:-2%;top:-8%;width:29%;height:58%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
-        <img src="assets/ad-02.jpg" alt="" style="position:absolute;left:24%;top:-6%;width:27%;height:50%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
-        <img src="assets/ad-03.png" alt="" style="position:absolute;left:49%;top:-9%;width:26%;height:56%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
-        <img src="assets/ad-04.png" alt="" style="position:absolute;left:74%;top:-7%;width:28%;height:52%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
-        <img src="assets/ad-05.jpg" alt="" style="position:absolute;left:2%;top:46%;width:30%;height:62%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
-        <img src="assets/ad-06.jpg" alt="" style="position:absolute;left:32%;top:52%;width:33%;height:54%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
-        <img src="assets/ad-07.jpg" alt="" style="position:absolute;left:65%;top:48%;width:34%;height:58%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-01.webp" alt="" style="position:absolute;left:-2%;top:-8%;width:29%;height:58%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-02.webp" alt="" style="position:absolute;left:24%;top:-6%;width:27%;height:50%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-03.webp" alt="" style="position:absolute;left:49%;top:-9%;width:26%;height:56%;object-fit:cover;transform:rotate(-4deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-04.webp" alt="" style="position:absolute;left:74%;top:-7%;width:28%;height:52%;object-fit:cover;transform:rotate(3deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-05.webp" alt="" style="position:absolute;left:2%;top:46%;width:30%;height:62%;object-fit:cover;transform:rotate(2deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-06.webp" alt="" style="position:absolute;left:32%;top:52%;width:33%;height:54%;object-fit:cover;transform:rotate(-3deg);border:3px solid #0a0a09">
+        <img src="media/assets/ad-07.webp" alt="" style="position:absolute;left:65%;top:48%;width:34%;height:58%;object-fit:cover;transform:rotate(4deg);border:3px solid #0a0a09">
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Art Direction</span></div>
       </div>
-      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity3 }};transition:opacity 0.3s ease"><img src="assets/node-creative-leadership.png" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Creative Leadership</span></div></div>
-      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity4 }};transition:opacity 0.3s ease"><img src="assets/node-ai-visual-systems.png" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">AI Visual Systems</span></div></div>
-      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity5 }};transition:opacity 0.3s ease"><img src="assets/node-prompt-engineering.png" alt="" style="width:100%;height:100%;object-fit:contain;background:#111110"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Prompt Engineering</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity3 }};transition:opacity 0.3s ease"><img src="media/assets/node-creative-leadership.webp" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Creative Leadership</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity4 }};transition:opacity 0.3s ease"><img src="media/assets/node-ai-visual-systems.webp" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">AI Visual Systems</span></div></div>
+      <div style="position:absolute;inset:0;opacity:{{ hoverOpacity5 }};transition:opacity 0.3s ease"><img src="media/assets/node-prompt-engineering.webp" alt="" style="width:100%;height:100%;object-fit:contain;background:#111110"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:88px;font-weight:700;letter-spacing:-0.01em;color:#f2f1ee;opacity:0.65;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,0.8),0 0 40px rgba(0,0,0,0.6);padding:8px 20px">Prompt Engineering</span></div></div>
     </div>
     <div style="position:relative;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;gap:8px">
       <div style="position:absolute;top:6px;left:0;right:0;height:1px;background:#2a2a27"></div>
@@ -308,21 +305,21 @@ class Component extends DCLogic {
       navBorderColor: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
       accent,
       thesisRef: this.thesisRef,
-      refFrames: [0,1,2,3,4].map(i => ({ src: `assets/ref-frame-${i+1}.png`, opacity: this.state.refFrameIndex === i ? 1 : 0 })),
-      afterFrames: [0,1,2,3,4].map(i => ({ src: `assets/after-frame-${i+1}.png`, opacity: this.state.refFrameIndex === i ? 1 : 0 })),
+      refFrames: [0,1,2,3,4].map(i => ({ src: `media/assets/ref-frame-${i+1}.webp`, opacity: this.state.refFrameIndex === i ? 1 : 0 })),
+      afterFrames: [0,1,2,3,4].map(i => ({ src: `media/assets/after-frame-${i+1}.webp`, opacity: this.state.refFrameIndex === i ? 1 : 0 })),
       logosDoubled: [
-        { src: 'assets/logo-voyceme.png', height: '106px' },
-        { src: 'assets/logo-colored.png', height: '123px' },
-        { src: 'assets/logo-br.png', height: '67px' },
-        { src: 'assets/logo-isekaime.png', height: '98px' },
-        { src: 'assets/logo-thrash.png', height: '62px' },
-        { src: 'assets/logo-ggo.png', height: '59px' },
-        { src: 'assets/logo-voyceme.png', height: '106px' },
-        { src: 'assets/logo-colored.png', height: '123px' },
-        { src: 'assets/logo-br.png', height: '67px' },
-        { src: 'assets/logo-isekaime.png', height: '98px' },
-        { src: 'assets/logo-thrash.png', height: '62px' },
-        { src: 'assets/logo-ggo.png', height: '59px' },
+        { src: 'media/assets/logo-voyceme.webp', height: '106px' },
+        { src: 'media/assets/logo-colored.webp', height: '123px' },
+        { src: 'media/assets/logo-br.webp', height: '67px' },
+        { src: 'media/assets/logo-isekaime.webp', height: '98px' },
+        { src: 'media/assets/logo-thrash.webp', height: '62px' },
+        { src: 'media/assets/logo-ggo.webp', height: '59px' },
+        { src: 'media/assets/logo-voyceme.webp', height: '106px' },
+        { src: 'media/assets/logo-colored.webp', height: '123px' },
+        { src: 'media/assets/logo-br.webp', height: '67px' },
+        { src: 'media/assets/logo-isekaime.webp', height: '98px' },
+        { src: 'media/assets/logo-thrash.webp', height: '62px' },
+        { src: 'media/assets/logo-ggo.webp', height: '59px' },
       ],
       thesisOpacity: this.state.thesisVisible ? 1 : 0,
       thesisTransform: this.state.thesisVisible ? 'translateX(0)' : 'translateX(24px)',
@@ -343,24 +340,24 @@ class Component extends DCLogic {
         { label: 'Prompt engineering', href: '/work', onEnter: () => this.setState({ hoverIndex: 5, isHoveringNode: true }) },
       ],
       clientLogos: [
-        { name: 'FableVerse', src: 'assets/client-fableverse.png', maxSize: '100%' },
-        { name: 'VoyceMe', src: 'assets/client-voyceme.png', maxSize: '100%' },
-        { name: 'IsekaiMe', src: 'assets/client-isekaime.png', maxSize: '100%' },
-        { name: 'Thrash: Rise of Shidou', src: 'assets/client-thrash.png', maxSize: '100%' },
-        { name: 'Mage of Blades', src: 'assets/client-mob.png', maxSize: '100%' },
-        { name: 'Black Resume', src: 'assets/client-blackresume.png', maxSize: '100%' },
-        { name: 'Chrysalis', src: 'assets/client-chrysalis.png', maxSize: '100%' },
-        { name: 'A Modern Horror Story', src: 'assets/client-amhs.png', maxSize: '100%' },
-        { name: 'Witching Hour', src: 'assets/client-witching-hour.png', maxSize: '100%' },
-        { name: 'Miss Annity', src: 'assets/client-missannity.png', maxSize: '100%' },
-        { name: 'Shadowhearts', src: 'assets/client-shadowhearts.png', maxSize: '100%' },
-        { name: 'Zokio', src: 'assets/client-zokio-icon.png', maxSize: '100%' },
-        { name: 'Elemental Chronicles', src: 'assets/client-elemental-chronicles.png', maxSize: '100%' },
-        { name: 'Death Speed', src: 'assets/client-deathspeed.png', maxSize: '100%' },
-        { name: 'AavegotchI', src: 'assets/client-aavegotchi.png', maxSize: '100%' },
-        { name: 'GGO', src: 'assets/client-ggo.png', maxSize: '100%' },
-        { name: 'System Royale', src: 'assets/client-systemroyale.png', maxSize: '100%' },
-        { name: 'Criminal Lord', src: 'assets/client-criminal-lord.png', maxSize: '100%' },
+        { name: 'FableVerse', src: 'media/assets/client-fableverse.webp', maxSize: '100%' },
+        { name: 'VoyceMe', src: 'media/assets/client-voyceme.webp', maxSize: '100%' },
+        { name: 'IsekaiMe', src: 'media/assets/client-isekaime.webp', maxSize: '100%' },
+        { name: 'Thrash: Rise of Shidou', src: 'media/assets/client-thrash.webp', maxSize: '100%' },
+        { name: 'Mage of Blades', src: 'media/assets/client-mob.webp', maxSize: '100%' },
+        { name: 'Black Resume', src: 'media/assets/client-blackresume.webp', maxSize: '100%' },
+        { name: 'Chrysalis', src: 'media/assets/client-chrysalis.webp', maxSize: '100%' },
+        { name: 'A Modern Horror Story', src: 'media/assets/client-amhs.webp', maxSize: '100%' },
+        { name: 'Witching Hour', src: 'media/assets/client-witching-hour.webp', maxSize: '100%' },
+        { name: 'Miss Annity', src: 'media/assets/client-missannity.webp', maxSize: '100%' },
+        { name: 'Shadowhearts', src: 'media/assets/client-shadowhearts.webp', maxSize: '100%' },
+        { name: 'Zokio', src: 'media/assets/client-zokio-icon.webp', maxSize: '100%' },
+        { name: 'Elemental Chronicles', src: 'media/assets/client-elemental-chronicles.webp', maxSize: '100%' },
+        { name: 'Death Speed', src: 'media/assets/client-deathspeed.webp', maxSize: '100%' },
+        { name: 'AavegotchI', src: 'media/assets/client-aavegotchi.webp', maxSize: '100%' },
+        { name: 'GGO', src: 'media/assets/client-ggo.webp', maxSize: '100%' },
+        { name: 'System Royale', src: 'media/assets/client-systemroyale.webp', maxSize: '100%' },
+        { name: 'Criminal Lord', src: 'media/assets/client-criminal-lord.webp', maxSize: '100%' },
       ],
       onCsLeave: () => this.setState({ csHoverIndex: -1 }),
       careerHistory: [

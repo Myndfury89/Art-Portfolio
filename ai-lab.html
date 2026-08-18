@@ -6,7 +6,6 @@
 <title>AI Lab — Matt Johnson</title>
 <meta name="description" content="Method behind artist-led AI: prompt architecture, cinematic prompt language, visual evaluation, and production consistency.">
 <script src="./support.js"></script>
-<script src="./image-slot.js"></script>
 </head>
 <body>
 <x-dc>
@@ -56,18 +55,23 @@
         <p style="margin:36px 0 0;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#6f6e6a">Prompt Architecture &nbsp;·&nbsp; Visual Evaluation &nbsp;·&nbsp; Model Testing &nbsp;·&nbsp; Human-Led AI &nbsp;·&nbsp; Product Experiments</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div style="background:#1a1a18;position:relative;padding:44px 20px 20px;box-sizing:border-box;display:flex;flex-direction:column">
-          <p style="margin:0;font-size:11px;line-height:1.55;color:#c9c8c3;font-family:monospace">Anime illustration of a dark-skinned girl with braided black hair adorned with colorful beads, wearing a black shiny sleeveless unitard, gold hoop earrings, and gold cuffs, throwing a roundhouse kick, camera is looking up from below, action scene</p>
-          <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Prompt sheet</span>
+        <div style="background:#1a1a18;position:relative;padding:44px 16px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:9px">
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">SUBJECT</span><span style="color:#c9c8c3">archetype · defining silhouette + wardrobe cues</span></div>
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">ACTION</span><span style="color:#c9c8c3">one clear verb, captured mid-motion</span></div>
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">CAMERA</span><span style="color:#c9c8c3">shot size + angle (e.g. low, looking up)</span></div>
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">LIGHTING</span><span style="color:#c9c8c3">key direction · quality · colour temperature</span></div>
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">COMPOSITION</span><span style="color:#c9c8c3">focal hierarchy · foreground depth · negative space</span></div>
+          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">STYLE</span><span style="color:#c9c8c3">medium · rendering target · finish</span></div>
+          <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Prompt architecture</span>
         </div>
         <div style="aspect-ratio:3/4;background:#1a1a18;position:relative;overflow:hidden">
-          <img src="uploads/Screenshot 2026-04-27 083436-a188c48c.png" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3)">
+          <img src="media/uploads/Screenshot 2026-04-27 083436-a188c48c.webp" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3)">
           <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Reference</span>
         </div>
         <div style="grid-column:span 2;aspect-ratio:16/8;background:#1a1a18;position:relative;overflow:hidden">
           
           <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px;z-index:1">Camera diagram</span>
-        <image-slot id="ai-lab-camera-diagram" shape="rect" placeholder="Camera-angle / shot-composition diagram" style="width:100%;height:100%"></image-slot></div>
+        <img src="media/assets/ai-lab-camera-diagram.webp" alt="Camera diagram mapping conversational phrases to shot language and cinematic image outcomes" loading="lazy" style="width:100%;height:100%;object-fit:contain"></div>
       </div>
     </div>
   </section>
@@ -85,6 +89,46 @@
             <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:#8a8985">{{ step.detail }}</p>
           </div>
         </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ANATOMY OF A PROMPT -->
+  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
+    <div style="max-width:1280px;margin:0 auto">
+      <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Treating prompt as a hierarchy</h2>
+      <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96;font-style:italic">"A lone swordsman crosses a ruined temple courtyard during a storm."</p>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <sc-for list="{{ anatomyLayers }}" as="layer" hint-placeholder-count="6">
+          <div style="border-top:2px solid #3a3936;padding-top:16px">
+            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">{{ layer.label }}</p>
+            <p style="margin:0 0 10px;font-size:13px;line-height:1.5;color:#c9c8c3">{{ layer.value }}</p>
+            <p style="margin:0;font-size:12px;line-height:1.5;color:#8a8985">{{ layer.why }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:56px">
+        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Validation criteria</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <sc-for list="{{ validationCriteria }}" as="c" hint-placeholder-count="5">
+            <span style="font-size:13px;color:#9c9b96;border:1px solid #2a2a27;padding:8px 14px">{{ c }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top:56px">
+        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Covers built from this hierarchy</p>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+          <img src="media/uploads/Married the Cartel Prince.webp" alt="Romance cover — window-lit two-shot with city depth" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/MWS Cover.webp" alt="Fantasy romance cover — dramatic key light" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/Le Festival de Lumiere- Cover.webp" alt="Fantasy cover — backlit silhouette, low camera angle" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/OG Idea Cover.webp" alt="Sci-fi cover — in-world screen framing" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/Quan Millz-4.webp" alt="Urban fiction cover — high-contrast neon staging" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/Anime Gym Bro Cover.webp" alt="Anime action cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/LUMIA Cover.webp" alt="Fantasy cover — atmospheric lighting" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/Fourth Wing Cover.webp" alt="Fantasy cover — creature and figure composition" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/Harry Styles.webp" alt="Character portrait cover study" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="media/uploads/God Game Cover.webp" alt="Mythology cover — power hero shot" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+        </div>
       </div>
     </div>
   </section>
@@ -119,65 +163,10 @@
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
-          <img src="uploads/Screenshot 2026-04-26 212120-6cb46156.png" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="uploads/Screenshot 2026-04-29 182835.png" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="uploads/Screenshot 2026-04-29 182934.png" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="media/uploads/Screenshot 2026-04-26 212120-6cb46156.webp" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="media/uploads/Screenshot 2026-04-29 182835.webp" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="media/uploads/Screenshot 2026-04-29 182934.webp" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. ANATOMY OF A PROMPT -->
-  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
-    <div style="max-width:1280px;margin:0 auto">
-      <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Treating prompt as a hierarchy</h2>
-      <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96;font-style:italic">"A lone swordsman crosses a ruined temple courtyard during a storm."</p>
-      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
-        <sc-for list="{{ anatomyLayers }}" as="layer" hint-placeholder-count="6">
-          <div style="border-top:2px solid #3a3936;padding-top:16px">
-            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">{{ layer.label }}</p>
-            <p style="margin:0 0 10px;font-size:13px;line-height:1.5;color:#c9c8c3">{{ layer.value }}</p>
-            <p style="margin:0;font-size:12px;line-height:1.5;color:#8a8985">{{ layer.why }}</p>
-          </div>
-        </sc-for>
-      </div>
-      <div style="margin-top:56px">
-        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Validation criteria</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px">
-          <sc-for list="{{ validationCriteria }}" as="c" hint-placeholder-count="5">
-            <span style="font-size:13px;color:#9c9b96;border:1px solid #2a2a27;padding:8px 14px">{{ c }}</span>
-          </sc-for>
-        </div>
-      </div>
-      <div style="margin-top:56px">
-        <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Covers built from this hierarchy</p>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
-          <img src="uploads/Married the Cartel Prince.png" alt="Married the Cartel Prince — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/MWS Cover.png" alt="MWS — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/Le Festival de Lumiere- Cover.png" alt="Le Festival de Lumière — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/OG Idea Cover.png" alt="OG Idea — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/Quan Millz-4.png" alt="Quan Millz — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/Anime Gym Bro Cover.png" alt="Anime Gym Bro — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/LUMIA Cover.png" alt="LUMIA — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/Fourth Wing Cover.png" alt="Fourth Wing — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/Harry Styles.png" alt="Harry Styles fan cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="uploads/God Game Cover.png" alt="God Game — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. ISEKAIME VIGNETTE -->
-  <section style="padding:120px 48px;border-top:1px solid #232320">
-    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
-      <div style="aspect-ratio:16/10;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/logo-isekaime.png" alt="IsekaiMe" style="width:100%;height:100%;object-fit:contain;padding:14%;box-sizing:border-box">
-      </div>
-      <div>
-        <h3 style="margin:0;font-size:clamp(24px,2.8vw,36px);font-weight:600;letter-spacing:-0.015em;color:#f2f1ee">Designing the experience around generation.</h3>
-        <p style="margin:20px 0 0;font-size:15px;line-height:1.65;color:#9c9b96">Prompt quality alone can't solve a weak user journey. For IsekaiMe, I explored how users could enter an AI creation experience through either guided narrative Storypacks or a faster, open-ended QuickGen workflow — mapping onboarding, content hierarchy, prompt suggestions, community output, and retention.</p>
-        <p style="margin:24px 0 0;font-size:18px;font-style:italic;font-weight:500;color:#f2f1ee">Better generation begins before the user writes the prompt.</p>
-        <p style="margin:24px 0 0;font-size:12px;letter-spacing:0.04em;color:#6f6e6a">Product Strategy · UX Research · Competitive Analysis</p>
       </div>
     </div>
   </section>

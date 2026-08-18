@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work — Matt Johnson</title>
-<meta name="description" content="Selected work — Thrash, Black Resume, Mage of Blades, System Royale, and VoyceMe / FableVerse creative systems.">
+<meta name="description" content="Case studies in art direction, creative systems, and artist-led AI production: Thrash, Black Resume, Mage of Blades, FableVerse, and Strands.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -19,12 +19,17 @@
   ::selection{background:#e8873a;color:#111110}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
+  /* Smooth in-page navigation with offset clearing the fixed nav + sub-nav */
+  html{scroll-behavior:smooth}
+  #overview,#thrash,#black-resume,#voyceme{scroll-margin-top:140px}
+
   /* --- Production additions: responsive nav + reduced-motion (desktop layout unchanged) --- */
   @media (max-width:640px){
     nav{padding:0 16px !important;height:72px !important}
     nav>a{font-size:14px !important;white-space:nowrap}
     nav>div{gap:13px !important}
     nav>div a{font-size:12px !important;letter-spacing:0 !important;white-space:nowrap}
+    #overview,#thrash,#black-resume,#voyceme{scroll-margin-top:104px}
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
@@ -66,9 +71,9 @@
         <p style="margin:36px 0 0;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#6f6e6a">Art Direction &nbsp;·&nbsp; Visual Storytelling &nbsp;·&nbsp; IP Development &nbsp;·&nbsp; Creative Systems &nbsp;·&nbsp; AI Direction</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <img src="./system-royale-2-msml8pa6-7olq.png" alt="" style="grid-column: span 2; width: 69%; aspect-ratio: 16/9; object-fit: cover; filter: grayscale(0.2) brightness(0.9); height: 324px">
-        <img src="assets/blackresume-logo.png" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
-        <img src="assets/fableverse-logo.png" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
+        <img src="media/system-royale-2-msml8pa6-7olq.webp" alt="" style="grid-column: span 2; width: 69%; aspect-ratio: 16/9; object-fit: cover; filter: grayscale(0.2) brightness(0.9); height: 324px">
+        <img src="media/assets/blackresume-logo.webp" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
+        <img src="media/assets/fableverse-logo.webp" alt="" style="width:100%;aspect-ratio:1/1;object-fit:contain;background:#1a1a18;padding:10%">
       </div>
     </div>
   </section>
@@ -78,7 +83,7 @@
     <div style="max-width:1280px;margin:0 auto;padding:120px 48px 140px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#232320">
       <div id="thrash" ref="{{ thrashRef }}" onClick="{{ openThrash }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a18">
-          <img src="./copy-of-pg-16a-msmenzdh-r8vf.jpg" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
+          <img src="media/copy-of-pg-16a-msmenzdh-r8vf.webp" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
         </div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">01 — Thrash: Rise of Shidou</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Building a cinematic webtoon through color, motion, and visual storytelling.</h2>
@@ -88,7 +93,7 @@
       <div id="black-resume" ref="{{ brRef }}" onClick="{{ openBlackResumeCase }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
           
-        <img src="assets/blackresume-logo.png" alt="Black Resume identity" style="width: 100%; max-width: 536px; height: 295px; object-fit: contain; padding: 8%"></div>
+        <img src="media/assets/blackresume-logo.webp" alt="Black Resume identity" style="width: 100%; max-width: 536px; height: 295px; object-fit: contain; padding: 8%"></div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">02 — Black Resume</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Directing an original IP from visual identity to audience growth.</h2>
         <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">An original entertainment property that helped attract 2.4 million viewers to VoyceMe's platform.</p>
@@ -97,7 +102,7 @@
       <div id="mage-of-blades" ref="{{ mageRef }}" onClick="{{ openMage }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
           
-        <img src="uploads/372x496 cover MoB.png" alt="Mage of Blades cover art" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
+        <img src="media/uploads/372x496 cover MoB.webp" alt="Mage of Blades cover art" style="width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">03 — Mage of Blades</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Art directing a hero for the Zokio NFT universe.</h2>
         <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Draft-to-final review passes built around line of action, silhouette, and compositing to raise a single character illustration to franchise quality.</p>
@@ -105,7 +110,7 @@
       </div>
       <div id="system-royale" ref="{{ srRef }}" onClick="{{ openSR }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
-          <img src="./system-royale-19--msmjlsny-m72w.png" alt="System Royale — Avon" style="width:100%;height:100%;object-fit:cover;object-position:top">
+          <img src="media/system-royale-19--msmjlsny-m72w.webp" alt="System Royale — Avon" style="width:100%;height:100%;object-fit:cover;object-position:top">
         </div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">04 — System Royale</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Building a full cast at scale with an artist-led AI pipeline.</h2>
@@ -114,7 +119,7 @@
       </div>
       <div id="fableverse" ref="{{ fvRef }}" onClick="{{ openFV }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
-          <img src="./quan-millz-4-mspkpu0k-1abm.png" alt="FableVerse — Le Festival de Lumiere cover" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
+          <img src="media/quan-millz-4-mspkpu0k-1abm.webp" alt="FableVerse — Le Festival de Lumiere cover" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
         </div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">05 — FableVerse</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Giving generative storytelling a visual language.</h2>
@@ -123,7 +128,7 @@
       </div>
       <div id="strands" ref="{{ stRef }}" onClick="{{ openST }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
         <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
-          <img src="uploads/Vampire King- Cover 2.3 (1).png" alt="Strands cover art — Vampire King" style="width:100%;height:100%;object-fit:cover;object-position:center 25%">
+          <img src="media/uploads/Vampire King- Cover 2.3 (1).webp" alt="Strands cover art — Vampire King" style="width:100%;height:100%;object-fit:cover;object-position:center 25%">
         </div>
         <span style="margin-top:28px;font-size:13px;color:#5c5b57">06 — Strands</span>
         <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Resident cover artist for a community-written fiction platform.</h2>
@@ -163,22 +168,22 @@
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div onClick="{{ openBlackResume }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
-            <img src="uploads/BR.png" alt="Black Resume concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <img src="media/uploads/BR.webp" alt="Black Resume concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
             <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
             <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">Black Resume →</span>
           </div>
           <div onClick="{{ openGodGame }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
-            <img src="uploads/Monkey_King_Collage-bf8950e2.png" alt="God Game concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <img src="media/uploads/Monkey_King_Collage-bf8950e2.webp" alt="God Game concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
             <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
             <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">God Game →</span>
           </div>
           <div onClick="{{ openSurvivalIdol }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
-            <img src="uploads/SI_title.png" alt="Survival Idol concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <img src="media/uploads/SI_title.webp" alt="Survival Idol concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
             <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
             <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">Survival Idol →</span>
           </div>
           <div onClick="{{ openSystemRoyale }}" style="position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;background:#1a1a18" style-hover="opacity:0.82">
-            <img src="uploads/Avon.png" alt="System Royale concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
+            <img src="media/uploads/Avon.webp" alt="System Royale concept art" style="width:100%;height:100%;object-fit:cover;background:#e8e6e0">
             <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.8) 0%, transparent 55%)"></div>
             <span style="position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;letter-spacing:0.03em;color:#f2f1ee">System Royale →</span>
           </div>
@@ -197,7 +202,7 @@
           </div>
         </div>
         <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#111110">
-          <img src="./screenshot-2026-04-30-001405-msmerp9j-fgwf.png" alt="Before/after lighting and FX pass" style="position: absolute; top: 163px; left: 245px; width: 212px; height: 264px; object-fit: cover; transform: scale(2.5); transform-origin: 80% 62%">
+          <img src="media/screenshot-2026-04-30-001405-msmerp9j-fgwf.webp" alt="Before/after lighting and FX pass" style="position: absolute; top: 163px; left: 245px; width: 212px; height: 264px; object-fit: cover; transform: scale(2.5); transform-origin: 80% 62%">
           <span style="position:absolute;bottom:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#e6e5e1;background:rgba(10,10,9,0.55);padding:4px 8px">Before → After</span>
         </div>
       </div>
@@ -224,7 +229,7 @@
   <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
   <div onClick="{{ stopClick }}" style="position:relative;padding:0">
     <div style="position:relative;width:100%;aspect-ratio:16/9;max-height:88vh;overflow:hidden">
-      <img src="assets/node-comic-creator.png" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
+      <img src="media/assets/node-comic-creator.webp" alt="Thrash: Rise of Shidou" style="width:100%;height:100%;object-fit:cover">
       <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(10,10,9,0.92) 0%, rgba(10,10,9,0.25) 45%, rgba(10,10,9,0.55) 100%)"></div>
       <div style="position:absolute;left:48px;right:48px;bottom:56px">
         <span style="font-size:13px;color:#c9c8c3">01 — Thrash: Rise of Shidou</span>
@@ -240,28 +245,28 @@
         <a href="https://www.voyce.me/series/thrash-rise-of-shidou" target="_blank" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #f2f1ee;padding-bottom:2px;width:fit-content">Enter the world of Thrash →</a>
       </div>
       <div style="aspect-ratio:16/10;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/thrash-01.png" alt="Character evolution through visual design" style="width: 100%; height: 100%; object-fit: scale-down">
+        <img src="media/assets/thrash-01.webp" alt="Character evolution through visual design" style="width: 100%; height: 100%; object-fit: scale-down">
       </div>
     </div>
 
     <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
       <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/thrash-02.png" alt="Reader immersion through cinematic reference" style="width:100%;height:100%;object-fit:cover">
+        <img src="media/assets/thrash-02.webp" alt="Reader immersion through cinematic reference" style="width:100%;height:100%;object-fit:cover">
       </div>
     </div>
     <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
       <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/thrash-03.png" alt="Dynamic poses with cinematic panels" style="width: 1281px; height: 608px; object-fit: cover">
+        <img src="media/assets/thrash-03.webp" alt="Dynamic poses with cinematic panels" style="width: 1281px; height: 608px; object-fit: cover">
       </div>
     </div>
     <div style="max-width:1280px;margin:0 auto 16px;padding:0 48px">
       <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/thrash-04.png" alt="Lighting angles and shadow for mood" style="width:100%;height:100%;object-fit:cover">
+        <img src="media/assets/thrash-04.webp" alt="Lighting angles and shadow for mood" style="width:100%;height:100%;object-fit:cover">
       </div>
     </div>
     <div style="max-width:1280px;margin:0 auto 96px;padding:0 48px">
       <div style="aspect-ratio:16/8;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="assets/thrash-05.png" alt="Cinematic lighting for storytelling" style="width:100%;height:100%;object-fit:cover">
+        <img src="media/assets/thrash-05.webp" alt="Cinematic lighting for storytelling" style="width:100%;height:100%;object-fit:cover">
       </div>
     </div>
 
@@ -269,15 +274,15 @@
       <p style="margin:0 0 24px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Character &amp; Scene Development</p>
     </div>
     <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-04-30 001405.png" alt="Thrash character dialogue panel" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image-13.png" alt="Thrash eclipse scene" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot_20221223-171629_VoyceMe-b7caca1e.jpg" alt="Thrash spellcasting panel" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of Shiva Color Ref-3ccf67c9.jpg" alt="Shiva color reference" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of 13 Color Ref-73f9cfdb.jpg" alt="Character 13 color reference" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of Secca Color Ref-50249833.jpg" alt="Secca color reference" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of pg 16a.jpg" alt="Thrash page 16 art" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/pg 15a-8933b385.jpg" alt="Thrash page 15 art" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/pg 20 (1) (1)-e273a4a4.jpg" alt="Thrash page 20 art" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Screenshot 2026-04-30 001405.webp" alt="Thrash character dialogue panel" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/image-13.webp" alt="Thrash eclipse scene" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Screenshot_20221223-171629_VoyceMe-b7caca1e.webp" alt="Thrash spellcasting panel" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Copy of Shiva Color Ref-3ccf67c9.webp" alt="Shiva color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Copy of 13 Color Ref-73f9cfdb.webp" alt="Character 13 color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Copy of Secca Color Ref-50249833.webp" alt="Secca color reference" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Copy of pg 16a.webp" alt="Thrash page 16 art" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/pg 15a-8933b385.webp" alt="Thrash page 15 art" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/pg 20 (1) (1)-e273a4a4.webp" alt="Thrash page 20 art" style="width:100%;height:100%;object-fit:contain"></div>
     </div>
 
     <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px">
@@ -301,7 +306,7 @@
     </div>
     <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:0;align-items:stretch">
       <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0c">
-        <img src="assets/blackresume-logo.png" alt="Black Resume identity" style="position: absolute; inset: 0; width: 611px; height: 804px; object-fit: contain; padding: 12%">
+        <img src="media/assets/blackresume-logo.webp" alt="Black Resume identity" style="position: absolute; inset: 0; width: 611px; height: 804px; object-fit: contain; padding: 12%">
         <div style="position: absolute; inset: 0; background: radial-gradient(closest-side, #e03b3b 0%, transparent 70%); opacity: 0.12; pointer-events: none; width: 701px; height: 874px; left: 26px"></div>
       </div>
       <div style="display:flex;flex-direction:column;justify-content:center;padding:48px;background:#111110">
@@ -318,19 +323,19 @@
     <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
       <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a1a18">
         
-      <img src="assets/br-overview-cover.png" alt="Black Resume — cover scene" style="width: 635px; height: 448px; object-fit: scale-down"></div>
+      <img src="media/assets/br-overview-cover.webp" alt="Black Resume — cover scene" style="width: 635px; height: 448px; object-fit: scale-down"></div>
       <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#1a1a18">
-        <img src="assets/br-hollow-black.png" alt="Hollow Black" style="width: 614px; height: 789px; object-fit: scale-down">
+        <img src="media/assets/br-hollow-black.webp" alt="Hollow Black" style="width: 614px; height: 789px; object-fit: scale-down">
         
       </div>
     </div>
 
     <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
-      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Zokio5367-b4b9cf1d.png" alt="Zokio #5367 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
-      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Kain8-b6b0d98c.png" alt="Kain8 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Zokio5367-b4b9cf1d.webp" alt="Zokio #5367 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+      <div style="position:relative;aspect-ratio:16/10;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Kain8-b6b0d98c.webp" alt="Kain8 character sheet" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
     </div>
     <div style="max-width:1280px;margin:16px auto 0;padding:0 48px">
-      <div style="position:relative;aspect-ratio:21/8;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/BR_C4_Little-a871df8f.png" alt="C-4 and Little character phase development" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+      <div style="position:relative;aspect-ratio:21/8;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/BR_C4_Little-a871df8f.webp" alt="C-4 and Little character phase development" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
     </div>
 
     <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
@@ -339,40 +344,40 @@
     </div>
 
     <div style="max-width:1280px;margin:56px auto 0;padding:0 48px;aspect-ratio:21/9;position:relative;overflow:hidden;background:#1a1a18">
-      <img src="./image-97-msmfevh4-tr2a.png" alt="Black Resume — character development" style="width: 1331px; height: 463px; object-fit: none">
+      <img src="media/image-97-msmfevh4-tr2a.webp" alt="Black Resume — character development" style="width: 1331px; height: 463px; object-fit: none">
     </div>
 
     <div style="max-width:1280px;margin:56px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/10.png" alt="Black Resume — courier handoff scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/10.webp" alt="Black Resume — courier handoff scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/19.png" alt="Black Resume — character introduction panel" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/19.webp" alt="Black Resume — character introduction panel" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/20.png" alt="Black Resume — bloodied gloves reveal" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/20.webp" alt="Black Resume — bloodied gloves reveal" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/23.png" alt="Black Resume — aftermath scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/23.webp" alt="Black Resume — aftermath scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/city bg 1.png" alt="Black Resume — AI-assisted city background" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/city bg 1.webp" alt="Black Resume — AI-assisted city background" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
       <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5">
-        <img src="uploads/36.png" alt="Black Resume — bound captive scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
+        <img src="media/uploads/36.webp" alt="Black Resume — bound captive scene" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85">
       </div>
     </div>
     
 
     <div style="max-width:1280px;margin:96px auto 0;padding:0 48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center">
       <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1a18">
-        <img src="assets/br-cover-daisuke.png" alt="Black Resume cover — Daisuke" style="width:100%;height:100%;object-fit:cover">
+        <img src="media/assets/br-cover-daisuke.webp" alt="Black Resume cover — Daisuke" style="width:100%;height:100%;object-fit:cover">
       </div>
       <div>
         <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Impact</p>
         <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">Black Resume became one of VoyceMe's flagship titles and helped attract approximately 2.4 million readers to the platform. More importantly, it proved that AI-assisted production could strengthen the artists behind the work, not replace them.</p>
         
-        <a href="#" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View the Black Resume case study →</a>
+        <a href="#black-resume" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View the Black Resume case study →</a>
       </div>
     </div>
 
@@ -411,7 +416,7 @@
 
     <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:center">
       <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0d0d0c">
-        <img src="uploads/372x496 cover MoB.png" alt="Mage of Blades — final cover art" style="width:100%;height:100%;object-fit:cover">
+        <img src="media/uploads/372x496 cover MoB.webp" alt="Mage of Blades — final cover art" style="width:100%;height:100%;object-fit:cover">
       </div>
       <div>
         <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Brief</p>
@@ -426,11 +431,11 @@
     </div>
     <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
       <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
-        <img src="uploads/Elevating Mage of Blades (6)-6451bca8.jpg" alt="Facial structure and hairline direction notes" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        <img src="media/uploads/Elevating Mage of Blades (6)-6451bca8.webp" alt="Facial structure and hairline direction notes" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
         
       </div>
       <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
-        <img src="uploads/Elevating Mage of Blades (3).jpg" alt="Line of action marked over a fight pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        <img src="media/uploads/Elevating Mage of Blades (3).webp" alt="Line of action marked over a fight pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
         
       </div>
     </div>
@@ -439,9 +444,9 @@
       
     </div>
     <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (4).jpg" alt="Color rough, clean line, and final color of a walking pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (2)-9eaa0e2b.jpg" alt="Sword-drawn portrait taken through line and color" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Elevating Mage of Blades (1)-9bf536d3.jpg" alt="Leaping dash pose with foreshortened arms and legs" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Elevating Mage of Blades (4).webp" alt="Color rough, clean line, and final color of a walking pose" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Elevating Mage of Blades (2)-9eaa0e2b.webp" alt="Sword-drawn portrait taken through line and color" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+      <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Elevating Mage of Blades (1)-9bf536d3.webp" alt="Leaping dash pose with foreshortened arms and legs" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
     </div>
 
     <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
@@ -450,11 +455,11 @@
     </div>
     <div style="max-width:1280px;margin:40px auto 120px;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
       <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
-        <img src="uploads/Elevating Mage of Blades-3b0fc0b5.jpg" alt="Two compositing treatments of the same kick panel, teal vs. warm glow" style="width: 100%; height: 100%; object-fit: contain; border-radius: 0px;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        <img src="media/uploads/Elevating Mage of Blades-3b0fc0b5.webp" alt="Two compositing treatments of the same kick panel, teal vs. warm glow" style="width: 100%; height: 100%; object-fit: contain; border-radius: 0px;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
         
       </div>
       <div style="position:relative;overflow:visible;background:#1a1a18;z-index:1">
-        <img src="uploads/Elevating Mage of Blades (7)-041aa39f.jpg" alt="Two compositing treatments of the sword duel panel judged against art direction metrics" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
+        <img src="media/uploads/Elevating Mage of Blades (7)-041aa39f.webp" alt="Two compositing treatments of the sword duel panel judged against art direction metrics" style="width:100%;height:100%;object-fit:contain;transition:transform 0.35s ease" style-hover="transform:scale(1.25)">
         
       </div>
     </div>
@@ -475,70 +480,21 @@
     <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
       <span style="font-size:13px;color:#5c5b57">04 — System Royale</span>
       <h2 style="margin:16px 0 0;max-width:24ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Building a full cast at scale with an artist-led AI pipeline.</h2>
-      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Character Design · Ensemble Cast · Artist-Led AI Production</p>
+      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Character Design · Ensemble Cast · StoryTech Artist Initiative</p>
     </div>
 
-    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:center">
-      <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0d0d0c">
-        <img src="uploads/Avon-81074ee6.png" alt="Avon, final color design" style="width:100%;height:100%;object-fit:cover">
-      </div>
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px;display:grid;grid-template-columns:1.3fr 0.7fr;gap:56px;align-items:start">
       <div>
-        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Brief</p>
-        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">This webtoon project I directed (System Royale) needed a large, visually distinct cast introduced quickly, without letting quality slip as the roster grew. So each character needed clean turnarounds, a readable silhouette, and enough personality to stand apart in group scenes. With tight deadlines around the corner we turned to AI to help with some of the heavy lifting.</p>
-        <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.65; color: #999999">To hit that volume on schedule, character and background work moved through VoyceMe's internal Creation Tool: an AI pipeline <b>trained and supervised by artists</b> rather than one that generates finished art on its own.</p>
-      </div>
-    </div>
-
-    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
-      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Cast &amp; Turnarounds</p>
-      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Every principal character was built through a full turnaround front, side, and back to train the StoryTech tool.</p>
-    </div>
-    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18">
-        <img src="uploads/Turnaround-f59f8aac.jpg" alt="Avon four-view color turnaround" style="width:100%;height:100%;object-fit:contain">
-        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">CLAUDE, COLOR TURNAROUND</span>
-      </div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18">
-        <img src="uploads/avon_young_designs_4_lineart-e606bb3b.jpg" alt="Avon four-view lineart turnaround" style="width:100%;height:100%;object-fit:contain">
-        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">AVON,&nbsp; COLOR PASS</span>
-      </div>
-    </div>
-    <div style="max-width:1280px;margin:16px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/avon_young_designs_4_lineart_2-afbf85e9.jpg" alt="Avon dynamic action lineart" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image2-538009b7.png" alt="Avon final color action pose" style="width:100%;height:100%;object-fit:contain"></div>
-    </div>
-
-    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px">
-      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The same process scaled across the rest of the cast: quick color concepts to lock personality, then clean turnarounds for production.</p>
-    </div>
-    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/SR_1-4cc9a855.png" alt="Sindri, mechanic character concept" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/SR_2-e3b6d5ca.png" alt="Tivok and Raven character concepts" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image4-b7dddcba.png" alt="Jai turnaround and action pose" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/image3-650190f1.png" alt="Ammit human and transformed designs" style="width:100%;height:100%;object-fit:contain"></div>
-    </div>
-
-    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
-      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Scenes &amp; Story Panels</p>
-      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Two protagonists forced into a death game sponsored by legends throughout history, who have to team up to survive it.</p>
-    </div>
-    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale 3.png" alt="The two leads, teamed up mid-fight" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (19).png" alt="Story panel: forced into the death game" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (6).png" alt="Story panel: the two must team up to survive" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/System Royale (7).png" alt="Antagonist seated in a study" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="./avon_young_designs_4_lineart-msmlbozy-ch2s.jpg" alt="Book-wielding lead casting green magic" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Copy of System Royale (30).png" alt="Antagonist reaching a hand toward the reader" style="width:100%;height:100%;object-fit:contain"></div>
-    </div>
-
-    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
       <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Use of AI — an Ethical Creation Tool</p>
       <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Rather than adopt a public AI model trained on scraped artwork without consent, VoyceMe built its own Creation Tool trained only on material its own artists opted to contribute. Artists created the training material and reviewed every output, so the tool never replaced their judgment. It removed the hours of repetitive setup work standing between a concept and a finished panel.</p>
-      <p style="margin:16px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">In practice, that meant the tool handled background generation and an asset library of reusable environment pieces, freeing artists to spend their time on characters, while a separate color-assist pass sped up rendering without touching final line or composition decisions. Every image still passed through an artist for a final human touch before it shipped.</p>
+      <p style="margin:16px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The training material came from the artists themselves. On this project that meant the character turnarounds, pose sets, and finished art our team had already produced were what taught the tool the house style. Artists supplied the reference the model learned from, so anything it generated came back in a visual language they had authored, which is also why an artist could correct it quickly instead of fighting it.</p>
+      <p style="margin:16px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">In practice, that meant the tool handled background generation and an asset library of reusable environment pieces, freeing artists to spend their time on characters. Every image still passed through an artist for a final human touch before it shipped.</p>
+      </div>
+      <img src="media/uploads/System Royale Logo No BG-ab54dbba.webp" alt="System Royale logo" style="width: 652px; height: 524px; object-fit: contain; align-self: center">
     </div>
     <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-05-08 152319.png" alt="VoyceMe ethical creative tool implementation slide" style="width:100%;height:100%;object-fit:contain"></div>
-      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="uploads/Screenshot 2026-05-08 152435-61f3f5d7.png" alt="VoyceMe StoryTech timesaver slide" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Screenshot 2026-05-08 152319.webp" alt="VoyceMe ethical creative tool implementation slide" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Screenshot 2026-05-08 152435-61f3f5d7.webp" alt="VoyceMe StoryTech timesaver slide" style="width:100%;height:100%;object-fit:contain"></div>
     </div>
     <div style="max-width:1280px;margin:40px auto 0;padding:0 48px">
       <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Artists Create the Training Material</p>
@@ -552,14 +508,81 @@
       <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#f2f1ee">Artists Maintain Quality</p>
       <p style="margin:0;font-size:14px;line-height:1.6;color:#8a8985">Every output was adjusted and approved by an artist before it shipped, keeping a human touch on every panel.</p>
     </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px;display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center">
+      <img src="media/uploads/Screenshot 2026-08-02 090607.webp" alt="Drawn character art on the left composited with a generated background and Clip Studio FX on the right" style="width:100%;height:auto;object-fit:contain">
+      <div>
+        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The StoryTech Artist</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">The left side is the drawn work: a hand-illustrated character on a clean background. The right side is the finished composite; that same drawing integrated with an AI-generated background and effects built in Clip Studio Paint. Magic circles, debris, glow, and atmospheric passes were layered around the figure, then light direction and color temperature were matched between character and environment so the two read as one image.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">The role borrows directly from animation and VFX, where a compositor is the person who takes separately produced elements (characters, effects, backgrounds.) and merges them into a single believable frame.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Applied to webcomics, that becomes the StoryTech Artist: an artist who works across foreground, character, and background layers, deciding what gets drawn, what gets generated, what gets pulled from the asset library, and how all of it is unified into a finished piece. Compositing is the skill that makes the pipeline coherent instead of a pile of mismatched parts.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center">
+      <div>
+        <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Brief</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">This webtoon project I directed (System Royale) needed a large, visually distinct cast introduced quickly, without letting quality slip as the roster grew. So each character needed clean turnarounds, a readable silhouette, and enough personality to stand apart in group scenes. With tight deadlines around the corner we turned to AI to help with some of the heavy lifting.</p>
+        <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.65; color: #999999">To hit that volume on schedule, character and background work moved through VoyceMe's internal Creation Tool: an AI pipeline <b>trained and supervised by artists</b> rather than one that generates finished art on its own.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Solving it at that scale is what produced a new role on the team. Splitting a page into drawn characters, generated environments, and effects passes meant someone had to own how those layers came back together so I defined the <b>StoryTech Artist</b>, a compositing-first position modeled on animation and VFX pipelines rather than on traditional single-artist illustration.</p>
+      </div>
+      <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0d0d0c">
+        <img src="media/uploads/Avon-81074ee6.webp" alt="Avon, final color design" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Cast &amp; Turnarounds</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Every principal character was built through a full turnaround front, side, and back to train the StoryTech tool.</p>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18">
+        <img src="media/uploads/Turnaround-f59f8aac.webp" alt="Avon four-view color turnaround" style="width:100%;height:100%;object-fit:contain">
+        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">CLAUDE, COLOR TURNAROUND</span>
+      </div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18">
+        <img src="media/uploads/avon_young_designs_4_lineart-e606bb3b.webp" alt="Avon four-view lineart turnaround" style="width:100%;height:100%;object-fit:contain">
+        <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">AVON,&nbsp; COLOR PASS</span>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:16px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/avon_young_designs_4_lineart_2-afbf85e9.webp" alt="Avon dynamic action lineart" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/image2-538009b7.webp" alt="Avon final color action pose" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 0;padding:0 48px">
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The same process scaled across the rest of the cast: quick color concepts to lock personality, then clean turnarounds for production.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/SR_1-4cc9a855.webp" alt="Sindri, mechanic character concept" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/SR_2-e3b6d5ca.webp" alt="Tivok and Raven character concepts" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/image4-b7dddcba.webp" alt="Jai turnaround and action pose" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/image3-650190f1.webp" alt="Ammit human and transformed designs" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+    <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
+      <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Scenes &amp; Story Panels</p>
+      <p style="margin:0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">Each panel was integrated by using our Storytech AI creation tool that allows artist to use AI as it was meant to be, a tool.</p>
+    </div>
+    <div style="max-width:1280px;margin:24px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/System Royale 3.webp" alt="The two leads, teamed up mid-fight" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/System Royale (19).webp" alt="Story panel: forced into the death game" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/System Royale (6).webp" alt="Story panel: the two must team up to survive" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/System Royale (7).webp" alt="Antagonist seated in a study" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/avon_young_designs_4_lineart-msmlbozy-ch2s.webp" alt="Book-wielding lead casting green magic" style="width:100%;height:100%;object-fit:contain"></div>
+      <div style="position:relative;overflow:hidden;background:#1a1a18"><img src="media/uploads/Copy of System Royale (30).webp" alt="Antagonist reaching a hand toward the reader" style="width:100%;height:100%;object-fit:contain"></div>
+    </div>
+
+
+
     <div style="max-width:1280px;margin:0 auto 120px;padding:0 48px">
       <p style="margin:0 0 24px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Other Examples of Creation Tool Implementation</p>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
-        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-05-08 151939.png" alt="Fairy mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
-        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Orrion-350847b2.png" alt="Orrion, character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
-        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/image (3) (1)-fc6ed9dd.png" alt="Horned demon boss generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
-        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-04-30 001340.png" alt="Radiant mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
-        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="uploads/Screenshot 2026-04-30 001308-ebfc786a.png" alt="Crystal-clad character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:1;transition:object-fit 0.25s ease,transform 0.25s ease,opacity 0.25s ease" style-hover="object-fit:contain;transform:scale(1.08);opacity:0.85"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Screenshot 2026-05-08 151939.webp" alt="Fairy mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:object-fit 0.35s ease,transform 0.35s cubic-bezier(0.2,0.7,0.3,1),opacity 0.35s ease" style-hover="object-fit:contain;transform:scale(2);opacity:1"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Orrion-350847b2.webp" alt="Orrion, character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:object-fit 0.35s ease,transform 0.35s cubic-bezier(0.2,0.7,0.3,1),opacity 0.35s ease" style-hover="object-fit:contain;transform:scale(2);opacity:1"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/image (3) (1)-fc6ed9dd.webp" alt="Horned demon boss generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:object-fit 0.35s ease,transform 0.35s cubic-bezier(0.2,0.7,0.3,1),opacity 0.35s ease" style-hover="object-fit:contain;transform:scale(2);opacity:1"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Screenshot 2026-04-30 001340.webp" alt="Radiant mage character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:object-fit 0.35s ease,transform 0.35s cubic-bezier(0.2,0.7,0.3,1),opacity 0.35s ease" style-hover="object-fit:contain;transform:scale(2);opacity:1"></div>
+        <div style="aspect-ratio:9/16;position:relative;overflow:visible;background:#1a1a18" style-hover="z-index:5"><img src="media/uploads/Screenshot 2026-04-30 001308-ebfc786a.webp" alt="Crystal-clad character generated with the Creation Tool" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:object-fit 0.35s ease,transform 0.35s cubic-bezier(0.2,0.7,0.3,1),opacity 0.35s ease" style-hover="object-fit:contain;transform:scale(2);opacity:1"></div>
       </div>
     </div>
   </div>
@@ -576,7 +599,7 @@
       <div style="margin-top:48px">
         <span style="font-size:13px;color:#5c5b57">05 — FableVerse</span>
         <h2 style="margin:16px 0 0;max-width:22ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Giving generative storytelling a visual language.</h2>
-        <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#7ec8ff">Creative Direction · AI Storytelling · Product Experience · Visual Systems</p>
+        <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#7ec8ff">CREATIVE DIRECTION · AI STORYTELLING · COMPOSITING · VISUAL SYSTEMS</p>
       </div>
     </div>
 
@@ -590,25 +613,27 @@
         <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Central Challenge</p>
         <p style="margin:0;font-size:24px;font-weight:600;line-height:1.35;letter-spacing:-0.01em;color:#f2f1ee">How do you turn an AI image generator into a storytelling experience?</p>
         <p style="margin:24px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Generation is more engaging when users are given context, narrative, and inspiration before they are asked to create.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">Years of production compositing gave me a working method for creating scenes from piecing foreground and proportion correction, background reconstruction, matching light direction and color temperature between subject and environment, building depth in layers, and grading the whole frame to sit together. That craft is what closed the gap between what the model produced and what a cover needed to be.</p>
       </div>
     </div>
 
     <div style="max-width:1280px;margin:96px auto 0;padding:0 48px">
       <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Story-Driven Generation</p>
-      <p style="margin:0 0 32px;max-width:64ch;font-size:15px;line-height:1.6;color:#8a8985">Outputs produced under the prompt framework: cinematic framing, clear subject hierarchy, and environmental interaction instead of broad style descriptors.</p>
+      <p style="margin:0 0 20px;max-width:64ch;font-size:15px;line-height:1.6;color:#8a8985">Outputs produced under the prompt framework: cinematic framing, clear subject hierarchy, and environmental interaction instead of broad style descriptors.</p>
+      <p style="margin:0 0 32px;max-width:72ch;font-size:15px;line-height:1.65;color:#9c9b96">Generation was the starting point, not the finish. Every cover here was composited by hand: I built them in layers, correcting anatomy and proportion, repairing hands and faces, rebuilding backgrounds and set dressing, unifying light direction and color temperature between the subject and the environment, adding depth through atmosphere and grain, then finishing with color grading and typography. The prompt framework got me a usable plate. Compositing is what made it a cover.</p>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Harry Styles-719aff0b.png" alt="Romance storypack cover — doorway reveal with soft pastel key light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Le Festival de Lumiere- Cover-754a1b1f.png" alt="Backlit silhouette against a collapsing landmark — scale and low camera angle" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Bound to the Mafia Prince-ea65ba6e.png" alt="Close-crop intimacy framing with warm rim light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Married the Cartel Prince-91cc1a98.png" alt="Window-lit two-shot with city depth behind the subjects" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Quan Millz-4-f0ee17b4.png" alt="High-contrast neon staging with strong environmental storytelling" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/OG Idea Cover-4ad9fc56.png" alt="In-world device framing — story told through a screen inside the scene" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/God Game Cover-288c42a8.png" alt="Power-surge hero shot — movement, glow, and reaching gesture toward camera" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Anime Gym Bro Cover-3e1267bd.png" alt="Game-UI overlay integrated into the illustration" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/LUMIA Cover-93cff93a.png" alt="Hero and monument staged in depth — foreground figure, mid-ground threat" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/MWS Cover-97d152c6.png" alt="Framed poster composition with symbolic background element" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Fourth Wing Cover-ae48c241.png" alt="Open-hand invitation pose with world-establishing background" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Screenshot 2026-04-30 000643.png" alt="Full-body character staged in a sunlit interior with clear depth and props" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Harry Styles-719aff0b.webp" alt="Romance storypack cover — doorway reveal with soft pastel key light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Le Festival de Lumiere- Cover-754a1b1f.webp" alt="Backlit silhouette against a collapsing landmark — scale and low camera angle" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Bound to the Mafia Prince-ea65ba6e.webp" alt="Close-crop intimacy framing with warm rim light" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Married the Cartel Prince-91cc1a98.webp" alt="Window-lit two-shot with city depth behind the subjects" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Quan Millz-4-f0ee17b4.webp" alt="High-contrast neon staging with strong environmental storytelling" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/OG Idea Cover-4ad9fc56.webp" alt="In-world device framing — story told through a screen inside the scene" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/God Game Cover-288c42a8.webp" alt="Power-surge hero shot — movement, glow, and reaching gesture toward camera" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Anime Gym Bro Cover-3e1267bd.webp" alt="Game-UI overlay integrated into the illustration" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/LUMIA Cover-93cff93a.webp" alt="Hero and monument staged in depth — foreground figure, mid-ground threat" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/MWS Cover-97d152c6.webp" alt="Framed poster composition with symbolic background element" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Fourth Wing Cover-ae48c241.webp" alt="Open-hand invitation pose with world-establishing background" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Screenshot 2026-04-30 000643.webp" alt="Full-body character staged in a sunlit interior with clear depth and props" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
       </div>
     </div>
 
@@ -653,6 +678,21 @@
             <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Narrative onboarding</span>
             <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Visual hierarchy</span>
             <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Retention-oriented creative choices</span>
+          </div>
+        </div>
+        <div style="background:#161614;padding:36px">
+          <p style="margin:0;font-size:18px;font-weight:600;color:#f2f1ee">Compositing craft applied to AI output</p>
+          <p style="margin:12px 0 20px;font-size:14px;line-height:1.6;color:#9c9b96">I built the covers the way I build a webcomic page: in layers, by hand. Production compositing experience is what turned generated plates into finished, publishable art.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Layered composites</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Anatomy &amp; proportion correction</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Hand &amp; face repair</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Background reconstruction</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Light direction matching</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Color temperature unification</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Atmosphere &amp; depth passes</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Color grading</span>
+            <span style="font-size:12px;color:#c9c8c3;border:1px solid #2f2f2b;padding:5px 10px">Cover typography</span>
           </div>
         </div>
         <div style="background:#161614;padding:36px">
@@ -715,17 +755,17 @@
         <div>
           <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Reference</p>
           <div style="aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
-            <img src="uploads/Untitled design.gif" alt="Reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block">
+            <video src="media/uploads/Untitled design.mp4" autoplay loop muted playsinline aria-label="Reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block"></video>
           </div>
         </div>
         <div>
           <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Generated scenes — same character, new context</p>
           <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
-            <img src="uploads/bd56f.png" alt="Generated scene — emotional close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade0 }}">
-            <img src="uploads/e9540.png" alt="Generated scene — candlelit restaurant" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade1 }}">
-            <img src="uploads/cb65b.png" alt="Generated scene — autumn park in a black dress" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade2 }}">
-            <img src="uploads/d1842.png" alt="Generated scene — warm bokeh close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade3 }}">
-            <img src="uploads/fcbad.png" alt="Generated scene — snowfall in a winter coat" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade4 }}">
+            <img src="media/uploads/bd56f.webp" alt="Generated scene — emotional close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade0 }}">
+            <img src="media/uploads/e9540.webp" alt="Generated scene — candlelit restaurant" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade1 }}">
+            <img src="media/uploads/cb65b.webp" alt="Generated scene — autumn park in a black dress" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade2 }}">
+            <img src="media/uploads/d1842.webp" alt="Generated scene — warm bokeh close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade3 }}">
+            <img src="media/uploads/fcbad.webp" alt="Generated scene — snowfall in a winter coat" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fade4 }}">
           </div>
           <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Outfit, lighting, environment, and emotion all change. The braid, the earrings, the eye shape, and the face do not.</p>
         </div>
@@ -734,18 +774,18 @@
         <div>
           <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Reference</p>
           <div style="aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
-            <img src="uploads/Untitled design (1).gif" alt="Second reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block">
+            <video src="media/uploads/Untitled design (1).mp4" autoplay loop muted playsinline aria-label="Second reference character used to anchor identity across generations" style="width:100%;height:100%;object-fit:cover;display:block"></video>
           </div>
         </div>
         <div>
           <p style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Generated scenes — same character, new poses and expressions</p>
           <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#1a1a18;border:1px solid #232320">
-            <img src="uploads/Screenshot 2026-04-29 184210.png" alt="Generated scene — full body walking through the stacks" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB0 }}">
-            <img src="uploads/Screenshot 2026-04-29 234412.png" alt="Generated scene — shushing gesture close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB1 }}">
-            <img src="uploads/Screenshot 2026-04-29 234446.png" alt="Generated scene — laughing portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB2 }}">
-            <img src="uploads/Screenshot 2026-04-29 234541-b233c7a8.png" alt="Generated scene — low camera angle, open shirt" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB3 }}">
-            <img src="uploads/Screenshot 2026-04-29 235939-306b53b5.png" alt="Generated scene — arms crossed, leaning" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB4 }}">
-            <img src="uploads/Screenshot 2026-04-30 000011.png" alt="Generated scene — chin resting on hands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB5 }}">
+            <img src="media/uploads/Screenshot 2026-04-29 184210.webp" alt="Generated scene — full body walking through the stacks" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB0 }}">
+            <img src="media/uploads/Screenshot 2026-04-29 234412.webp" alt="Generated scene — shushing gesture close-up" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB1 }}">
+            <img src="media/uploads/Screenshot 2026-04-29 234446.webp" alt="Generated scene — laughing portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB2 }}">
+            <img src="media/uploads/Screenshot 2026-04-29 234541-b233c7a8.webp" alt="Generated scene — low camera angle, open shirt" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB3 }}">
+            <img src="media/uploads/Screenshot 2026-04-29 235939-306b53b5.webp" alt="Generated scene — arms crossed, leaning" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB4 }}">
+            <img src="media/uploads/Screenshot 2026-04-30 000011.webp" alt="Generated scene — chin resting on hands" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s ease;opacity:{{ fadeB5 }}">
           </div>
           <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#8a8985">Shot size, camera angle, and expression range widely across the set. The glasses, hair shape, and plaid shirt stay locked to the reference.</p>
         </div>
@@ -835,7 +875,7 @@
       <div style="margin-top:48px;border:1px solid #232320;background:#161614;padding:36px">
         <p style="margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">From Conversation to Camera</p>
         <p style="margin:0 0 28px;max-width:72ch;font-size:15px;line-height:1.6;color:#8a8985">The mapping that lets the engine read intent as direction: each conversational phrase resolves to a shot choice, and each shot choice resolves to a specific visual result.</p>
-        <img src="uploads/Screenshot 2026-04-29 080011-881ff69f.png" alt="Mapping table — user intent to shot language to visual output, with examples for intimacy, immersion, relational tension, and power" style="width:100%;height:auto;display:block">
+        <img src="media/uploads/Screenshot 2026-04-29 080011-881ff69f.webp" alt="Mapping table — user intent to shot language to visual output, with examples for intimacy, immersion, relational tension, and power" style="width:100%;height:auto;display:block">
       </div>
 
       <div style="margin-top:48px;border:1px solid #232320;background:#161614;padding:36px">
@@ -901,13 +941,13 @@
     <div style="max-width:1280px;margin:64px auto 140px;padding:0 48px">
       <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Selected Covers</p>
       <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Vampire King- Cover 2.3 (1).png" alt="Vampire King — low angle, storm-lit cathedral" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Vampire 9.16-2.png" alt="Vampire — throne portrait in cool light with falling petals" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/ATROM 2.3.png" alt="ATROM — paired portrait framed by a glowing archway" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Assassin 9.16-2.png" alt="Assassin — tight two-shot in dappled shadow" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/Grim Transformations 2.3 (1).png" alt="Grim Transformations — profile standoff with a burning castle between them" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/A Study in the Shadowlight- Cover 2.3 (1).png" alt="A Study in the Shadowlight — layered memory composition" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
-        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="uploads/The Ex Files 2.3 (1).png" alt="The Ex Files — blade held between two figures in a bright ballroom" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Vampire King- Cover 2.3 (1).webp" alt="Vampire King — low angle, storm-lit cathedral" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Vampire 9.16-2.webp" alt="Vampire — throne portrait in cool light with falling petals" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/ATROM 2.3.webp" alt="ATROM — paired portrait framed by a glowing archway" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Assassin 9.16-2.webp" alt="Assassin — tight two-shot in dappled shadow" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/Grim Transformations 2.3 (1).webp" alt="Grim Transformations — profile standoff with a burning castle between them" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/A Study in the Shadowlight- Cover 2.3 (1).webp" alt="A Study in the Shadowlight — layered memory composition" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/The Ex Files 2.3 (1).webp" alt="The Ex Files — blade held between two figures in a bright ballroom" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(1.2)"></div>
       </div>
     </div>
   </div>
@@ -922,7 +962,7 @@
     </div>
     <div style="max-width:1280px;margin:64px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
       <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a1a18">
-        <img src="assets/node-prompt-engineering.png" alt="Prompt architecture, annotated" style="width:100%;height:100%;object-fit:contain">
+        <img src="media/assets/node-prompt-engineering.webp" alt="Prompt architecture, annotated" style="width:100%;height:100%;object-fit:contain">
         <span style="position:absolute;top:14px;left:14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.5);padding:5px 9px">Prompt system</span>
       </div>
       <div>
@@ -930,7 +970,7 @@
         <p style="margin:14px 0 24px;font-size:14px;line-height:1.6;color:#9c9b96;max-width:36ch">Increase in Art Quality Average after I built and rolled out a new evaluation framework across the art team.</p>
         <p style="margin:0;font-size:16px;line-height:1.65;color:#9c9b96">At VoyceMe and FableVerse, I developed creative systems that transformed inconsistent visual output into scalable, production-ready quality. By combining traditional art direction, cinematic storytelling, and AI-assisted workflows, I built repeatable processes that enabled teams to produce higher-quality creative work with consistency across products and pipelines.</p>
         <p style="margin:16px 0 0;font-size:16px;line-height:1.65;color:#9c9b96">A major part of this work was proving that creative quality could be measured, taught, and scaled.</p>
-        <a href="#" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">Explore the creative system →</a>
+        <a href="#voyceme" style="margin-top:32px;display:block;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #7ec8ff;padding-bottom:2px;width:fit-content">Explore the creative system →</a>
       </div>
     </div>
     <div style="max-width:1280px;margin:0 auto;padding:80px 48px 120px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
@@ -993,10 +1033,10 @@
 class Component extends DCLogic {
   state = { scrolled: false, activeSection: 'overview', activeProject: null, mounted: false, thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false, fadeIdx: 0 };
   projects = {
-    blackResume: { title: 'Black Resume', images: ['uploads/BR-6053648e.png', 'uploads/Little_design_drafts-42d714af.jpg', 'uploads/BR2-8266541d.png', 'uploads/Zokio5367-b4b9cf1d.png', 'uploads/Kain8-b6b0d98c.png', 'uploads/BR_C4_Little-a871df8f.png', 'uploads/image-97-6c142efd.png', 'uploads/Cover_Daisuke_2-df149d95.png', 'uploads/Screenshot_2024-12-11-18-21-12-68_e2d5b3f32b79de1d45acd1fad96fbb0f.jpg', 'uploads/23-1e85c1af.png', 'uploads/10-116948c7.png', 'uploads/36-cb047e63.png', 'uploads/20-18d2f68a.png', 'uploads/city bg 3.png', 'uploads/city bg 1-404491f5.png', 'uploads/28.png', 'uploads/19-38f5eae9.png', 'uploads/covertest.png'] },
-    godGame: { title: 'God Game', images: ['uploads/Monkey_King_Collage-bf8950e2.png', 'uploads/Hermes-90b02e0a.png', 'uploads/Elias.png', 'uploads/trident-afea8067.jpg', 'uploads/trident_colored-0f6fb5ff.jpg', 'uploads/Chernobog_human_form_Brown-876fc46e.png', 'uploads/goezen-401e42f9.png', 'uploads/IMG_0549-881d7713.png', 'uploads/IMG_0548-158dc898.png', 'uploads/IMG_0547-dda1a003.png', 'uploads/Bastet-f6ea02d3.jpg'] },
-    survivalIdol: { title: 'Survival Idol', images: ['uploads/SI_title.png', 'uploads/received_433972063128621.jpg', 'uploads/Survival_Idol_-_Maya_Blaze-84f59e1d.png', 'uploads/Survival_Idol_-_Alex_steele-ec440269.png', 'uploads/Survival_Idol_-_Aria_turnaround-0e9e2058.png'] },
-    systemRoyale: { title: 'System Royale', images: ['uploads/SR_1.png', 'uploads/SR_2-e3b6d5ca.png', 'uploads/avon_young_designs_4_lineart_2-afbf85e9.jpg', 'uploads/image2-538009b7.png', 'uploads/image3-650190f1.png', 'uploads/image4-b7dddcba.png', 'uploads/pasted-1785814789079-0.png', 'uploads/Turnaround.jpg', 'uploads/avon_young_designs_4_lineart.jpg', 'uploads/Avon.png'] },
+    blackResume: { title: 'Black Resume', images: ['media/uploads/BR-6053648e.webp', 'media/uploads/Little_design_drafts-42d714af.webp', 'media/uploads/BR2-8266541d.webp', 'media/uploads/Zokio5367-b4b9cf1d.webp', 'media/uploads/Kain8-b6b0d98c.webp', 'media/uploads/BR_C4_Little-a871df8f.webp', 'media/uploads/image-97-6c142efd.webp', 'media/uploads/Cover_Daisuke_2-df149d95.webp', 'media/uploads/Screenshot_2024-12-11-18-21-12-68_e2d5b3f32b79de1d45acd1fad96fbb0f.webp', 'media/uploads/23-1e85c1af.webp', 'media/uploads/10-116948c7.webp', 'media/uploads/36-cb047e63.webp', 'media/uploads/20-18d2f68a.webp', 'media/uploads/city bg 3.webp', 'media/uploads/city bg 1-404491f5.webp', 'media/uploads/28.webp', 'media/uploads/19-38f5eae9.webp', 'media/uploads/covertest.webp'] },
+    godGame: { title: 'God Game', images: ['media/uploads/Monkey_King_Collage-bf8950e2.webp', 'media/uploads/Hermes-90b02e0a.webp', 'media/uploads/Elias.webp', 'media/uploads/trident-afea8067.webp', 'media/uploads/trident_colored-0f6fb5ff.webp', 'media/uploads/Chernobog_human_form_Brown-876fc46e.webp', 'media/uploads/goezen-401e42f9.webp', 'media/uploads/IMG_0549-881d7713.webp', 'media/uploads/IMG_0548-158dc898.webp', 'media/uploads/IMG_0547-dda1a003.webp', 'media/uploads/Bastet-f6ea02d3.webp'] },
+    survivalIdol: { title: 'Survival Idol', images: ['media/uploads/SI_title.webp', 'media/uploads/received_433972063128621.webp', 'media/uploads/Survival_Idol_-_Maya_Blaze-84f59e1d.webp', 'media/uploads/Survival_Idol_-_Alex_steele-ec440269.webp', 'media/uploads/Survival_Idol_-_Aria_turnaround-0e9e2058.webp'] },
+    systemRoyale: { title: 'System Royale', images: ['media/uploads/SR_1.webp', 'media/uploads/SR_2-e3b6d5ca.webp', 'media/uploads/avon_young_designs_4_lineart_2-afbf85e9.webp', 'media/uploads/image2-538009b7.webp', 'media/uploads/image3-650190f1.webp', 'media/uploads/image4-b7dddcba.webp', 'media/uploads/pasted-1785814789079-0.webp', 'media/uploads/Turnaround.webp', 'media/uploads/avon_young_designs_4_lineart.webp', 'media/uploads/Avon.webp'] },
   };
   lightboxGridRef = React.createRef();
   overviewRef = React.createRef();
@@ -1016,6 +1056,13 @@ class Component extends DCLogic {
       entries.forEach(e => { if (e.isIntersecting) this.setState({ activeSection: e.target.id }); });
     }, { rootMargin: '-40% 0px -55% 0px' });
     [this.overviewRef, this.thrashRef, this.brRef, this.voycemeRef].forEach(r => { if (r.current) this._io.observe(r.current); });
+    // Direct #hash URLs: React mounts after the browser's initial jump, so
+    // re-scroll to the target once sections exist. Honors CSS scroll-behavior
+    // (smooth, or auto under prefers-reduced-motion) and scroll-margin-top.
+    if (location.hash) {
+      const id = location.hash;
+      requestAnimationFrame(() => { try { const el = document.querySelector(id); if (el) el.scrollIntoView(); } catch (e) {} });
+    }
   }
 
   componentWillUnmount() {
