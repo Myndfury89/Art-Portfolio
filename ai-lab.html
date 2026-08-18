@@ -93,44 +93,6 @@
     </div>
   </section>
 
-  <!-- 4. CINEMATIC PROMPT LANGUAGE -->
-  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
-    <div style="max-width:1280px;margin:0 auto">
-      <h2 style="margin:0;max-width:20ch;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:#f2f1ee">I brought cinematic shot language into prompt language.</h2>
-      <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96">My art-direction background taught me to think in shots rather than descriptions. Instead of telling a model to make an image "more dramatic," I define the camera, staging, perspective, movement, subject hierarchy, and light behavior responsible for creating drama.</p>
-      <div style="margin-top:56px;border-top:1px solid #232320">
-        <sc-for list="{{ translationRows }}" as="row" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:32px;padding:24px 0;border-bottom:1px solid #232320;align-items:center">
-            <p style="margin:0;font-size:15px;font-weight:600;color:#c9c8c3">"{{ row.subjective }}"</p>
-            <p style="margin:0;font-size:14px;line-height:1.55;color:#f2f1ee">{{ row.structured }}</p>
-          </div>
-        </sc-for>
-      </div>
-      <p style="margin:40px 0 0;font-size:18px;font-style:italic;font-weight:500;color:#f2f1ee">I convert abstract creative feedback into instructions a generative system can execute and a creative team can evaluate.</p>
-      <div style="margin-top:56px;display:grid;grid-template-columns:1fr 0.8fr;gap:64px;align-items:start">
-        <div style="display:flex;flex-direction:column;gap:40px">
-          <div>
-            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Dark elf — camera authority, mood lighting, environmental story</p>
-            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Fairy standing in a forest" leaves the camera and light undefined, so the model defaults to a flat, centered shot. Naming a low cinematic angle gives the model a camera position instead of a guess, and "mist swirling" plus "glowing mushrooms casting violet light" turns the setting into a light source that models the mood rather than just describing it.</p>
-          </div>
-          <div>
-            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Sexy fireman — mid-stride motion, implied lighting, emotional posture</p>
-            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Standing confidently" is a static pose with no information about force or intent. Capturing the figure mid-stride gives the pose a direction and momentum, "helmet glinting" implies a specific light source without naming one, and "jaw set with determination" gives the model a legible emotional target instead of a vague mood word.</p>
-          </div>
-          <div>
-            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Elemental mage — force of nature, active verbs, focal hierarchy</p>
-            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Elemental powers around them" is ambiguous about what those powers are doing. Naming molten earth, coiling flames, and arcing water gives each element an active verb, and placing the mage "at center of roaring vortex" establishes a clear focal hierarchy so the composition reads correctly instead of scattering attention across the effects.</p>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <img src="media/uploads/Screenshot 2026-04-26 212120-6cb46156.webp" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="media/uploads/Screenshot 2026-04-29 182835.webp" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="media/uploads/Screenshot 2026-04-29 182934.webp" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 6. ANATOMY OF A PROMPT -->
   <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
     <div style="max-width:1280px;margin:0 auto">
@@ -171,17 +133,40 @@
     </div>
   </section>
 
-  <!-- 7. ISEKAIME VIGNETTE -->
-  <section style="padding:120px 48px;border-top:1px solid #232320">
-    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
-      <div style="aspect-ratio:16/10;position:relative;overflow:hidden;background:#1a1a18">
-        <img src="media/assets/logo-isekaime.webp" alt="IsekaiMe" style="width:100%;height:100%;object-fit:contain;padding:14%;box-sizing:border-box">
+  <!-- 4. CINEMATIC PROMPT LANGUAGE -->
+  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
+    <div style="max-width:1280px;margin:0 auto">
+      <h2 style="margin:0;max-width:20ch;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:#f2f1ee">I brought cinematic shot language into prompt language.</h2>
+      <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96">My art-direction background taught me to think in shots rather than descriptions. Instead of telling a model to make an image "more dramatic," I define the camera, staging, perspective, movement, subject hierarchy, and light behavior responsible for creating drama.</p>
+      <div style="margin-top:56px;border-top:1px solid #232320">
+        <sc-for list="{{ translationRows }}" as="row" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:32px;padding:24px 0;border-bottom:1px solid #232320;align-items:center">
+            <p style="margin:0;font-size:15px;font-weight:600;color:#c9c8c3">"{{ row.subjective }}"</p>
+            <p style="margin:0;font-size:14px;line-height:1.55;color:#f2f1ee">{{ row.structured }}</p>
+          </div>
+        </sc-for>
       </div>
-      <div>
-        <h3 style="margin:0;font-size:clamp(24px,2.8vw,36px);font-weight:600;letter-spacing:-0.015em;color:#f2f1ee">Designing the experience around generation.</h3>
-        <p style="margin:20px 0 0;font-size:15px;line-height:1.65;color:#9c9b96">Prompt quality alone can't solve a weak user journey. For IsekaiMe, I explored how users could enter an AI creation experience through either guided narrative Storypacks or a faster, open-ended QuickGen workflow — mapping onboarding, content hierarchy, prompt suggestions, community output, and retention.</p>
-        <p style="margin:24px 0 0;font-size:18px;font-style:italic;font-weight:500;color:#f2f1ee">Better generation begins before the user writes the prompt.</p>
-        <p style="margin:24px 0 0;font-size:12px;letter-spacing:0.04em;color:#6f6e6a">Product Strategy · UX Research · Competitive Analysis</p>
+      <p style="margin:40px 0 0;font-size:18px;font-style:italic;font-weight:500;color:#f2f1ee">I convert abstract creative feedback into instructions a generative system can execute and a creative team can evaluate.</p>
+      <div style="margin-top:56px;display:grid;grid-template-columns:1fr 0.8fr;gap:64px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:40px">
+          <div>
+            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Dark elf — camera authority, mood lighting, environmental story</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Fairy standing in a forest" leaves the camera and light undefined, so the model defaults to a flat, centered shot. Naming a low cinematic angle gives the model a camera position instead of a guess, and "mist swirling" plus "glowing mushrooms casting violet light" turns the setting into a light source that models the mood rather than just describing it.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Sexy fireman — mid-stride motion, implied lighting, emotional posture</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Standing confidently" is a static pose with no information about force or intent. Capturing the figure mid-stride gives the pose a direction and momentum, "helmet glinting" implies a specific light source without naming one, and "jaw set with determination" gives the model a legible emotional target instead of a vague mood word.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Elemental mage — force of nature, active verbs, focal hierarchy</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">"Elemental powers around them" is ambiguous about what those powers are doing. Naming molten earth, coiling flames, and arcing water gives each element an active verb, and placing the mage "at center of roaring vortex" establishes a clear focal hierarchy so the composition reads correctly instead of scattering attention across the effects.</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <img src="media/uploads/Screenshot 2026-04-26 212120-6cb46156.webp" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="media/uploads/Screenshot 2026-04-29 182835.webp" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="media/uploads/Screenshot 2026-04-29 182934.webp" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
+        </div>
       </div>
     </div>
   </section>
