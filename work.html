@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work — Matt Johnson</title>
-<meta name="description" content="Case studies in art direction, creative systems, and artist-led AI production: Thrash, Black Resume, Mage of Blades, FableVerse, and Strands.">
+<meta name="description" content="Case studies in art direction, creative systems, and artist-led AI production: Thrash, Black Resume, Mage of Blades, FableVerse, Strands, and McLane senior night posters.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -135,9 +135,57 @@
         <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">Custom covers for authors whose stories the community voted to spotlight — each one built to capture a story's essence in a single image.</p>
         <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View full case study →</span>
       </div>
-      <div style="background:#111110"></div>
+      <div id="mclane" ref="{{ mcRef }}" onClick="{{ openMC }}" style="background:#161614;padding:48px;cursor:pointer;display:flex;flex-direction:column" style-hover="background:#1a1a18">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d0d0c">
+          <img src="media/uploads/mclane-latique.webp" alt="McLane senior night poster — #3 Latique Walton" style="width:100%;height:100%;object-fit:cover;object-position:center 22%">
+        </div>
+        <span style="margin-top:28px;font-size:13px;color:#5c5b57">07 — McLane Highlanders</span>
+        <h2 style="margin:14px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;color:#f2f1ee">Senior night posters built for explosiveness.</h2>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96">A poster series honoring McLane High School's senior girls basketball team — one template, one athlete each, tuned for impact from across a gym.</p>
+        <span style="margin-top:24px;font-size:13px;font-weight:600;color:#f2f1ee;border-bottom:1px solid #e05a5a;padding-bottom:2px;width:fit-content">View full case study →</span>
+      </div>
     </div>
   </section>
+
+  <!-- 07 MCLANE — CASE STUDY MODAL -->
+  <sc-if value="{{ mcOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCase }}" style="position:fixed;inset:0;z-index:200;background:#111110;overflow:auto">
+  <button onClick="{{ closeCase }}" style="position:fixed;top:24px;right:32px;z-index:210;background:#111110;border:1px solid #3a3936;color:#f2f1ee;font-size:13px;padding:10px 20px;cursor:pointer" style-hover="border-color:#f2f1ee">Close ✕</button>
+  <div onClick="{{ stopClick }}" style="position:relative">
+    <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
+      <span style="font-size:13px;color:#5c5b57">07 — McLane Highlanders</span>
+      <h2 style="margin:16px 0 0;max-width:24ch;font-size:clamp(30px,4.4vw,64px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#f7f6f2">Senior night posters built for explosiveness.</h2>
+      <p style="margin:24px 0 0;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#e05a5a">Sports Design · Photo Compositing · Print</p>
+      <p style="margin:24px 0 0;max-width:72ch;font-size:16px;line-height:1.65;color:#9c9b96">The idea here was that Senior night is loud, fast, and over in an hour. The posters had to match that energy. Each poster takes a single athlete and turns her game footage into a burst of motion with shatter geometry, hot light, and a triple exposure that reads like three frames of one play collapsed into a single image.</p>
+    </div>
+
+    <div style="max-width:1280px;margin:72px auto 0;padding:0 48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#232320">
+      <div style="background:#161614;padding:36px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#e05a5a">High energy</p>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#c9c8c3">Everything points outward from a blown-out core light. Diagonal shard fields and angled type push the eye up and off the page instead of settling it.</p>
+      </div>
+      <div style="background:#161614;padding:36px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#e05a5a">Explosiveness</p>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#c9c8c3">Three cutouts of the same player, scaled and faded back into the red, read as one explosive movement rather than three separate photos.</p>
+      </div>
+      <div style="background:#161614;padding:36px">
+        <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#e05a5a">One team, one system</p>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#c9c8c3">A locked layout, number, name, athlete stack, Highlander mark, SENIORS!!! So every poster hangs together on the wall while each senior still gets her own hero shot.</p>
+      </div>
+    </div>
+
+    <div style="max-width:1280px;margin:64px auto 140px;padding:0 48px">
+      <p style="margin:0 0 32px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">The Series</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/mclane-cherish.webp" alt="#21 Cherish Cervantes senior poster" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/mclane-latique.webp" alt="#3 Latique Walton senior poster" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/mclane-tina.webp" alt="#15 Tina Channita senior poster" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(2)"></div>
+        <div style="aspect-ratio:2/3;position:relative;overflow:visible;background:#1a1a18;z-index:1"><img src="media/uploads/mclane-steph.webp" alt="#12 Stephanie Carrillo senior poster" style="width:100%;height:100%;object-fit:cover;transition:transform 0.35s ease" style-hover="transform:scale(2)"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </sc-if>
   <section style="border-top:1px solid #232320">
     <div style="max-width:1280px;margin:0 auto;padding:120px 48px 0">
       <span style="font-size:13px;color:#5c5b57">Creative Systems</span>
@@ -1037,7 +1085,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { scrolled: false, activeSection: 'overview', activeProject: null, mounted: false, thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false, fadeIdx: 0 };
+  state = { scrolled: false, activeSection: 'overview', activeProject: null, mounted: false, thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false, mcOpen: false, fadeIdx: 0 };
   projects = {
     blackResume: { title: 'Black Resume', images: ['media/uploads/BR-6053648e.webp', 'media/uploads/Little_design_drafts-42d714af.webp', 'media/uploads/BR2-8266541d.webp', 'media/uploads/Zokio5367-b4b9cf1d.webp', 'media/uploads/Kain8-b6b0d98c.webp', 'media/uploads/BR_C4_Little-a871df8f.webp', 'media/uploads/image-97-6c142efd.webp', 'media/uploads/Cover_Daisuke_2-df149d95.webp', 'media/uploads/Screenshot_2024-12-11-18-21-12-68_e2d5b3f32b79de1d45acd1fad96fbb0f.webp', 'media/uploads/23-1e85c1af.webp', 'media/uploads/10-116948c7.webp', 'media/uploads/36-cb047e63.webp', 'media/uploads/20-18d2f68a.webp', 'media/uploads/city bg 3.webp', 'media/uploads/city bg 1-404491f5.webp', 'media/uploads/28.webp', 'media/uploads/19-38f5eae9.webp', 'media/uploads/covertest.webp'] },
     godGame: { title: 'God Game', images: ['media/uploads/Monkey_King_Collage-bf8950e2.webp', 'media/uploads/Hermes-90b02e0a.webp', 'media/uploads/Elias.webp', 'media/uploads/trident-afea8067.webp', 'media/uploads/trident_colored-0f6fb5ff.webp', 'media/uploads/Chernobog_human_form_Brown-876fc46e.webp', 'media/uploads/goezen-401e42f9.webp', 'media/uploads/IMG_0549-881d7713.webp', 'media/uploads/IMG_0548-158dc898.webp', 'media/uploads/IMG_0547-dda1a003.webp', 'media/uploads/Bastet-f6ea02d3.webp'] },
@@ -1052,6 +1100,7 @@ class Component extends DCLogic {
   srRef = React.createRef();
   fvRef = React.createRef();
   stRef = React.createRef();
+  mcRef = React.createRef();
   voycemeRef = React.createRef();
 
   componentDidMount() {
@@ -1143,6 +1192,9 @@ class Component extends DCLogic {
       stOpen: this.state.stOpen,
       stRef: this.stRef,
       openST: () => this.setState({ stOpen: true }),
+      mcOpen: this.state.mcOpen,
+      mcRef: this.mcRef,
+      openMC: () => this.setState({ mcOpen: true }),
       openFV: () => {
         this.setState({ fvOpen: true });
         if (!this._fadeTimer) this._fadeTimer = setInterval(() => this.setState(s => ({ fadeIdx: (s.fadeIdx + 1) % 30 })), 2600);
@@ -1158,7 +1210,7 @@ class Component extends DCLogic {
       fadeB3: this.state.fadeIdx % 6 === 3 ? 1 : 0,
       fadeB4: this.state.fadeIdx % 6 === 4 ? 1 : 0,
       fadeB5: this.state.fadeIdx % 6 === 5 ? 1 : 0,
-      closeCase: () => this.setState({ thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false }),
+      closeCase: () => this.setState({ thrashOpen: false, brOpen: false, mageOpen: false, srOpen: false, fvOpen: false, stOpen: false, mcOpen: false }),
       stopClick: (e) => e.stopPropagation(),
       evidenceRows: [
         { challenge: 'Inconsistent composition and pose adherence', approach: 'Converted creative direction into structured camera, staging, perspective, and subject-placement instructions', outcome: 'More reliable, visually coherent generations' },
