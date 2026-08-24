@@ -10,8 +10,43 @@ Home-standalone-src.dc.html
 image-slot.js
 .image-slots.state.json
 
-# Original (pre-optimization) assets — superseded by media/ (anchored so media/assets/ still deploys)
-/assets/
+# assets/: default-deny, re-include only the 34 files the site references (media/assets/ unaffected)
+assets/*
+!assets/after-frame-1.png
+!assets/after-frame-2.png
+!assets/after-frame-3.png
+!assets/after-frame-4.png
+!assets/after-frame-5.png
+!assets/client-aavegotchi.png
+!assets/client-amhs.png
+!assets/client-blackresume.png
+!assets/client-chrysalis.png
+!assets/client-criminal-lord.png
+!assets/client-deathspeed.png
+!assets/client-elemental-chronicles.png
+!assets/client-fableverse.png
+!assets/client-ggo.png
+!assets/client-isekaime.png
+!assets/client-missannity.png
+!assets/client-mob.png
+!assets/client-shadowhearts.png
+!assets/client-systemroyale.png
+!assets/client-thrash.png
+!assets/client-voyceme.png
+!assets/client-witching-hour.png
+!assets/client-zokio-icon.png
+!assets/hero-0.jpg
+!assets/hero-2.jpg
+!assets/hero-3.jpg
+!assets/hero-4.jpg
+!assets/hero-5.jpg
+!assets/matt-portrait.jpg
+!assets/ref-frame-1.png
+!assets/ref-frame-2.png
+!assets/ref-frame-3.png
+!assets/ref-frame-4.png
+!assets/ref-frame-5.png
+
 # Optimized-export leftovers not referenced by the live site
 assets-opt/
 
@@ -32,5 +67,8 @@ site---1248-x-380---overlap-msml59r7-jw1w.png
 system-royale-19--msmjlsny-m72w.png
 system-royale-2-msml8pa6-7olq.png
 
-# Raw upload dump: exclude all, re-include only the 0 files the site uses
+# Raw upload dump: exclude all, re-include only the 3 files the site uses
 uploads/*
+!uploads/Avon.png
+!uploads/BR2.png
+!uploads/Zokio5367-b4b9cf1d.png
