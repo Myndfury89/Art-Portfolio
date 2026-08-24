@@ -5,7 +5,7 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 ## Last sync
 
 - **When:** 2026-08-23T21:10:19-0700
-- **Commit:** `__PENDING__`
+- **Commit:** `b158b04c3d46112c7661c41790c279e5489ab499`
 - Homepage rebuilt below the portrait as a single image-led scroll: **01 Thrash / Craft**, **02 Black Resume / Direction**, **03 VoyceMe & FableVerse / Leadership**, **04 AI Lab / Innovation**, **05 More Worlds / Range**, **06 Philosophy**, **07 CTA**.
 - **No modals** — one "Explore the case study" link per section.
 - Added **Zokio #5367** and **Kain8** character sheets to Black Resume.
