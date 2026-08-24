@@ -29,6 +29,6 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 | --- | --- | --- |
 | Home | index.html | index.html, media/home/ |
 | Work | work.html | work.html, media/uploads/mclane-*.webp |
-| About | about.html | about.html |
+| About | about.html | about.html, media/assets/matt-portrait.webp |
 | AI Lab | ai-lab.html | ai-lab.html |
 | Contact | contact.html | contact.html |
