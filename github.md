@@ -5,7 +5,7 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 ## Last sync
 
 - **When:** 2026-08-23T21:29:03-0700
-- **Commit:** `__PENDING__`
+- **Commit:** `c9c7b5304e34795e3412952c7e2febc8ff9c5ca4`
 - Fixed broken images on the live homepage: the deploy allow-list (`.vercelignore`) was excluding root `assets/` and `uploads/` files the rebuilt homepage references, so they 404'd in production despite existing in the repo.
 - Now deploys the referenced `assets/` files — hero stills, `matt-portrait.jpg`, the 18 `client-*.png` logos, and the `ref-frame-*`/`after-frame-*` "Direction in / Result out" frames — plus `uploads/Zokio5367-b4b9cf1d.png` (Zokio #5367 sheet), `uploads/BR2.png` (character design sheet), and `uploads/Avon.png`.
 - Hardened `scratch/genignore.mjs` (local tooling): `assets/` now default-denies with per-file re-includes like `uploads/`, and the scanner also catches template-literal asset paths (`` `assets/ref-frame-${n+1}.png` ``).
