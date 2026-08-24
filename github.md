@@ -4,14 +4,17 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 
 ## Last sync
 
-- **When:** 2026-08-23T21:29:03-0700
-- **Commit:** `c9c7b5304e34795e3412952c7e2febc8ff9c5ca4`
-- Fixed broken images on the live homepage: the deploy allow-list (`.vercelignore`) was excluding root `assets/` and `uploads/` files the rebuilt homepage references, so they 404'd in production despite existing in the repo.
-- Now deploys the referenced `assets/` files — hero stills, `matt-portrait.jpg`, the 18 `client-*.png` logos, and the `ref-frame-*`/`after-frame-*` "Direction in / Result out" frames — plus `uploads/Zokio5367-b4b9cf1d.png` (Zokio #5367 sheet), `uploads/BR2.png` (character design sheet), and `uploads/Avon.png`.
-- Hardened `scratch/genignore.mjs` (local tooling): `assets/` now default-denies with per-file re-includes like `uploads/`, and the scanner also catches template-literal asset paths (`` `assets/ref-frame-${n+1}.png` ``).
+- **When:** 2026-08-24T07:51:08-0700
+- **Commit:** `51f9cb2a7cf469e249bc54b52acec8f3e5aade8a`
+- Removed the stale `<script src="./image-slot.js">` tag from `index.html` — the script was excluded from deploy (unused editor tooling, replaced by static `<img>`), so it 404'd in production on every homepage load. No other reference to it existed.
+- Reconciled the `## Screen map` Files column with each page's actual assets: **Home** now lists `assets/`, `media/home/`, `uploads/`; **Work** lists `media/`, `media/assets/`, `media/uploads/`; **About**, **AI Lab**, and **Contact** verified accurate.
 
 ## Sync history
 
+- **2026-08-23T21:29:03-0700** — `c9c7b5304e34795e3412952c7e2febc8ff9c5ca4`
+  - Fixed broken images on the live homepage: the deploy allow-list (`.vercelignore`) was excluding root `assets/` and `uploads/` files the rebuilt homepage references, so they 404'd in production despite existing in the repo.
+  - Now deploys the referenced `assets/` files — hero stills, `matt-portrait.jpg`, the 18 `client-*.png` logos, and the `ref-frame-*`/`after-frame-*` "Direction in / Result out" frames — plus `uploads/Zokio5367-b4b9cf1d.png` (Zokio #5367 sheet), `uploads/BR2.png` (character design sheet), and `uploads/Avon.png`.
+  - Hardened `scratch/genignore.mjs` (local tooling): `assets/` now default-denies with per-file re-includes like `uploads/`, and the scanner also catches template-literal asset paths (`` `assets/ref-frame-${n+1}.png` ``).
 - **2026-08-23T21:10:19-0700** — `b158b04c3d46112c7661c41790c279e5489ab499`
   - Homepage rebuilt below the portrait as a single image-led scroll: **01 Thrash / Craft**, **02 Black Resume / Direction**, **03 VoyceMe & FableVerse / Leadership**, **04 AI Lab / Innovation**, **05 More Worlds / Range**, **06 Philosophy**, **07 CTA**.
   - **No modals** — one "Explore the case study" link per section.
