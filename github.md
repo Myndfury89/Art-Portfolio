@@ -11,6 +11,7 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 - **Home:** VoyceMe & FableVerse copy and system cards simplified; AI Lab teaser added.
 - **Contact:** page replaced with a working inquiry form.
 - Personal email (`myndfury@gmail.com`) removed from all deployed pages — Home, Work, AI Lab, Contact, and About; the About bio/footer links now route to the `/contact` inquiry form. (Only the deploy-excluded legacy `Home-standalone-src.dc.html` still contains it.)
+- Stripped the vestigial `image-slot.js` script (404'd on deploy) from `index.html` and `ai-lab.html`; converted AI Lab's `<image-slot>` camera-diagram placeholder to a static `<img src="media/assets/ai-lab-camera-diagram.webp">` so the diagram renders. All 233 referenced files now deploy (0 excluded).
 - Regenerated `.vercelignore` (deploy allow-list) so the newly-referenced root `uploads/` and `assets/` files ship — the pages now point at those paths, which were being excluded and 404'd on the first deploy. 232/233 referenced files deploy; the lone exclusion is the vestigial `image-slot.js` script tag (unused editor tooling, still re-introduced in this export).
 
 ## Sync history
