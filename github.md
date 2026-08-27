@@ -4,12 +4,19 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 
 ## Last sync
 
-- **When:** 2026-08-24T07:51:08-0700
-- **Commit:** `51f9cb2a7cf469e249bc54b52acec8f3e5aade8a`
-- Removed the stale `<script src="./image-slot.js">` tag from `index.html` — the script was excluded from deploy (unused editor tooling, replaced by static `<img>`), so it 404'd in production on every homepage load. No other reference to it existed.
-- Reconciled the `## Screen map` Files column with each page's actual assets: **Home** now lists `assets/`, `media/home/`, `uploads/`; **Work** lists `media/`, `media/assets/`, `media/uploads/`; **About**, **AI Lab**, and **Contact** verified accurate.
+- **When:** 2026-08-27T08:29:09-0700
+- **Commit:** `__PENDING__`
+- **Work:** page made fluid/mobile-friendly; new Black Resume banner header; hero image swap; Black Resume logo repositioned.
+- **AI Lab:** new "From Intent to Image" case study (reference characters, prompt-testing table, failure case, shot-language cards) moved to the top of the page under a new header image; supporting stills added under `ai-eval/`.
+- **Home:** VoyceMe & FableVerse copy and system cards simplified; AI Lab teaser added.
+- **Contact:** page replaced with a working inquiry form.
+- Personal email (`myndfury@gmail.com`) removed from the four updated pages (Home, Work, AI Lab, Contact). Note: `about.html` was outside this sync's scope and still contains it — pending a follow-up.
 
 ## Sync history
+
+- **2026-08-24T07:51:08-0700** — `51f9cb2a7cf469e249bc54b52acec8f3e5aade8a`
+  - Removed the stale `<script src="./image-slot.js">` tag from `index.html` — the script was excluded from deploy (unused editor tooling, replaced by static `<img>`), so it 404'd in production on every homepage load. No other reference to it existed.
+  - Reconciled the `## Screen map` Files column with each page's actual assets: **Home** now lists `assets/`, `media/home/`, `uploads/`; **Work** lists `media/`, `media/assets/`, `media/uploads/`; **About**, **AI Lab**, and **Contact** verified accurate.
 
 - **2026-08-23T21:29:03-0700** — `c9c7b5304e34795e3412952c7e2febc8ff9c5ca4`
   - Fixed broken images on the live homepage: the deploy allow-list (`.vercelignore`) was excluding root `assets/` and `uploads/` files the rebuilt homepage references, so they 404'd in production despite existing in the repo.

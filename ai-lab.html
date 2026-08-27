@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Lab — Matt Johnson</title>
-<meta name="description" content="Method behind artist-led AI: prompt architecture, cinematic prompt language, visual evaluation, and production consistency.">
+<meta name="description" content="A structured testing framework for generative AI: translating conversational intent into cinematic direction, evaluating outputs, and documenting failures as data.">
 <script src="./support.js"></script>
+<script src="./image-slot.js"></script>
 </head>
 <body>
 <x-dc>
@@ -17,71 +18,203 @@
   html,body{margin:0;padding:0;background:#111110;color:#f2f1ee;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   ::selection{background:#e8873a;color:#111110}
-
-  /* --- Production additions: responsive nav + reduced-motion (desktop layout unchanged) --- */
-  @media (max-width:640px){
-    nav{padding:0 16px !important;height:72px !important}
-    nav>a{font-size:14px !important;white-space:nowrap}
-    nav>div{gap:13px !important}
-    nav>div a{font-size:12px !important;letter-spacing:0 !important;white-space:nowrap}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  }
 </style>
 </helmet>
 
 <div style="position:relative;width:100%;background:#111110;overflow:hidden">
 
   <!-- NAV -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 48px;background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:88px;padding:0 clamp(16px,4vw,48px);background:{{ navBackground }};backdrop-filter:{{ navBackdrop }};-webkit-backdrop-filter:{{ navBackdrop }};border-bottom:1px solid {{ navBorderColor }};transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease">
     <a href="/" style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Matt Johnson</a>
-    <div style="display:flex;gap:40px;align-items:center">
+    <div style="display:flex;gap:clamp(14px,3vw,40px);align-items:center;flex-wrap:wrap;justify-content:flex-end">
       <a href="/" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Home</a>
       <a href="/work" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Work</a>
-      <a href="/ai-lab" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">AI Lab</a>
-      <a href="/about" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">About</a>
+      <a href="#" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#f2f1ee">AI Lab</a>
       <a href="/contact" style="font-size:13px;font-weight:500;letter-spacing:0.02em;color:#8a8985" style-hover="color:#f2f1ee">Contact</a>
     </div>
   </nav>
 
+  <!-- HEADER IMAGE -->
+  
+
+  <!-- 11. FROM INTENT TO IMAGE -->
+  <section id="intent-to-image" style="padding:clamp(140px,20vw,200px) clamp(20px,5vw,48px) clamp(80px,12vw,140px);background:#161614">
+    <div style="max-width:1280px;margin:0 auto">
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#c9a86a">From intent to image</p>
+      <h2 style="margin:16px 0 0;max-width:18ch;font-size:clamp(28px,4vw,56px);font-weight:600;letter-spacing:-0.02em;line-height:1.12;color:#f7f6f2">Building the visual system behind interactive storytelling.</h2>
+      <div style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96"><p data-start="880" data-end="1020" class="PDq2pG_selectionAnchorContainer">FableVerse lets users shape their own stories. Changing relationships, emotions, actions, characters, and narrative direction in real time.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+My challenge was helping the image-generation system <strong data-start="1075" data-end="1135">understand what those moments were supposed to feel like</strong>, not simply what objects needed to appear.Our approach was to develop a way to translate user language into cinematic direction.</div>
+
+      <div style="margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:#0d0d0c"><img src="./a7f9ef32-1--mt9bg82q-gbi4.png" alt="Base reference character 1, unmodified" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%"></div>
+          <div style="aspect-ratio:3/4;overflow:hidden;background:#0d0d0c"><img src="ai-eval/ref-base-2.png" alt="Base reference character 2, unmodified" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%"></div>
+          <div style="aspect-ratio:3/4;overflow:hidden;background:#0d0d0c"><img src="./screenshot-2026-04-29-235939-mt9bfi0i-fjno.png" alt="Base reference character 3, unmodified" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%"></div>
+        </div>
+        <div>
+          <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Reference images</p>
+          <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:#c9c8c3">Three fixed base characters, unmodified, used as the control across every test below.</p>
+          <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96"><strong style="color: rgb(242, 241, 238); font-weight: 600;">What we were solving for:</strong>&nbsp;FableVerse stories can change with every user interaction. The image system needed to visualize those moments while preserving the user's emotional intent. Gen AI could often generate the correct <em data-start="1878" data-end="1887">subject</em>, but miss the intended <em data-start="1911" data-end="1920">feeling</em>. By translating intent into camera, pose, expression, composition, and lighting direction, we could give the system clearer visual instructions.</p>
+          <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#9c9b96"><strong style="color: rgb(242, 241, 238); font-weight: 600;">What the solve meant:</strong>&nbsp;We could translate a user’s emotional intent into <strong data-start="623" data-end="654">repeatable visual direction</strong>, rather than relying on the model to interpret it on its own.&nbsp;</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 1: PIPELINE -->
+    <div style="max-width:1280px;margin:clamp(56px,8vw,96px) auto 0">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:12px;align-items:start">
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">User intent</p><p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#f2f1ee;font-style:italic">"you're too close omg"</p></div>
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">Meaning</p><p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#c9c8c3">Playful intimacy</p></div>
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">Cinematic direction</p><p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#c9c8c3">Close-up ¾, blush. POV, high angle, forced perspective</p></div>
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">Pose + expression</p><p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#c9c8c3">Slight recoil. Blushed cheeks, flustered smile</p></div>
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">Generate → test</p><p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#c9c8c3">Same direction, three base characters</p></div>
+        <div><p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5c5b57">Validate</p><p style="margin:10px 0 0;font-size:14px;font-weight:600;color:#8fbf7f">PASS</p></div>
+      </div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px">
+        <div style="aspect-ratio:1/1;overflow:hidden;background:#0d0d0c"><img src="ai-eval/close-1.png" alt="Generated result — character 1, playful-intimacy direction" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="aspect-ratio:1/1;overflow:hidden;background:#0d0d0c"><img src="ai-eval/close-2.png" alt="Generated result — character 2, playful-intimacy direction" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="aspect-ratio:1/1;overflow:hidden;background:#0d0d0c"><img src="ai-eval/close-3.png" alt="Generated result — character 3, playful-intimacy direction" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+      <p style="margin:20px 0 0;font-size:13px;line-height:1.55;color:#8a8985">Not "write prompt, get picture." Interpret → structure → generate → compare → evaluate → refine.</p>
+    </div>
+
+    <!-- PART 2: TABLE -->
+    <div style="max-width:1280px;margin:clamp(80px,12vw,140px) auto 0">
+      <h3 style="margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-0.015em;color:#f2f1ee"><strong data-start="1208" data-end="1223">The result:</strong> a reusable visual language that could be applied across characters</h3>
+      <div style="margin-top:clamp(36px,5vw,56px);display:flex;flex-direction:column;gap:1px;background:#232320">
+        <sc-for list="{{ testRows }}" as="row" hint-placeholder-count="4">
+          <div style="background:#161614;padding:clamp(24px,3vw,32px);display:grid;grid-template-columns:minmax(180px,1fr) minmax(220px,1.4fr) minmax(0,2fr) auto;gap:clamp(16px,2.5vw,32px);align-items:center">
+            <div>
+              <p style="margin:0;font-size:15px;font-weight:500;color:#f2f1ee;font-style:italic">"{{ row.phrase }}"</p>
+              <p style="margin:8px 0 0;font-size:12px;color:#6f6e6a">{{ row.meaning }}</p>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.55;color:#9c9b96">{{ row.direction }}</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative;z-index:1;transition:transform 0.35s ease;transform:scale(1)" style-hover="z-index:5;transform:scale(1.75)">
+              <div style="aspect-ratio:1/1;overflow:visible;background:#0d0d0c"><img src="{{ row.img0 }}" alt="Generated output" style="width:100%;height:100%;object-fit:cover"></div>
+              <div style="aspect-ratio:1/1;overflow:visible;background:#0d0d0c"><img src="{{ row.img1 }}" alt="Generated output" style="width:100%;height:100%;object-fit:cover"></div>
+              <div style="aspect-ratio:1/1;overflow:visible;background:#0d0d0c"><img src="{{ row.img2 }}" alt="Generated output" style="width:100%;height:100%;object-fit:cover"></div>
+            </div>
+            <div style="text-align:right;min-width:90px">
+              <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:{{ row.resultColor }}">{{ row.result }}</span>
+              <p style="margin:6px 0 0;font-size:12px;line-height:1.5;color:#8a8985">{{ row.note }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- PART 3: FAILURE CASE -->
+    <div style="max-width:1280px;margin:clamp(80px,12vw,140px) auto 0">
+      <h3 style="margin:0;font-size:clamp(24px,3vw,36px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Failure is data.</h3>
+      <div style="margin-top:clamp(32px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vw,56px);align-items:start">
+        <div>
+          <p style="margin:0 0 16px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6f6e6a">Target — "wait I didn't expect that"</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <p style="margin:0;font-size:14px;color:#c9c8c3">Expression <span style="color:#8fbf7f">✓</span> — medium close, wide eyes, mild shock</p>
+            <p style="margin:0;font-size:14px;color:#c9c8c3">Full override of the base pose <span style="color:#d9633b">✕</span></p>
+          </div>
+          <div style="margin-top:24px;aspect-ratio:1/1;max-width:280px;overflow:hidden;background:#0d0d0c">
+            <img src="ai-eval/surprise-fail.png" alt="Failing generation — hand from the base image persisted" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <p style="margin:10px 0 0;font-size:11px;color:#5c5b57">Shown after the fifth regeneration attempt.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">Observed behavior</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">Five generations, same result each time: the expression landed correctly, but a hand pose inherited from the base image never changed.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">Diagnosis</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">This was no longer a wording problem. Repeated identical failures meant the system was under-weighting a pose override in favor of the base image — a model-adherence limit, not a prompt limit.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">Next iteration</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#9c9b96">Isolate the variable → strengthen the override → regenerate → compare → document.</p>
+            <p style="margin:14px 0 0;font-size:13px;line-height:1.6;color:#8fbf7f">Resolved on the next character after a single regeneration once the override was strengthened.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 4: SHOT LANGUAGE -->
+    <div style="max-width:1280px;margin:clamp(80px,12vw,140px) auto 0">
+      <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#c9a86a">A shared visual language</p>
+      <p style="margin:16px 0 0;max-width:60ch;font-size:16px;line-height:1.6;color:#9c9b96">Before outputs could be evaluated consistently, visual direction needed standardized terms — the same vocabulary I already used directing artists, applied to prompting.</p>
+      <div style="margin-top:clamp(32px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(8px,1.2vw,16px)">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0c">
+          <img src="uploads/Cover_Daisuke_2.png" alt="Close-up framing example" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,0) 55%,rgba(10,10,9,0.9) 100%)"></div>
+          <div style="position:absolute;left:16px;bottom:14px;right:16px">
+            <p style="margin:0;font-size:13px;font-weight:600;color:#f2f1ee">Close-up</p>
+            <p style="margin:4px 0 0;font-size:12px;color:#c9c8c3">Face fills the frame. Intensity, intimacy, emotional escalation.</p>
+          </div>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0c">
+          <img src="uploads/Panels.PNG" alt="Mid-shot framing example" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,0) 55%,rgba(10,10,9,0.9) 100%)"></div>
+          <div style="position:absolute;left:16px;bottom:14px;right:16px">
+            <p style="margin:0;font-size:13px;font-weight:600;color:#f2f1ee">Mid shot</p>
+            <p style="margin:4px 0 0;font-size:12px;color:#c9c8c3">Torso up, hands visible. Gesture clarity, relational tension.</p>
+          </div>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0c">
+          <img src="assets/thrash-06.jpg" alt="Wide-shot framing example" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,0) 55%,rgba(10,10,9,0.9) 100%)"></div>
+          <div style="position:absolute;left:16px;bottom:14px;right:16px">
+            <p style="margin:0;font-size:13px;font-weight:600;color:#f2f1ee">Wide shot</p>
+            <p style="margin:4px 0 0;font-size:12px;color:#c9c8c3">Full body, environment visible. Space, movement, safety resets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 5: TAKEAWAY -->
+    <div style="max-width:1280px;margin:clamp(80px,12vw,140px) auto 0">
+      <h3 style="margin:0;font-size:clamp(22px,2.8vw,32px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">What this system enabled</h3>
+      <div style="margin-top:clamp(32px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(24px,4vw,40px)">
+        <div><p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.1em;color:#c9a86a">01 — Translate</p><p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#9c9b96">Natural user language became structured visual direction.</p></div>
+        <div><p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.1em;color:#c9a86a">02 — Standardize</p><p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#9c9b96">Cinematic concepts became a shared vocabulary for artists, prompts, and AI systems.</p></div>
+        <div><p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.1em;color:#c9a86a">03 — Test</p><p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#9c9b96">The same behavior could be evaluated across multiple characters and repeated generations.</p></div>
+        <div><p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.1em;color:#c9a86a">04 — Diagnose</p><p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#9c9b96">Failures could be separated into camera, pose, expression, or model-adherence problems.</p></div>
+        <div><p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.1em;color:#c9a86a">05 — Improve</p><p style="margin:10px 0 0;font-size:14px;line-height:1.55;color:#9c9b96">Testing created actionable feedback for prompt refinement and the broader generation pipeline.</p></div>
+      </div>
+      <p style="margin:clamp(48px,7vw,72px) 0 0;max-width:44ch;font-size:clamp(24px,3.2vw,40px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;color:#f7f6f2;text-wrap:pretty">Creative quality shouldn't depend on a lucky generation.</p>
+      <p style="margin:16px 0 0;max-width:52ch;font-size:15px;line-height:1.6;color:#9c9b96">The goal was to make visual intent measurable, teachable, and repeatable.</p>
+    </div>
+  </section>
+
   <!-- 1. HERO -->
-  <section style="padding:200px 48px 100px">
-    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start">
+  <section style="padding:clamp(80px,12vw,140px) clamp(20px,5vw,48px) clamp(64px,10vw,100px);border-top:1px solid #232320">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,64px);align-items:start">
       <div>
         <p style="margin:0 0 28px;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6f6e6a">AI Lab · Methods, Systems &amp; Experiments</p>
         <h1 style="margin:0;font-size:clamp(32px,4.6vw,68px);font-weight:600;letter-spacing:-0.02em;line-height:1.08;color:#f7f6f2">Creative judgment, translated into systems.</h1>
-        <p style="margin:32px 0 0;max-width:56ch;font-size:16px;line-height:1.65;color:#9c9b96">I use AI as a creative production tool — not as a substitute for taste, authorship, or artistic judgment. My work focuses on turning visual direction into repeatable language, testing frameworks, and human-led workflows that improve quality without removing artists from the process.</p>
+        <p style="margin:32px 0 0;max-width:56ch;font-size:16px;line-height:1.65;color:#9c9b96">I use AI as a creative production tool. So my work focuses on turning visual direction into repeatable language, testing frameworks, and human-led workflows that improve quality without removing artists from the process.</p>
         <p style="margin:36px 0 0;font-size:13px;font-weight:500;letter-spacing:0.04em;color:#6f6e6a">Prompt Architecture &nbsp;·&nbsp; Visual Evaluation &nbsp;·&nbsp; Model Testing &nbsp;·&nbsp; Human-Led AI &nbsp;·&nbsp; Product Experiments</p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div style="background:#1a1a18;position:relative;padding:44px 16px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">SUBJECT</span><span style="color:#c9c8c3">archetype · defining silhouette + wardrobe cues</span></div>
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">ACTION</span><span style="color:#c9c8c3">one clear verb, captured mid-motion</span></div>
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">CAMERA</span><span style="color:#c9c8c3">shot size + angle (e.g. low, looking up)</span></div>
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">LIGHTING</span><span style="color:#c9c8c3">key direction · quality · colour temperature</span></div>
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">COMPOSITION</span><span style="color:#c9c8c3">focal hierarchy · foreground depth · negative space</span></div>
-          <div style="display:flex;gap:10px;font-size:11px;line-height:1.4;font-family:monospace"><span style="color:#6f6e6a;min-width:74px;flex:none">STYLE</span><span style="color:#c9c8c3">medium · rendering target · finish</span></div>
-          <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Prompt architecture</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
+        <div style="background:#1a1a18;position:relative;padding:44px 20px 20px;box-sizing:border-box;display:flex;flex-direction:column">
+          <p style="margin:0;font-size:11px;line-height:1.55;color:#c9c8c3;font-family:monospace">Anime illustration of a dark-skinned girl with braided black hair adorned with colorful beads, wearing a black shiny sleeveless unitard, gold hoop earrings, and gold cuffs, throwing a roundhouse kick, camera is looking up from below, action scene</p>
+          <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Prompt sheet</span>
         </div>
         <div style="aspect-ratio:3/4;background:#1a1a18;position:relative;overflow:hidden">
-          <img src="media/uploads/Screenshot 2026-04-27 083436-a188c48c.webp" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3)">
+          <img src="uploads/Screenshot-2026-04-27-083436-a188c48c.png" alt="" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3)">
           <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px">Reference</span>
         </div>
         <div style="grid-column:span 2;aspect-ratio:16/8;background:#1a1a18;position:relative;overflow:hidden">
           
           <span style="position:absolute;top:10px;left:10px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#c9c8c3;background:rgba(10,10,9,0.55);padding:4px 8px;z-index:1">Camera diagram</span>
-        <img src="media/assets/ai-lab-camera-diagram.webp" alt="Camera diagram mapping conversational phrases to shot language and cinematic image outcomes" loading="lazy" style="width:100%;height:100%;object-fit:contain"></div>
+        <image-slot id="ai-lab-camera-diagram" shape="rect" placeholder="Camera-angle / shot-composition diagram" style="width:100%;height:100%"></image-slot></div>
       </div>
     </div>
   </section>
 
   <!-- 3. METHODOLOGY -->
-  <section style="padding:120px 48px;border-top:1px solid #232320">
+  <section style="padding:clamp(72px,11vw,120px) clamp(20px,5vw,48px);border-top:1px solid #232320">
     <div style="max-width:1280px;margin:0 auto">
       <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">I treat prompting as visual systems design.</h2>
       <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96">Production prompt engineering is not about finding impressive adjectives. It's the process of translating creative intent into structured instructions, isolating failure variables, testing repeated outputs, and refining the system until the result becomes reliable.</p>
-      <div style="margin-top:72px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+      <div style="margin-top:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,150px),1fr));gap:16px">
         <sc-for list="{{ methodSteps }}" as="step" hint-placeholder-count="6">
           <div style="border-top:2px solid #3a3936;padding-top:16px">
             <span style="font-size:12px;color:#5c5b57">{{ step.n }}</span>
@@ -94,11 +227,11 @@
   </section>
 
   <!-- 6. ANATOMY OF A PROMPT -->
-  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
+  <section style="padding:clamp(72px,11vw,120px) clamp(20px,5vw,48px);border-top:1px solid #232320;background:#161614">
     <div style="max-width:1280px;margin:0 auto">
       <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Treating prompt as a hierarchy</h2>
       <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96;font-style:italic">"A lone swordsman crosses a ruined temple courtyard during a storm."</p>
-      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px">
         <sc-for list="{{ anatomyLayers }}" as="layer" hint-placeholder-count="6">
           <div style="border-top:2px solid #3a3936;padding-top:16px">
             <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">{{ layer.label }}</p>
@@ -117,37 +250,37 @@
       </div>
       <div style="margin-top:56px">
         <p style="margin:0 0 20px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6e6a">Covers built from this hierarchy</p>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
-          <img src="media/uploads/Married the Cartel Prince.webp" alt="Romance cover — window-lit two-shot with city depth" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/MWS Cover.webp" alt="Fantasy romance cover — dramatic key light" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/Le Festival de Lumiere- Cover.webp" alt="Fantasy cover — backlit silhouette, low camera angle" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/OG Idea Cover.webp" alt="Sci-fi cover — in-world screen framing" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/Quan Millz-4.webp" alt="Urban fiction cover — high-contrast neon staging" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/Anime Gym Bro Cover.webp" alt="Anime action cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/LUMIA Cover.webp" alt="Fantasy cover — atmospheric lighting" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/Fourth Wing Cover.webp" alt="Fantasy cover — creature and figure composition" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/Harry Styles.webp" alt="Character portrait cover study" style="width:100%;aspect-ratio:2/3;object-fit:cover">
-          <img src="media/uploads/God Game Cover.webp" alt="Mythology cover — power hero shot" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(45%,150px),1fr));gap:12px">
+          <img src="uploads/Married-the-Cartel-Prince.png" alt="Married the Cartel Prince — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/MWS-Cover.png" alt="MWS — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/Le-Festival-de-Lumiere-Cover.png" alt="Le Festival de Lumière — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/OG-Idea-Cover.png" alt="OG Idea — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/Quan-Millz-4.png" alt="Quan Millz — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/Anime-Gym-Bro-Cover.png" alt="Anime Gym Bro — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/LUMIA-Cover.png" alt="LUMIA — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/Fourth-Wing-Cover.png" alt="Fourth Wing — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/Harry-Styles.png" alt="Harry Styles fan cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
+          <img src="uploads/God-Game-Cover.png" alt="God Game — cover" style="width:100%;aspect-ratio:2/3;object-fit:cover">
         </div>
       </div>
     </div>
   </section>
 
   <!-- 4. CINEMATIC PROMPT LANGUAGE -->
-  <section style="padding:120px 48px;border-top:1px solid #232320;background:#161614">
+  <section style="padding:clamp(72px,11vw,120px) clamp(20px,5vw,48px);border-top:1px solid #232320;background:#161614">
     <div style="max-width:1280px;margin:0 auto">
       <h2 style="margin:0;max-width:20ch;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:#f2f1ee">I brought cinematic shot language into prompt language.</h2>
       <p style="margin:24px 0 0;max-width:66ch;font-size:16px;line-height:1.65;color:#9c9b96">My art-direction background taught me to think in shots rather than descriptions. Instead of telling a model to make an image "more dramatic," I define the camera, staging, perspective, movement, subject hierarchy, and light behavior responsible for creating drama.</p>
       <div style="margin-top:56px;border-top:1px solid #232320">
         <sc-for list="{{ translationRows }}" as="row" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:32px;padding:24px 0;border-bottom:1px solid #232320;align-items:center">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px;padding:24px 0;border-bottom:1px solid #232320;align-items:center">
             <p style="margin:0;font-size:15px;font-weight:600;color:#c9c8c3">"{{ row.subjective }}"</p>
             <p style="margin:0;font-size:14px;line-height:1.55;color:#f2f1ee">{{ row.structured }}</p>
           </div>
         </sc-for>
       </div>
       <p style="margin:40px 0 0;font-size:18px;font-style:italic;font-weight:500;color:#f2f1ee">I convert abstract creative feedback into instructions a generative system can execute and a creative team can evaluate.</p>
-      <div style="margin-top:56px;display:grid;grid-template-columns:1fr 0.8fr;gap:64px;align-items:start">
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,64px);align-items:start">
         <div style="display:flex;flex-direction:column;gap:40px">
           <div>
             <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:#f2f1ee">Dark elf — camera authority, mood lighting, environmental story</p>
@@ -163,9 +296,9 @@
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
-          <img src="media/uploads/Screenshot 2026-04-26 212120-6cb46156.webp" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="media/uploads/Screenshot 2026-04-29 182835.webp" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
-          <img src="media/uploads/Screenshot 2026-04-29 182934.webp" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="uploads/Screenshot-2026-04-26-212120-6cb46156.png" alt="Dark elf before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="uploads/Screenshot-2026-04-29-182835.png" alt="Sexy fireman before/after prompt translation" style="width:100%;height:auto;display:block">
+          <img src="uploads/Screenshot-2026-04-29-182934.png" alt="Elemental mage before/after prompt translation" style="width:100%;height:auto;display:block">
         </div>
       </div>
     </div>
@@ -175,10 +308,10 @@
   
 
   <!-- 9. EVALUATION FRAMEWORK -->
-  <section style="padding:120px 48px;border-top:1px solid #232320">
+  <section style="padding:clamp(72px,11vw,120px) clamp(20px,5vw,48px);border-top:1px solid #232320">
     <div style="max-width:1280px;margin:0 auto">
       <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Quality needs a shared definition.</h2>
-      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#232320">
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:#232320">
         <sc-for list="{{ evalLayers }}" as="layer" hint-placeholder-count="4">
           <div style="background:#111110;padding:28px 24px">
             <p style="margin:0 0 18px;font-size:15px;font-weight:600;color:#f2f1ee">{{ layer.label }}</p>
@@ -194,20 +327,20 @@
   </section>
 
   <!-- 5. EVIDENCE TABLE -->
-  <section style="padding:120px 48px;border-top:1px solid #232320">
+  <section style="padding:clamp(72px,11vw,120px) clamp(20px,5vw,48px);border-top:1px solid #232320">
     <div style="max-width:1280px;margin:0 auto">
       <h2 style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:600;letter-spacing:-0.02em;color:#f2f1ee">Seven problems, worked through.</h2>
       <p style="margin:20px 0 56px;max-width:60ch;font-size:15px;line-height:1.6;color:#8a8985">Click a row to expand the full diagnosis, change, and validation behind each outcome.</p>
       <div style="border-top:1px solid #2a2a27">
         <sc-for list="{{ evidenceRows }}" as="row" hint-placeholder-count="7">
           <div style="border-bottom:1px solid #2a2a27">
-            <div onClick="{{ row.toggle }}" style="display:grid;grid-template-columns:1fr 1fr auto;gap:24px;align-items:center;padding:24px 0;cursor:pointer">
+            <div onClick="{{ row.toggle }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)) auto;gap:clamp(12px,2.5vw,24px);align-items:center;padding:24px 0;cursor:pointer">
               <p style="margin:0;font-size:15px;font-weight:500;color:#f2f1ee">{{ row.problem }}</p>
               <p style="margin:0;font-size:14px;color:#e05a5a">{{ row.value }}</p>
               <span style="font-size:14px;color:#5c5b57;transform:{{ row.chevronTransform }};transition:transform 0.25s ease">⌄</span>
             </div>
             <div style="max-height:{{ row.maxHeight }};overflow:hidden;transition:max-height 0.35s ease">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;padding:0 0 32px">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(20px,3vw,32px);padding:0 0 32px">
                 <div><p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">What I identified</p><p style="margin:0;font-size:13px;line-height:1.55;color:#9c9b96">{{ row.identified }}</p></div>
                 <div><p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">What I changed</p><p style="margin:0;font-size:13px;line-height:1.55;color:#9c9b96">{{ row.changed }}</p></div>
                 <div><p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6f6e6a">How I validated it</p><p style="margin:0;font-size:13px;line-height:1.55;color:#9c9b96">{{ row.validated }}</p></div>
@@ -219,8 +352,9 @@
     </div>
   </section>
 
+
   <!-- 10. CLOSING -->
-  <section style="padding:160px 48px;border-top:1px solid #232320;text-align:center">
+  <section style="padding:clamp(88px,14vw,160px) clamp(20px,5vw,48px);border-top:1px solid #232320;text-align:center">
     <h2 style="margin:0 auto;max-width:20ch;font-size:clamp(28px,3.8vw,52px);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:#f7f6f2">The experiment is only useful when it becomes a system.</h2>
     <p style="margin:28px auto 0;max-width:58ch;font-size:16px;line-height:1.65;color:#9c9b96">My AI work sits between creative direction and technical implementation. I identify what strong visual output requires, translate those requirements into structured language, test them against real model behavior, and document what the wider team can reuse.</p>
     <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
@@ -230,7 +364,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer style="padding:80px 48px 40px;background:#111110;border-top:1px solid #232320">
+  <footer style="padding:clamp(56px,9vw,80px) clamp(20px,5vw,48px) 40px;background:#111110;border-top:1px solid #232320">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px">
       <div style="min-width:220px">
         <p style="margin:0;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#f2f1ee">Matt Johnson</p>
@@ -239,12 +373,10 @@
       <div style="display:flex;flex-direction:column;gap:10px;min-width:140px">
         <a href="/" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Home</a>
         <a href="/work" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Work</a>
-        <a href="/ai-lab" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
-        <a href="/about" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">About</a>
+        <a href="#" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">AI Lab</a>
         <a href="/contact" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Contact</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;min-width:220px">
-        <a href="mailto:myndfury@gmail.com" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">myndfury@gmail.com</a>
         <a href="https://www.linkedin.com/in/matthew-johnson-bb365191/" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">LinkedIn</a>
         <a href="https://docs.google.com/document/d/19rSJ6Tku-m8vrpink4hLjxcLbe5Ti2HD/edit?usp=sharing&amp;ouid=102438985885957942872&amp;rtpof=true&amp;sd=true" target="_blank" style="font-size:13px;color:#9c9b96" style-hover="color:#f2f1ee">Résumé / CV</a>
       </div>
@@ -270,6 +402,11 @@ class Component extends DCLogic {
 
   renderVals() {
     const scrolled = this.state.scrolled;
+    const testRows = [
+      { phrase: 'I like this just saying', meaning: 'Romantic admission', direction: 'Low angle looking up, face fills the frame, warm lighting · relaxed posture, head tilt, hands clasped, eyes closed · warm, confident smile', img0: 'ai-eval/clasp-1.png', img1: 'ai-eval/clasp-2.png', img2: 'ai-eval/clasp-3.png', result: 'PASS', resultColor: '#8fbf7f', note: 'Held across three base characters.' },
+      { phrase: "stoppp you're making me shy", meaning: 'Embarrassed playfulness', direction: 'POV close-up, face fills frame · shallow depth of field, low angle, forced perspective · chin tucked, hands partially hiding face · bashful smile, visible blush', img0: 'ai-eval/shy-1.png', img1: 'ai-eval/shy-2.png', img2: 'ai-eval/shy-3.png', result: 'PASS', resultColor: '#8fbf7f', note: 'Same bashful behavior reproduced consistently.' },
+      { phrase: "don't tease me like that", meaning: 'Tension', direction: 'Close-up, half smile · forced perspective, low angle · crossed arms, head turned away, mock glare · flirty smirk, narrowed eyes', img0: 'ai-eval/tease-1.png', img1: 'ai-eval/tease-2.png', img2: 'ai-eval/tease-3.png', result: 'PASS', resultColor: '#8fbf7f', note: 'Posture and expression both adhered.' },
+    ];
     const rows = [
       { problem: 'Generated images did not consistently match the intended composition.', value: 'Reduced unusable generations', identified: 'The subject was described, but camera placement, spatial relationships, and focal priority were unclear.', changed: 'Defined shot type, camera angle, subject orientation, foreground/background placement, and primary focus in a clearer sequence.', validated: 'Compared original and revised prompts across repeated generations.' },
       { problem: 'Complex poses and interactions were structurally inconsistent.', value: 'Improved multi-subject reliability', identified: 'Too many relationships were implied rather than explicitly staged.', changed: 'Separated subject position, body orientation, contact points, gaze, action, and framing into distinct instructions.', validated: 'Evaluated pose adherence, anatomy, interaction clarity, and readability across output batches.' },
@@ -325,6 +462,7 @@ class Component extends DCLogic {
         { label: 'System Reliability', items: ['Repeated-generation consistency', 'Model-specific behavior', 'Failure frequency', 'Prompt portability'] },
         { label: 'Production Value', items: ['Time saved', 'Revision reduction', 'Artist intervention required', 'Client or user response'] },
       ],
+      testRows,
     };
   }
 }
