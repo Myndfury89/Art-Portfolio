@@ -5,7 +5,7 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 ## Last sync
 
 - **When:** 2026-08-27T08:29:09-0700
-- **Commit:** `__PENDING__`
+- **Commit:** `90eb73f36396330c52e1c108a3ab7ef7a8ec4b0c`
 - **Work:** page made fluid/mobile-friendly; new Black Resume banner header; hero image swap; Black Resume logo repositioned.
 - **AI Lab:** new "From Intent to Image" case study (reference characters, prompt-testing table, failure case, shot-language cards) moved to the top of the page under a new header image; supporting stills added under `ai-eval/`.
 - **Home:** VoyceMe & FableVerse copy and system cards simplified; AI Lab teaser added.
