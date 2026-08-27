@@ -10,7 +10,7 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 - **AI Lab:** new "From Intent to Image" case study (reference characters, prompt-testing table, failure case, shot-language cards) moved to the top of the page under a new header image; supporting stills added under `ai-eval/`.
 - **Home:** VoyceMe & FableVerse copy and system cards simplified; AI Lab teaser added.
 - **Contact:** page replaced with a working inquiry form.
-- Personal email (`myndfury@gmail.com`) removed from the four updated pages (Home, Work, AI Lab, Contact). Note: `about.html` was outside this sync's scope and still contains it — pending a follow-up.
+- Personal email (`myndfury@gmail.com`) removed from all deployed pages — Home, Work, AI Lab, Contact, and About; the About bio/footer links now route to the `/contact` inquiry form. (Only the deploy-excluded legacy `Home-standalone-src.dc.html` still contains it.)
 - Regenerated `.vercelignore` (deploy allow-list) so the newly-referenced root `uploads/` and `assets/` files ship — the pages now point at those paths, which were being excluded and 404'd on the first deploy. 232/233 referenced files deploy; the lone exclusion is the vestigial `image-slot.js` script tag (unused editor tooling, still re-introduced in this export).
 
 ## Sync history
