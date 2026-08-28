@@ -81,7 +81,13 @@
           <span style="font-size:13px;font-weight:600;color:#111110">Describe your project</span>
           <textarea name="message" rows="5" placeholder="Tell me about your world, your goals, your references... everything helps." required style="font:inherit;font-size:14px;padding:12px 14px;border:1px solid #d8d6d0;border-radius:8px;background:#fff;color:#111110;resize:vertical"></textarea>
         </label>
-        <button type="submit" style="font-size:14px;font-weight:600;color:#f2f1ee;background:#111110;padding:16px 24px;border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="background:#2a2a28">Send my request →</button>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <button type="submit" disabled="{{ submitting }}" style="font-size:14px;font-weight:600;color:#f2f1ee;background:#111110;padding:16px 24px;border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;opacity:{{ submitOpacity }}" style-hover="background:#2a2a28">{{ submitLabel }}</button>
+        <div aria-live="polite" role="status">
+          <sc-if value="{{ isSuccess }}"><p style="margin:0;font-size:14px;font-weight:600;color:#1c7d4d">Message sent. Thanks for reaching out — I'll get back to you soon.</p></sc-if>
+          <sc-if value="{{ isError }}"><p style="margin:0;font-size:14px;font-weight:600;color:#c0392b">Something went wrong. Please try again.</p></sc-if>
+          <sc-if value="{{ hasFormError }}"><p style="margin:0;font-size:14px;color:#c0392b">{{ formError }}</p></sc-if>
+        </div>
       </form>
     </div>
   </section>
@@ -143,7 +149,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { scrolled: false, mounted: false };
+  state = { scrolled: false, mounted: false, status: 'idle', formError: '' };
 
   testimonials = [
     { name: 'Lerida Looi', role: 'Chief of Staff · managed Matthew directly at VoyceMe', photo: 'uploads/Lerida.png', linkedin: 'https://www.linkedin.com/in/leridalooi/', quote: "As one of the earliest employees at VoyceMe, Matt has been integral in shaping the art direction from the very beginning, bringing his creative vision to life across our original content. He leads our team of artists with expertise, ensuring high-quality work while collaborating seamlessly with Product, Engineering, Data, and Innovation teams to align artistic and technical elements. Matt also played a key role in resourcing art for our ethical generative AI tool, which is central to our long-term vision. Beyond his leadership, Matt has been an exceptional mentor, developing both professional and aspiring creators while building a thriving creative community." },
@@ -184,9 +190,42 @@ class Component extends DCLogic {
 
   renderVals() {
     const scrolled = this.state.scrolled;
+    const status = this.state.status;
     return {
       mounted: this.state.mounted,
-      onSubmit: (e) => { e.preventDefault(); },
+      submitting: status === 'loading',
+      isSuccess: status === 'success',
+      isError: status === 'error',
+      hasFormError: !!this.state.formError,
+      formError: this.state.formError,
+      submitLabel: status === 'loading' ? 'Sending…' : 'Send message →',
+      submitOpacity: status === 'loading' ? '0.6' : '1',
+      onSubmit: async (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        // Honeypot: a filled hidden field means a bot — silently accept, don't send.
+        const hp = form.querySelector('input[name="_gotcha"]');
+        if (hp && hp.value) { this.setState({ status: 'success', formError: '' }); return; }
+        const data = new FormData(form);
+        const name = String(data.get('name') || '').trim();
+        const email = String(data.get('email') || '').trim();
+        const message = String(data.get('message') || '').trim();
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!name || !emailOk || !message) {
+          this.setState({ status: 'idle', formError: !name ? 'Please enter your name.' : (!emailOk ? 'Please enter a valid email address.' : 'Please enter a message.') });
+          return;
+        }
+        this.setState({ status: 'loading', formError: '' });
+        try {
+          const res = await fetch('https://formspree.io/f/mqpkkzvd', {
+            method: 'POST',
+            body: data,
+            headers: { Accept: 'application/json' },
+          });
+          if (res.ok) { this.setState({ status: 'success', formError: '' }); form.reset(); }
+          else { this.setState({ status: 'error', formError: '' }); }
+        } catch (err) { this.setState({ status: 'error', formError: '' }); }
+      },
       navBackground: scrolled ? 'rgba(17,17,16,0.82)' : 'rgba(17,17,16,0)',
       navBackdrop: scrolled ? 'blur(14px)' : 'blur(0px)',
       navBorderColor: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
