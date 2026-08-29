@@ -1104,8 +1104,11 @@ class Component extends DCLogic {
     if (this._io) this._io.disconnect();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.activeProject !== this.state.activeProject) this._renderLightbox();
+  componentDidUpdate() {
+    if (this._lastProject !== this.state.activeProject) {
+      this._lastProject = this.state.activeProject;
+      this._renderLightbox();
+    }
   }
 
   _renderLightbox() {
