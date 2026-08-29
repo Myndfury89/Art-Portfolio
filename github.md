@@ -4,15 +4,21 @@ Human-readable changelog for site syncs to `main` (Myndfury89/Art-Portfolio).
 
 ## Last sync
 
-- **When:** 2026-08-28T16:17:34-0700
-- **Commit:** `292db4cce4713ecd9b2cb7b3d93c5859ac5c7547`
-- **Copy edits (3):** small wording changes only — no markup, assets, or SEO tags touched.
-  - **Home / Black Resume:** direction paragraph now ends at "…and built a human-led AI production process around them." (trailing clause about the artists' turnarounds and finished pages becoming the models' reference removed).
-  - **Home / AI Lab teaser:** now reads "I structured a testing framework, checked against multiple characters." (was "A structured testing framework — one direction, checked against multiple characters.").
-  - **AI Lab / "A shared visual language":** paragraph now reads "Using my skillset in webtoon/cinematography, I created a visual language that could be applied and repeated." (replaces the "standardized terms / vocabulary I already used directing artists" wording).
-- Applied as targeted edits to the two live pages; the staged export also carried unrelated changes (dropped `<title>`/`<meta description>` on both pages, an `<img>`→`<image-slot>` swap on AI Lab) which were **not** taken. No `.dc.html` links or `myndfury@gmail.com` introduced.
+- **When:** 2026-08-29T14:28:09-0700
+- **Commit:** `c1effa3f47840fbc5a12fb83b8f4ae42c4c988af` (merge of PR #4, branch `fix/concept-lightbox-componentdidupdate`)
+- **Fix — empty Concept Team lightbox on `work.html`:** clicking any Concept Team tile (Black Resume / God Game / Survival Idol / System Royale) opened the lightbox with the correct title but **no images**.
+  - **Root cause:** `componentDidUpdate(prevProps, prevState)` read a second `prevState` arg, but the `support.js` framework invokes `logic.componentDidUpdate(prevProps)` with no `prevState` (support.js:1013). `prevState` was always `undefined`, so the first line threw `TypeError: Cannot read properties of undefined (reading 'activeProject')` before `_renderLightbox()` (the only code that populates the grid) could run. The framework's try/catch swallowed it, so it surfaced only as a repeating console error.
+  - **Fix:** track the previously-rendered project on the instance (`this._lastProject`) instead of relying on the `prevState` arg the framework never provides. One method changed in `work.html`; `support.js` untouched.
+- **Verified in production** (`myndfurycreative.com/work`, real Chrome via CDP): all four lightboxes populate — Black Resume 18/18, God Game 11/11, Survival Idol 5/5, System Royale 10/10 = **44/44 images loaded**, no broken paths, no image 404s, **no console errors**; open/close/reopen and project-switching all work. Non-regression confirmed: work-page anchors scroll, the Black Resume case-study modal opens/closes, and mobile (390px) lightbox loads — all clean.
 
 ## Sync history
+
+- **2026-08-28T16:17:34-0700** — `292db4cce4713ecd9b2cb7b3d93c5859ac5c7547`
+  - **Copy edits (3):** small wording changes only — no markup, assets, or SEO tags touched.
+    - **Home / Black Resume:** direction paragraph now ends at "…and built a human-led AI production process around them." (trailing clause about the artists' turnarounds and finished pages becoming the models' reference removed).
+    - **Home / AI Lab teaser:** now reads "I structured a testing framework, checked against multiple characters." (was "A structured testing framework — one direction, checked against multiple characters.").
+    - **AI Lab / "A shared visual language":** paragraph now reads "Using my skillset in webtoon/cinematography, I created a visual language that could be applied and repeated." (replaces the "standardized terms / vocabulary I already used directing artists" wording).
+  - Applied as targeted edits to the two live pages; the staged export also carried unrelated changes (dropped `<title>`/`<meta description>` on both pages, an `<img>`→`<image-slot>` swap on AI Lab) which were **not** taken. No `.dc.html` links or `myndfury@gmail.com` introduced.
 
 - **2026-08-27T08:29:09-0700** — `90eb73f36396330c52e1c108a3ab7ef7a8ec4b0c`
   - **Work:** page made fluid/mobile-friendly; new Black Resume banner header; hero image swap; Black Resume logo repositioned.
